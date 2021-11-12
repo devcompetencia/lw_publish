@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompleto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="caminoimagen" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblpersonal."id" AS tblpersonal_codigo,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblpersonal."partidapresupuestaria" AS tblpersonal_partidapresupuestaria,
+     tblpersonal."numerocontrato" AS tblpersonal_numerocontrato,
+     tblpersonal."numdiasvac" AS tblpersonal_numdiasvac,
+     tblpersonal."cedula" AS tblpersonal_cedula,
+     tblpersonal."emcodigo" AS tblpersonal_emcodigo,
+     tblpersonal."jecodigo" AS tblpersonal_jecodigo,
+     tblpersonal."arcodigo" AS tblpersonal_arcodigo,
+     tblpersonal."lucodigo" AS tblpersonal_lucodigo,
+     tblpersonal."secodigo" AS tblpersonal_secodigo,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tblpersonal."is_active" AS tblpersonal_is_active
+FROM
+     "tblpersonal" tblpersonal,
+     "tblparcontasist" tblparcontasist
+WHERE
+     tblpersonal."is_active"=1 AND
+     1 = 1$P!{filtro}
+ORDER BY
+     apellidos ASC,
+     nombres ASC]]>
+	</queryString>
+	<field name="tblpersonal_codigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblpersonal_partidapresupuestaria" class="java.lang.String"/>
+	<field name="tblpersonal_numerocontrato" class="java.lang.String"/>
+	<field name="tblpersonal_numdiasvac" class="java.lang.Integer"/>
+	<field name="tblpersonal_cedula" class="java.lang.String"/>
+	<field name="tblpersonal_emcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_jecodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_arcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_lucodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_secodigo" class="java.lang.Integer"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tblpersonal_is_active" class="java.lang.Boolean"/>
+	<group name="tblresumen_mpcodigo">
+		<groupExpression><![CDATA[]]></groupExpression>
+		<groupHeader>
+			<band height="5"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="66" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="2" y="0" width="553" height="66" uuid="3692e908-cb8c-4194-bd1b-f178005d6fc5"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="SubTitle" x="179" y="0" width="208" height="29" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte vacaciones]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="140" y="46" width="271" height="20" uuid="4e0f0dbd-f8f6-4ab9-8f0e-e8d791472c1a"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Title" x="466" y="39" width="89" height="27" forecolor="#000000" uuid="bbe05c31-9cf8-4484-b04d-82e6b06b791b"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[LinceWeb]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="555" height="32" forecolor="#000000" backcolor="#CCCCCC" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="411" y="12" width="144" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<frame>
+				<reportElement style="Column header" mode="Opaque" x="0" y="2" width="555" height="24" isRemoveLineWhenBlank="true" forecolor="#B89F7D" backcolor="#FFFFFF" uuid="ea4f31bd-8d4e-4a67-a7f3-0d24370900b4"/>
+				<staticText>
+					<reportElement x="2" y="0" width="71" height="10" forecolor="#000000" uuid="20b7336e-6a2b-4522-8451-6a6127018879"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cédula]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="73" y="0" width="126" height="10" forecolor="#000000" uuid="20b7336e-6a2b-4522-8451-6a6127018879"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Apellidos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="199" y="0" width="135" height="10" forecolor="#000000" uuid="20b7336e-6a2b-4522-8451-6a6127018879"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nombres]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="334" y="0" width="77" height="24" forecolor="#000000" uuid="20b7336e-6a2b-4522-8451-6a6127018879"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Partida Presupuestaria]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="423" y="0" width="68" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="20b7336e-6a2b-4522-8451-6a6127018879"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Contrato]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="491" y="0" width="54" height="24" forecolor="#000000" uuid="20b7336e-6a2b-4522-8451-6a6127018879"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Días Disponibles]]></text>
+				</staticText>
+			</frame>
+			<line>
+				<reportElement x="2" y="27" width="553" height="1" uuid="eda41c97-5bd3-4c1a-ae73-b8e91a1ef10a"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="2" y="0" width="553" height="10" uuid="25539e9e-6854-43d9-84d4-c07ed27b5f11"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="71" y="0" width="126" height="10" uuid="52a4bcfc-9623-4f47-a5eb-1af9a620bec0"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpersonal_apellidos}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="197" y="0" width="135" height="10" uuid="79e25896-d1da-42db-a13b-1dcc7834d752"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpersonal_nombres}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="71" height="10" uuid="569b20cc-5955-40f2-a001-9d6f45a003d6"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpersonal_cedula}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="421" y="0" width="68" height="10" uuid="3db8c83e-8ba4-4cc8-824c-b20b4e2cb050"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpersonal_numerocontrato}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement x="334" y="0" width="89" height="10" uuid="362a2a25-4473-4818-92f4-472e004e9dac"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_partidapresupuestaria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="0" width="64" height="10" uuid="58378feb-adaa-45d7-8fea-6a298e08a436"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_numdiasvac}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="5137aecf-97b4-4590-b2cd-eb42471be997"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="491" y="3" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="411" y="3" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

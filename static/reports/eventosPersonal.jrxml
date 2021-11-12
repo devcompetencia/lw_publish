@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="eventosPersonal" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="a691e72f-f22d-4565-9d34-8eea7a97df78">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lince"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="179"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="814"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="648"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="338"/>
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="negativeStyle" forecolor="#000000" markup="none" pattern="###0.00;-###0.00">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{totpresupuestado}-$V{totalgastado}<0]]></conditionExpression>
+			<style forecolor="#FF0905" pattern="¤#,##0.##;¤-#,##0.##"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="evcodigo" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[40]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT dbo.tbleventos_personal.asignado,
+	dbo.tbleventos_personal.mpcodigo,
+	dbo.tblpersonal.apellidos,
+	dbo.tblpersonal.nombres,
+	dbo.tbleventos_personal.evcodigo,
+	dbo.tbltiposempleados.numhorasmax,
+	dbo.tbltiposempleados.valorhoraext,
+	dbo.tbltiposempleados.valorhoranoc,
+	dbo.tbltiposempleados.valorhora,
+	dbo.tbltiposempleados.valorhorasup,
+	dbo.tbltiposempleados.descripcion,
+	dbo.tblresumen.tiempotrabajoeventos as tiempotrabajo,
+	dbo.tblresumen.numhorasnoreventosd as horasnormalesd,
+	dbo.tblresumen.numhorasnoceventosd as horasnocturnasd,
+	dbo.tblresumen.numhorassupeventosd as horassuplementariasd,
+	dbo.tblresumen.numhorasexteventosd as horasextraordinariasd,
+	dbo.tbleventos.horafinal,
+	dbo.tbleventos_personal.autorizado
+FROM dbo.tbleventos_personal
+	INNER JOIN dbo.tblpersonal ON
+	 dbo.tbleventos_personal.mpcodigo = dbo.tblpersonal.id
+	INNER JOIN dbo.tbltiposempleados ON
+	 dbo.tblpersonal.tipoempleado = dbo.tbltiposempleados.id
+	INNER JOIN dbo.tbleventos ON
+	 dbo.tbleventos_personal.evcodigo = dbo.tbleventos.id
+	LEFT OUTER JOIN dbo.tblresumen ON
+	 dbo.tblresumen.mpcodigo = dbo.tblpersonal.id
+	 AND dbo.tbleventos.fechainicial = dbo.tblresumen.fecha
+WHERE
+	 dbo.tbleventos_personal.evcodigo = $P{evcodigo}
+	 AND (
+	 dbo.tblresumen.fecha IS NULL
+	 OR dbo.tblresumen.fecha = $P{fecha})]]>
+	</queryString>
+	<field name="asignado" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="asignado"/>
+	</field>
+	<field name="mpcodigo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="mpcodigo"/>
+	</field>
+	<field name="apellidos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="apellidos"/>
+	</field>
+	<field name="nombres" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nombres"/>
+	</field>
+	<field name="evcodigo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="evcodigo"/>
+	</field>
+	<field name="numhorasmax" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="numhorasmax"/>
+	</field>
+	<field name="valorhoraext" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valorhoraext"/>
+	</field>
+	<field name="valorhoranoc" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valorhoranoc"/>
+	</field>
+	<field name="valorhora" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="valorhora"/>
+	</field>
+	<field name="valorhorasup" class="java.math.BigDecimal"/>
+	<field name="descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descripcion"/>
+	</field>
+	<field name="tiempotrabajo" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.label" value="tiempotrabajo"/>
+	</field>
+	<field name="horasnormalesd" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="horasnormalesd"/>
+	</field>
+	<field name="horasnocturnasd" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="horasnocturnasd"/>
+	</field>
+	<field name="horassuplementariasd" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="horassuplementariasd"/>
+	</field>
+	<field name="horasextraordinariasd" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="horasextraordinariasd"/>
+	</field>
+	<field name="horafinal" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.label" value="horafinal"/>
+	</field>
+	<field name="autorizado" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="autorizado"/>
+	</field>
+	<variable name="perasegnado" class="java.lang.String">
+		<variableExpression><![CDATA[$F{asignado} ? "Si":"No"]]></variableExpression>
+	</variable>
+	<variable name="apellidosnombres" class="java.lang.String">
+		<variableExpression><![CDATA[$F{apellidos} + " " + $F{nombres}]]></variableExpression>
+	</variable>
+	<variable name="V. Horas Norm" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{horasnormalesd} !=null && $F{autorizado}?
+$F{valorhora}.doubleValue() * $F{horasnormalesd}.doubleValue() : 0]]></variableExpression>
+	</variable>
+	<variable name="V. Horas Noc." class="java.lang.Double">
+		<variableExpression><![CDATA[$F{horasnocturnasd} != null && $F{autorizado} ?
+$F{valorhoranoc}.doubleValue() * $F{horasnocturnasd}.doubleValue(): 0]]></variableExpression>
+	</variable>
+	<variable name="V. Horas Sup." class="java.lang.Double">
+		<variableExpression><![CDATA[$F{horassuplementariasd} !=null && $F{autorizado}?
+$F{valorhorasup}.doubleValue() * $F{horassuplementariasd}.doubleValue():0]]></variableExpression>
+	</variable>
+	<variable name="V. Horas Extra" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{horasextraordinariasd} != null && $F{autorizado}?
+$F{valorhoraext}.doubleValue() * $F{horasextraordinariasd}.doubleValue():0]]></variableExpression>
+	</variable>
+	<variable name="V. Presupuestado" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{asignado}? $F{valorhora}.doubleValue() * $F{horafinal}.getHours() : 0]]></variableExpression>
+	</variable>
+	<variable name="totpresupuestado" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{V. Presupuestado}]]></variableExpression>
+	</variable>
+	<variable name="totalgastadoPersonal" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{V. Horas Norm}+$V{V. Horas Noc.}+$V{V. Horas Sup.}+$V{V. Horas Extra}]]></variableExpression>
+	</variable>
+	<variable name="totalhorasnorm" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{V. Horas Norm}]]></variableExpression>
+	</variable>
+	<variable name="totalhorasnoc" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{V. Horas Noc.}]]></variableExpression>
+	</variable>
+	<variable name="totalhorassup" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{V. Horas Sup.}]]></variableExpression>
+	</variable>
+	<variable name="totalhorasextra" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{V. Horas Extra}]]></variableExpression>
+	</variable>
+	<variable name="diferenciaValores" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{totpresupuestado}-$V{totalgastado}]]></variableExpression>
+	</variable>
+	<variable name="totalgastado" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$V{totalgastadoPersonal}]]></variableExpression>
+	</variable>
+	<variable name="returntotal" class="java.lang.Double" resetType="None">
+		<variableExpression><![CDATA[$V{totalgastado}]]></variableExpression>
+	</variable>
+	<variable name="returnpresupuestado" class="java.lang.Double" resetType="None">
+		<variableExpression><![CDATA[$V{totpresupuestado}]]></variableExpression>
+	</variable>
+	<variable name="totalpersonasasignadas" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{asignado}==true?1:null]]></variableExpression>
+	</variable>
+	<variable name="totalpersonasenevento" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$V{totalgastado}>0?1:null]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="-9" y="2" width="138" height="20" uuid="d81ac4e2-dfd9-426c-94d2-79699fd64b19">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dd91ed-6dd4-4d7d-a90c-9a35f47e0057"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Personal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="129" y="2" width="31" height="20" uuid="721a9861-463d-422c-a065-430ae17fff49"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asig.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="2" width="50" height="28" uuid="de40700a-b804-445f-9b2a-9afca560471f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24142a5-ce73-40ef-98af-758cc2463915"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiempo Trabajo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="2" width="60" height="20" uuid="0b286113-4152-4bbe-b351-5fce5af94085">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24142a5-ce73-40ef-98af-758cc2463915"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Presupues.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="2" width="40" height="28" uuid="58e103cc-f544-4941-8b67-8a26afbceef4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24142a5-ce73-40ef-98af-758cc2463915"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas Diurn.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="2" width="50" height="28" uuid="f47eb856-de7e-4ce1-a9e5-8056990638c7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24142a5-ce73-40ef-98af-758cc2463915"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas Suple.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="2" width="50" height="28" uuid="116978c7-3768-49b6-a025-032030b381a2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24142a5-ce73-40ef-98af-758cc2463915"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas Extra.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="521" y="2" width="45" height="28" uuid="b4b1d209-6b8d-41a8-b470-96bc9d9e657c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24142a5-ce73-40ef-98af-758cc2463915"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="2" width="36" height="28" uuid="898c6454-752d-410f-86ab-f849a355b7ba">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24142a5-ce73-40ef-98af-758cc2463915"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas Noct.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="2" width="28" height="20" uuid="7194aa1d-8e6e-4c7d-aec9-bb59cbb9038b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aut.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="129" y="0" width="30" height="18" uuid="69513aec-4485-4abb-a08d-bec1ab78302a"/>
+				<textFieldExpression><![CDATA[$V{perasegnado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-9" y="0" width="138" height="18" uuid="0c6b380d-472e-4e2d-97ce-a24e26c2d4f4"/>
+				<textFieldExpression><![CDATA[$V{apellidosnombres}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm" isBlankWhenNull="false">
+				<reportElement x="255" y="0" width="50" height="18" uuid="7166a9e4-bba6-48ab-9bc2-3add60fde557">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c24142a5-ce73-40ef-98af-758cc2463915"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tiempotrabajo} != null ? $F{tiempotrabajo}: "00:00"]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement x="312" y="0" width="40" height="18" uuid="dc03036d-f784-4a16-b12d-b2b569156f7a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{V. Horas Norm}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement x="402" y="0" width="50" height="18" uuid="89365154-0c4e-4b90-bca7-ad81ee35edb0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{V. Horas Sup.}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement x="462" y="0" width="50" height="18" uuid="478aa1c4-6f06-4e1e-bbe6-5b5a26807003"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{V. Horas Extra}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement key="" x="188" y="0" width="60" height="18" uuid="14b7a8bf-0477-4ddf-96e0-3b6b549870de"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{V. Presupuestado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement x="521" y="0" width="45" height="18" uuid="0e77d201-c53b-4e17-a062-eea348eac10e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalgastadoPersonal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="359" y="0" width="36" height="18" uuid="5d208259-d63a-47e5-a684-8b0b93f18246"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$V{V. Horas Noc.}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="27" height="18" uuid="14d1f1fb-5dba-45e0-901b-7eb5a3ee905d"/>
+				<textFieldExpression><![CDATA[$F{autorizado}? "Si": "No"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="100" splitType="Stretch">
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement x="188" y="0" width="60" height="20" uuid="0e21ed5e-1577-40b3-9449-6a7a32d663c4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totpresupuestado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="255" y="0" width="50" height="20" uuid="1fd67049-78e9-452b-9786-ebb91d6801e2"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalhorasnorm}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement x="359" y="0" width="36" height="20" uuid="1b837dec-29c0-4c7f-a914-c32589bcbad4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalhorasnoc}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement x="402" y="0" width="50" height="20" uuid="9deecf29-9883-478d-8431-b0d62af64788"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalhorassup}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,#0.00;¤-#,#0.00">
+				<reportElement x="462" y="0" width="50" height="20" uuid="e3a121f7-b891-490d-a5b2-9fd0ddaa03f3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalhorasextra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="0" width="160" height="20" uuid="d90792a2-5315-4a93-9956-06344502e0f9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dd91ed-6dd4-4d7d-a90c-9a35f47e0057"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Gastos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="30" width="120" height="20" uuid="5cf6f84b-3ec6-48d3-b589-d6c92b43b6b6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dd91ed-6dd4-4d7d-a90c-9a35f47e0057"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gastos Presupuestados:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="161" y="30" width="60" height="20" uuid="5ca8b037-4bde-4d52-bed1-da83ef9179de"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totpresupuestado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="231" y="30" width="80" height="20" uuid="0aa7f6e4-c675-49a6-bdcc-289a89dacc54">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dd91ed-6dd4-4d7d-a90c-9a35f47e0057"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gastos Reales:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="311" y="30" width="45" height="20" uuid="d45092b6-80e6-4b9f-802c-81749e447256"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalgastado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="371" y="30" width="60" height="20" uuid="55f9b705-118b-4a11-9719-3d1f1abd007c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dd91ed-6dd4-4d7d-a90c-9a35f47e0057"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diferencia:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement style="negativeStyle" isPrintRepeatedValues="false" x="431" y="30" width="50" height="20" uuid="f79cdeba-3206-450c-bb25-c756b78c64f1"/>
+				<textElement textAlignment="Center" markup="none">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totpresupuestado}-$V{totalgastado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="521" y="1" width="45" height="19" uuid="52d547cf-277c-49d6-b7c9-2ed336d7ecb0"/>
+				<textElement textAlignment="Center" markup="styled">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalgastado}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="312" y="0" width="40" height="18" uuid="b95c0f9d-654e-411b-a020-f8c63c3f7418"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalhorasnorm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="60" width="45" height="20" uuid="a157fc13-7d45-4bd0-a067-9e1fbf6ee9f5"/>
+				<textFieldExpression><![CDATA[$V{totalpersonasasignadas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="60" width="134" height="20" uuid="9b991c09-e350-400d-a131-92ce7e9810e3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dd91ed-6dd4-4d7d-a90c-9a35f47e0057"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Personas Asignadas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="60" width="136" height="20" uuid="2441f76e-f8ec-4fda-a65c-944676442583">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="27dd91ed-6dd4-4d7d-a90c-9a35f47e0057"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Personas en evento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="371" y="60" width="100" height="20" uuid="9ae6561a-8d7e-4f27-aa81-b5f31cb04afe"/>
+				<textFieldExpression><![CDATA[$V{totalpersonasenevento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

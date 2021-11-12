@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompleto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="12"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblpersonal."id" AS tblpersonal_codigo,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblpersonal."emcodigo" AS tblpersonal_emcodigo,
+     tblpersonal."jecodigo" AS tblpersonal_jecodigo,
+     tblpersonal."arcodigo" AS tblpersonal_arcodigo,
+     tblpersonal."lucodigo" AS tblpersonal_lucodigo,
+     tblpersonal."secodigo" AS tblpersonal_secodigo,
+     tbltimbradasadicionales."id" AS tbltimbradasadicionales_codigo,
+     tbltimbradasadicionales."mpcodigo" AS tbltimbradasadicionales_mpcodigo,
+     tbltimbradasadicionales."fecha" AS tbltimbradasadicionales_fecha,
+     tbltimbradasadicionales."hora" AS tbltimbradasadicionales_hora,
+     tbltimbradasadicionales."jecodigo" AS tbltimbradasadicionales_jecodigo,
+     tbltimbradasadicionales."razon" AS tbltimbradasadicionales_razon,
+     tbltimbradasadicionales."fecharegistro" AS tbltimbradasadicionales_fecharegistro,
+     tbltimbradasadicionales."diremail" AS tbltimbradasadicionales_diremail,
+     tbltimbradasadicionales."autorizado" AS tbltimbradasadicionales_autorizado,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tbltimbradasadicionales."is_active" AS tbltimbradasadicionales_is_active
+FROM
+     "tblpersonal" tblpersonal INNER JOIN "tbltimbradasadicionales" tbltimbradasadicionales ON tblpersonal."id" = tbltimbradasadicionales."mpcodigo",
+     "tblparcontasist" tblparcontasist
+WHERE
+     tbltimbradasadicionales."is_active"=1 AND
+     1 = 1$P!{filtro}
+ORDER BY
+     apellidos ASC,
+     nombres ASC,
+     fecha ASC,
+     hora ASC]]>
+	</queryString>
+	<field name="tblpersonal_codigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblpersonal_emcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_jecodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_arcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_lucodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_secodigo" class="java.lang.Integer"/>
+	<field name="tbltimbradasadicionales_codigo" class="java.lang.Integer"/>
+	<field name="tbltimbradasadicionales_mpcodigo" class="java.lang.Integer"/>
+	<field name="tbltimbradasadicionales_fecha" class="java.sql.Timestamp"/>
+	<field name="tbltimbradasadicionales_hora" class="java.sql.Time"/>
+	<field name="tbltimbradasadicionales_jecodigo" class="java.lang.Integer"/>
+	<field name="tbltimbradasadicionales_razon" class="java.lang.String"/>
+	<field name="tbltimbradasadicionales_fecharegistro" class="java.sql.Timestamp"/>
+	<field name="tbltimbradasadicionales_diremail" class="java.lang.String"/>
+	<field name="tbltimbradasadicionales_autorizado" class="java.lang.Boolean"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tbltimbradasadicionales_is_active" class="java.lang.Boolean"/>
+	<variable name="contadortimbradas" class="java.lang.Integer" resetType="Group" resetGroup="tbltimbradasadicionales_mpcodigo" calculation="Count">
+		<variableExpression><![CDATA[$F{tbltimbradasadicionales_codigo}]]></variableExpression>
+	</variable>
+	<variable name="autorizadatxt" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tbltimbradasadicionales_autorizado} ? "Si" : "No"]]></variableExpression>
+	</variable>
+	<variable name="apellidosnombres" class="java.lang.String" resetType="Group" resetGroup="tbltimbradasadicionales_mpcodigo">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></initialValueExpression>
+	</variable>
+	<variable name="contadortimbradastot" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tbltimbradasadicionales_codigo}]]></variableExpression>
+	</variable>
+	<group name="tbltimbradasadicionales_mpcodigo">
+		<groupExpression><![CDATA[$F{tbltimbradasadicionales_mpcodigo}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="3" width="555" height="24" forecolor="#B89F7D" backcolor="#CCCCCC" uuid="ea4f31bd-8d4e-4a67-a7f3-0d24370900b4"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" x="2" y="0" width="97" height="18" forecolor="#000000" uuid="b04a429b-7b44-4d48-9649-3fd07c2d391a"/>
+						<textElement>
+							<font fontName="Arial" size="14" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_mpcodigo}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" positionType="Float" x="99" y="0" width="390" height="18" forecolor="#000000" uuid="52a4bcfc-9623-4f47-a5eb-1af9a620bec0"/>
+						<textElement>
+							<font fontName="Arial" size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{apellidosnombres}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="27">
+				<staticText>
+					<reportElement style="Column header" x="46" y="1" width="116" height="10" forecolor="#000000" uuid="1e2f9543-9bd8-4088-b47b-717e026b6eae"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total timbradas adicionales:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="183" y="0" width="30" height="11" uuid="35b0e217-bbf7-4801-9fe3-be9f271e910a"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{contadortimbradas}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="66" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="555" height="66" uuid="79fa05c5-cb91-46bb-9e29-b09cd6af814a"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="SubTitle" x="134" y="3" width="284" height="28" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="15" isBold="false" isStrikeThrough="false"/>
+					</textElement>
+					<text><![CDATA[Reporte Timbradas Adicionales]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="140" y="46" width="271" height="20" uuid="2eb157ea-74cf-4681-a298-a557cf5aed1f"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Title" x="466" y="39" width="89" height="27" forecolor="#000000" uuid="bbe05c31-9cf8-4484-b04d-82e6b06b791b"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[LinceWeb]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="555" height="32" forecolor="#000000" backcolor="#999999" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="411" y="12" width="144" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="99" y="0" width="349" height="20" uuid="73d00cab-6871-48a7-ba2a-5b18ecdcc5cc"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{filtrofecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="14" y="4" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha
+Timbrada]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="30" width="551" height="1" uuid="465f2d7c-f27e-41b5-ba55-b10eb275f04f"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="99" y="4" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora
+Timbrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="162" y="4" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Razón]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="370" y="4" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Está
+Autorizada]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="2" y="0" width="553" height="18" uuid="25539e9e-6854-43d9-84d4-c07ed27b5f11"/>
+				<textField pattern="dd/MM/yyyy EE">
+					<reportElement x="12" y="0" width="85" height="10" uuid="23401bb3-4e94-40e8-84bd-935ed973eb41"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_fecha}]]></textFieldExpression>
+				</textField>
+				<textField pattern="HH:mm">
+					<reportElement x="97" y="0" width="35" height="10" uuid="f00aed96-4a1b-48e0-93a8-163502fd1f91"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_hora}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="160" y="0" width="200" height="10" uuid="334a2556-c847-474d-b646-5cc960e1bc20"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_razon}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="368" y="0" width="35" height="10" uuid="de45d0ef-6d48-4f19-88b5-e471669bcbcf"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{autorizadatxt}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="5137aecf-97b4-4590-b2cd-eb42471be997"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="515" y="5" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="435" y="5" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="28" y="16" width="134" height="10" forecolor="#000000" uuid="b1a0c9ae-2f3b-4a85-ac79-baadbc5961a5"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total timbradas adicionales global:]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="183" y="16" width="44" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="6f71eb2a-53ba-461f-81d0-e9dc44464501"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{contadortimbradastot}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

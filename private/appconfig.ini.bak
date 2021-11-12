@@ -1,0 +1,24 @@
+; App configuration
+
+; db configuration
+[db]
+uri       = mssql4n://linceweb:linceweblcsa@localhost\ROMMEL2016/lince
+migrate   = 1
+pool_size = 10
+type      = generic
+user      = linceweb
+pass      = linceweblcsa
+host      = localhost\ROMMEL2016
+name      = lince
+port      = 1433
+
+; smtp address and credentials
+[smtp]
+server = smtp.gmail.com:587
+sender = you@gmail.com
+login  = username:password
+
+; form styling
+[forms]
+formstyle = bootstrap3_inline
+separator =

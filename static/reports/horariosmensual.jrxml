@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompleto" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic1" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional1}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic2" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional2}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic3" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional3}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic4" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional4}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic5" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional5}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic6" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional6}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic7" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional7}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic8" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional8}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblcargacalendario."id" AS tblcargacalendario_id,
+     tblcargacalendario."mpcodigo" AS tblcargacalendario_mpcodigo,
+     tblcargacalendario."anio" AS tblcargacalendario_anio,
+     tblcargacalendario."mes" AS tblcargacalendario_mes,
+     tblcargacalendario."ho1" AS tblcargacalendario_ho1,
+     tblcargacalendario."ho2" AS tblcargacalendario_ho2,
+     tblcargacalendario."ho3" AS tblcargacalendario_ho3,
+     tblcargacalendario."ho4" AS tblcargacalendario_ho4,
+     tblcargacalendario."ho5" AS tblcargacalendario_ho5,
+     tblcargacalendario."ho6" AS tblcargacalendario_ho6,
+     tblcargacalendario."ho7" AS tblcargacalendario_ho7,
+     tblcargacalendario."ho8" AS tblcargacalendario_ho8,
+     tblcargacalendario."ho9" AS tblcargacalendario_ho9,
+     tblcargacalendario."ho10" AS tblcargacalendario_ho10,
+     tblcargacalendario."ho11" AS tblcargacalendario_ho11,
+     tblcargacalendario."ho12" AS tblcargacalendario_ho12,
+     tblcargacalendario."ho13" AS tblcargacalendario_ho13,
+     tblcargacalendario."ho14" AS tblcargacalendario_ho14,
+     tblcargacalendario."ho15" AS tblcargacalendario_ho15,
+     tblcargacalendario."ho16" AS tblcargacalendario_ho16,
+     tblcargacalendario."ho17" AS tblcargacalendario_ho17,
+     tblcargacalendario."ho18" AS tblcargacalendario_ho18,
+     tblcargacalendario."ho19" AS tblcargacalendario_ho19,
+     tblcargacalendario."ho20" AS tblcargacalendario_ho20,
+     tblcargacalendario."ho21" AS tblcargacalendario_ho21,
+     tblcargacalendario."ho22" AS tblcargacalendario_ho22,
+     tblcargacalendario."ho23" AS tblcargacalendario_ho23,
+     tblcargacalendario."ho24" AS tblcargacalendario_ho24,
+     tblcargacalendario."ho25" AS tblcargacalendario_ho25,
+     tblcargacalendario."ho26" AS tblcargacalendario_ho26,
+     tblcargacalendario."ho27" AS tblcargacalendario_ho27,
+     tblcargacalendario."ho28" AS tblcargacalendario_ho28,
+     tblcargacalendario."ho29" AS tblcargacalendario_ho29,
+     tblcargacalendario."ho30" AS tblcargacalendario_ho30,
+     tblcargacalendario."ho31" AS tblcargacalendario_ho31,
+     tbljefaturas."id" AS tbljefaturas_id,
+     tbljefaturas."descripcion" AS tbljefaturas_descripcion,
+     tbljefaturas."diremail" AS tbljefaturas_diremail,
+     tbljefaturas."created_by" AS tbljefaturas_created_by,
+     tbljefaturas."created_on" AS tbljefaturas_created_on,
+     tbljefaturas."modified_by" AS tbljefaturas_modified_by,
+     tbljefaturas."modified_on" AS tbljefaturas_modified_on,
+     tbljefaturas."is_active" AS tbljefaturas_is_active,
+     tblparcontasist."id" AS tblparcontasist_id,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tblpersonal."id" AS tblpersonal_id,
+     tblpersonal."tarjeta" AS tblpersonal_tarjeta,
+     tblpersonal."cedula" AS tblpersonal_cedula,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres
+FROM
+     "dbo"."tbljefaturas" tbljefaturas INNER JOIN "dbo"."tblpersonal" tblpersonal ON tbljefaturas."id" = tblpersonal."jecodigo"
+     INNER JOIN "dbo"."tblcargacalendario" tblcargacalendario ON tblpersonal."cedula" = CAST(tblcargacalendario."mpcodigo" AS VARCHAR(10)),
+     "dbo"."tblparcontasist" tblparcontasist
+WHERE 1=1 $P!{filtro}]]>
+	</queryString>
+	<field name="tblcargacalendario_id" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_mpcodigo" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_anio" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_mes" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho1" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho2" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho3" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho4" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho5" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho6" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho7" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho8" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho9" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho10" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho11" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho12" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho13" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho14" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho15" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho16" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho17" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho18" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho19" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho20" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho21" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho22" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho23" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho24" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho25" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho26" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho27" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho28" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho29" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho30" class="java.lang.Integer"/>
+	<field name="tblcargacalendario_ho31" class="java.lang.Integer"/>
+	<field name="tbljefaturas_id" class="java.lang.Integer"/>
+	<field name="tbljefaturas_descripcion" class="java.lang.String"/>
+	<field name="tbljefaturas_diremail" class="java.lang.String"/>
+	<field name="tbljefaturas_created_by" class="java.lang.Integer"/>
+	<field name="tbljefaturas_created_on" class="java.sql.Timestamp"/>
+	<field name="tbljefaturas_modified_by" class="java.lang.Integer"/>
+	<field name="tbljefaturas_modified_on" class="java.sql.Timestamp"/>
+	<field name="tbljefaturas_is_active" class="java.lang.Boolean"/>
+	<field name="tblparcontasist_id" class="java.lang.Integer"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tblpersonal_id" class="java.lang.Integer"/>
+	<field name="tblpersonal_tarjeta" class="java.lang.String"/>
+	<field name="tblpersonal_cedula" class="java.lang.String"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<variable name="apellidosnombres" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="2" y="0" width="800" height="66" uuid="8ea97745-9b48-46e9-a1f4-e259ef72f614"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="SubTitle" x="230" y="8" width="320" height="29" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte horarios mensual]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="250" y="37" width="271" height="20" uuid="cd42c2e7-6b7e-48b2-b8c5-3cd4bc1380a5"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Title" x="710" y="37" width="89" height="27" forecolor="#000000" uuid="9df43bb6-c12e-4e14-b405-db87c00908d5"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[LinceWeb]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#999999" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="650" y="5" width="144" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="310" y="5" width="340" height="20" uuid="6664d409-f168-4064-abda-e6698a19bbe9"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{filtrofecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="5" width="308" height="20" uuid="32969d1b-6d2f-43fa-8b3b-ecc6d7c659b5"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbljefaturas_descripcion}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="2" y="7" width="132" height="10" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="797" height="1" uuid="b1e8ab34-3e65-4321-b833-9c67806eef1f"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="190" y="7" width="20" height="10" forecolor="#000000" uuid="79fb4e00-9bc6-4054-a34e-403a917b865b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="210" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="a542c25b-86c1-4aae-a85d-c4fdfb86de15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="230" y="7" width="20" height="10" forecolor="#000000" uuid="b8d4272d-bac1-4a86-a6a3-d36604b16b3f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="250" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="a592cd4b-2e44-4988-b16d-53243bc1e1f0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="270" y="7" width="20" height="10" forecolor="#000000" uuid="805e758d-e817-4807-ba43-fcef77825e65"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="290" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="c9568dc3-5f76-425b-a976-082ad49ea4dd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="310" y="7" width="20" height="10" forecolor="#000000" uuid="f2d58691-f21a-48da-bb99-f1b6419092ec"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="330" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="e96ca5db-ecfd-48e2-947f-ea2d86a9d3f1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="350" y="7" width="20" height="10" forecolor="#000000" uuid="bdd0cbab-47f5-4bcd-b510-ceb4c2815a55"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="370" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="f8504edc-6489-4e76-be39-caebf7626d23"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="390" y="7" width="20" height="10" forecolor="#000000" uuid="39d25f14-2bd8-494e-b057-4e4b094e2d1b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="410" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="a297f16f-a8d0-4ec7-85cf-9da9f2cb8431"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[13]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="430" y="7" width="20" height="10" forecolor="#000000" uuid="e211ac05-d4a2-43a9-be98-e00ea000283b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="450" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="195ada88-6b86-4328-9231-b8926cd7f091"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[15]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="470" y="7" width="20" height="10" forecolor="#000000" uuid="5e38753c-bd7b-4bb9-b449-34e7fe62b6d6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[16]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="490" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="39a5a4d7-c780-4aae-b58d-d03aafac3689"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[17]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="510" y="7" width="20" height="10" forecolor="#000000" uuid="5591d796-2b14-4ce0-8cf2-67aaab23a402"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[18]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="530" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="c9475266-8d7b-418a-83f0-aed5e9266d52"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[19]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="550" y="7" width="20" height="10" forecolor="#000000" uuid="a1f1fde2-667e-4e49-9d59-8feb53e34ea3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[20]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="570" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="6f31d7c1-37d6-48e6-84b3-4e0f59ddbfa1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[21]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="590" y="7" width="20" height="10" forecolor="#000000" uuid="e41446a3-0fe9-4a90-be24-9d1956831e50"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[22]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="610" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="f781569d-070f-4eb2-944f-1341d7de8c60"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[23]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="630" y="7" width="20" height="10" forecolor="#000000" uuid="40ddf166-c07d-4324-a31c-33388cce842a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[24]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="650" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="bba8114b-362c-448c-b85b-399bd1a770ea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="670" y="7" width="20" height="10" forecolor="#000000" uuid="57f3323b-6f8b-49c9-8618-20138f249af6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[26]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="690" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="e8139d82-a4e0-4edf-ac61-387029c31d6c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[27]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="710" y="7" width="20" height="10" forecolor="#000000" uuid="677319e6-e3e1-47b7-889e-841b553b1f96"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[28]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="730" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="ef7549b0-6945-48e7-bf06-8500641bdf3b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[29]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="750" y="7" width="20" height="10" forecolor="#000000" uuid="da89cb96-f7fc-4063-a475-37d37f887576"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[30]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="770" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="827c6b4e-261e-416a-961b-69bfc8c2cd84"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[31]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="134" y="7" width="36" height="10" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Dias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="170" y="7" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="4ca5c5cd-c1fb-4d85-b7d9-ed946c8a647d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="134" height="10" uuid="bb00ac64-9d63-48c2-bf14-89deaeaeb0d9"/>
+				<textElement>
+					<font fontName="Arial" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="190" y="0" width="20" height="10" uuid="52bfaa17-2247-4325-9057-686553b645cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="210" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="32cf713b-c781-429d-bfcb-4bfd6425ecab"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho3}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="230" y="0" width="20" height="10" uuid="a617e065-a445-481c-a85a-e6099939f275"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho4}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="250" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="074c14f3-a67b-41be-9fcc-6d8ee6e89149"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho5}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="270" y="0" width="20" height="10" uuid="ef646915-82cc-4265-8e59-1f348568bd03"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho6}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="290" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="29ac55be-e28b-4caa-9df8-cb009aa7a2ed"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho7}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="310" y="0" width="20" height="10" uuid="8dfcc5f7-909e-489d-a862-eca745a9d766"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho8}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="330" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="f5532d38-9519-4158-91e8-72bd6ba01a0e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho9}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="350" y="0" width="20" height="10" uuid="227ce622-2475-48d7-aff5-7675f3ffb52a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho10}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="370" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="5d7b0d85-3b91-46ff-878a-9622c8745ebc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho11}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="390" y="0" width="20" height="10" uuid="c4bd1d29-9301-44af-b083-47fe824e2ebd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho12}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="410" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="031546e3-6ce4-419b-972b-682343cd1051"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho13}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="430" y="0" width="20" height="10" uuid="1d8d6e54-44f0-476d-826f-a5ce7c4f9609"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho14}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="450" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="d573ef68-14c2-43e3-bc14-6e0a2da2c9c1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho15}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="470" y="0" width="20" height="10" uuid="52f54471-08a3-4f21-bda5-51bec09afb64"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho16}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="490" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="c05f0135-7548-4de6-ae4e-02ee8a3cc4eb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho17}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="510" y="0" width="20" height="10" uuid="a7fd4989-0f8a-47f8-9d29-810dfa999f05"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho18}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="530" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="f7ccd75c-dd42-45cb-a30c-98025d5931f8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho19}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="550" y="0" width="20" height="10" uuid="b9d31144-f973-412d-bdea-8a31e57802ba"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho20}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="570" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="32d05321-e066-4419-8a60-02eb9ef5bc20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho20}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="590" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="1e1436a3-3a8d-489c-8645-23d5b7f9e6ee"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho22}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="610" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="0f6a595e-f9e0-453f-8f7f-1f4958bfb589"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho23}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="630" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="5d189eca-fdfa-458b-81e4-9944ed503e3b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho24}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="650" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="94727475-5640-4a5d-96fb-65b37b71c6cc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho25}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="670" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="2d51a775-e590-4836-82d0-934a65ec2435"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho26}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="690" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="99673556-e629-40c2-8dee-b7bca67b9041"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho27}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="710" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="e28bffba-fc8c-4801-9fd2-2b2f1194710c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho28}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="730" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="7d0204d6-0c41-4be0-8394-9989a3155d8d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho29}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="750" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="6c8881d6-9789-4cbc-9e8e-cdd1cf97134a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho30}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="770" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="6dd681e5-dc12-4d1f-8534-ac9686a4c333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho31}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="19" width="797" height="1" uuid="7c13eab7-7320-4619-819f-ae5abc0d89cf"/>
+				<graphicElement>
+					<pen lineWidth="0.25" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="170" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="d0ed14c6-f0a2-466d-add4-ae29a3953aaf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="6" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblcargacalendario_ho1}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50"/>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="4" width="802" height="1" uuid="5137aecf-97b4-4590-b2cd-eb42471be997"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

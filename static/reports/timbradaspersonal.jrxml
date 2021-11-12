@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="timbradaspersonal" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="style1">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblregistros_mpcodigo} ==  null && $F{tblregistros_espermiso} == false && $F{tblregistros_terminal} != "TA"]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblregistros_mpcodigo} > 0]]></conditionExpression>
+			<style mode="Transparent" forecolor="#000000"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="caminoimagen" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     tblpersonal."id" AS tblpersonal_codigo,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblpersonal."tarjeta" AS tblpersonal_tarjeta,
+tblpersonal."tarjetac" AS tblpersonal_tarjetac,
+     tblpersonal."cedula" AS tblpersonal_cedula,
+     tblpersonal."situacion" AS tblpersonal_situacion,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tblpersonal."is_active" AS tblpersonal_is_active,
+     tblregistros."fechahora" AS tblregistros_fechahora,
+tblregistros."terminal" AS tblregistros_terminal,
+tblregistros."mpcodigo" AS tblregistros_mpcodigo,
+tblregistros."espermiso" AS tblregistros_espermiso,
+tbljefaturas.descripcion AS tbljefaturas_descripcion
+FROM
+     "tblpersonal" tblpersonal,
+     "tblparcontasist" tblparcontasist,
+"tblregistros" tblregistros,
+"tbljefaturas" tbljefaturas
+WHERE
+tbljefaturas.id = tblpersonal.jecodigo and
+     tblpersonal."is_active"=1 AND
+     situacion = 1
+and ((tblregistros.mptarjeta = tblpersonal.tarjeta and tblregistros.terminal<>'10') or (tblregistros.mptarjeta = tblpersonal.tarjetac and tblregistros.terminal='10'))
+     and fechasalida IS null$P!{filtro}
+ORDER BY
+     apellidos ASC,
+     nombres ASC,
+tblregistros_fechahora ASC]]>
+	</queryString>
+	<field name="tblpersonal_codigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblpersonal_tarjeta" class="java.lang.String"/>
+	<field name="tblpersonal_tarjetac" class="java.lang.String"/>
+	<field name="tblpersonal_cedula" class="java.lang.String"/>
+	<field name="tblpersonal_situacion" class="java.lang.Boolean"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tblpersonal_is_active" class="java.lang.Boolean"/>
+	<field name="tblregistros_fechahora" class="java.sql.Timestamp"/>
+	<field name="tblregistros_terminal" class="java.lang.String"/>
+	<field name="tblregistros_mpcodigo" class="java.lang.Integer"/>
+	<field name="tblregistros_espermiso" class="java.lang.Boolean"/>
+	<field name="tbljefaturas_descripcion" class="java.lang.String"/>
+	<variable name="estadotxt" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tblpersonal_situacion} ? "Activo": "Desactivo"]]></variableExpression>
+	</variable>
+	<group name="tblpersonal_codigo">
+		<groupExpression><![CDATA[$F{tblpersonal_codigo}]]></groupExpression>
+		<groupHeader>
+			<band height="38">
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="14" y="0" width="244" height="12" forecolor="#000000" uuid="b0a81deb-852f-42cb-9651-470a67a95a12"/>
+					<textElement>
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpersonal_apellidos} + " " + $F{tblpersonal_nombres}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="5" y="21" width="100" height="11" forecolor="#000000" uuid="475c0437-5aa7-4c59-ace6-57bfd82b23df"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cédula]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="122" y="22" width="98" height="10" forecolor="#000000" uuid="1e2f9543-9bd8-4088-b47b-717e026b6eae"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Núm. Tarjeta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="234" y="21" width="150" height="10" forecolor="#000000" uuid="fd2ba19b-d9fb-47b4-b03c-4b1a7968dc3b"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Num Tarjeta C]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="390" y="22" width="150" height="10" forecolor="#000000" uuid="662999de-b397-4e6b-bf98-b626156ca2a0"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Marcación]]></text>
+				</staticText>
+				<line>
+					<reportElement x="4" y="34" width="793" height="1" uuid="1d5c8896-47c9-4ad0-9158-39febd3368b1"/>
+					<graphicElement>
+						<pen lineWidth="2.0"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement style="Column header" x="560" y="22" width="71" height="10" forecolor="#000000" uuid="662999de-b397-4e6b-bf98-b626156ca2a0"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Terminal]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="642" y="22" width="71" height="10" forecolor="#000000" uuid="24e4ca64-df7a-42ad-ba71-150007b8065d"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Id Personal]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="577" y="0" width="220" height="12" uuid="96aad954-d01b-44a2-99e1-7171bbc52886"/>
+					<textElement>
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbljefaturas_descripcion}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="802" height="66" uuid="250717dc-d43a-4160-9d4b-eb1ca9827c96"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="SubTitle" x="124" y="2" width="553" height="32" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="18" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte timbradas personal completas]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="268" y="46" width="271" height="20" uuid="445f42c5-0283-4388-a6bf-d7bc03587aed"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Title" x="713" y="39" width="89" height="27" forecolor="#000000" uuid="c1f165a3-c0c2-4adb-ad92-657bfe3b7e97"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[LinceWeb]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#999999" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="653" y="12" width="144" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="269" y="12" width="271" height="20" uuid="4a273d32-d4e6-482d-92e5-37260cc55a6f"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{filtrofecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="6" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="2" y="0" width="797" height="18" uuid="25539e9e-6854-43d9-84d4-c07ed27b5f11"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="232" y="3" width="150" height="10" forecolor="#000000" uuid="52a4bcfc-9623-4f47-a5eb-1af9a620bec0"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpersonal_tarjetac}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy HH.mm.ss">
+					<reportElement style="style1" positionType="Float" x="388" y="3" width="150" height="10" uuid="79e25896-d1da-42db-a13b-1dcc7834d752"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblregistros_fechahora}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="3" y="3" width="100" height="10" uuid="68b02cf9-6fa6-4170-993d-71b2e2bdfc53"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpersonal_cedula}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="120" y="3" width="100" height="10" uuid="03a6e3f6-bb34-4ebd-994e-8132fff4b806"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpersonal_tarjeta}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="558" y="3" width="71" height="10" uuid="0d39adac-01e3-4dd3-945e-a088ee50cf2f"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblregistros_terminal}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="640" y="3" width="71" height="10" uuid="baf06a36-fc98-4041-897f-4d4f26057f43"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblregistros_mpcodigo}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="style1" x="711" y="3" width="71" height="10" uuid="3962557c-fd66-4cc1-a91e-5352ac88623a"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblregistros_mpcodigo} == null && $F{tblregistros_espermiso} == false && $F{tblregistros_terminal} != "TA" ?
+"Error" : ""]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="5137aecf-97b4-4590-b2cd-eb42471be997"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

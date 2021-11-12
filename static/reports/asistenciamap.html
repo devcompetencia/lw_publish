@@ -1,0 +1,184 @@
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <style type="text/css">
+    a {text-decoration: none}
+  </style>
+</head>
+<body text="#000000" link="#000000" alink="#000000" vlink="#000000">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td width="50%">&nbsp;</td><td align="center">
+
+<a name="JR_PAGE_ANCHOR_0_1"></a>
+<table style="width: 595px; border-collapse: collapse" cellpadding="0" cellspacing="0" border="0" bgcolor="white">
+<tr>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 86px; height: 1px;"/></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 8px; height: 1px;"/></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 92px; height: 1px;"/></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 100px; height: 1px;"/></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 41px; height: 1px;"/></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 100px; height: 1px;"/></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 62px; height: 1px;"/></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 38px; height: 1px;"/></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 68px; height: 1px;"/></td>
+</tr>
+<tr valign="top">
+  <td colspan="9"><img alt="" src="asistenciamap.html_files/px" style="width: 595px; height: 151px;"/></td>
+</tr>
+<tr valign="top">
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 86px; height: 20px;"/></td>
+  <td colspan="2"><p style="overflow: hidden; text-indent: 0px; "><span style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 10px; line-height: 1.2578125;">Test</span></p></td>
+  <td><p style="overflow: hidden; text-indent: 0px; "><span style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 10px; line-height: 1.2578125;">test</span></p></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 41px; height: 20px;"/></td>
+  <td><p style="overflow: hidden; text-indent: 0px; "><span style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 10px; line-height: 1.2578125;">tbllugares_descripcion</span></p></td>
+  <td colspan="2"><p style="overflow: hidden; text-indent: 0px; "><span style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif; color: #000000; font-size: 10px; line-height: 1.2578125;">Quito</span></p></td>
+  <td><img alt="" src="asistenciamap.html_files/px" style="width: 68px; height: 20px;"/></td>
+</tr>
+<tr valign="top">
+  <td colspan="9"><img alt="" src="asistenciamap.html_files/px" style="width: 595px; height: 43px;"/></td>
+</tr>
+<tr valign="top">
+  <td colspan="2"><img alt="" src="asistenciamap.html_files/px" style="width: 94px; height: 200px;"/></td>
+  <td colspan="5"><div 
+	style='width: 395px; height: 200px;
+			background-color: \#FFFFFF;
+	'>
+	<div id='map_canvas_31375261' style='width: 100%; height: 100%; overflow: auto'></div>
+</div>
+
+						<script class='jasperreports' src='http://maps.google.com/maps/api/js?sensor=false&language=en'></script>
+				<script class='jasperreports' type='text/javascript'>
+			if (typeof jasperreports === 'undefined') jasperreports = {};
+			if (typeof jasperreports.map === 'undefined') {
+				var infowindow;
+				jasperreports.map = {
+					configureImage: function (parentKey, parentProps, parentOptions) {
+						var width, height, originX, originY, anchorX, anchorY, pp = parentProps, pk = parentKey;
+						
+						width = pp[pk + '.width'] ? parseInt(pp[pk + '.width']) : null;
+						height = pp[pk + '.height'] ? parseInt(pp[pk + '.height']) : null;
+						
+						originX = pp[pk + '.origin.x'] ? parseInt(pp[pk + '.origin.x']) : 0;
+						originY = pp[pk + '.origin.y'] ? parseInt(pp[pk + '.origin.y']) : 0;
+			
+						anchorX = pp[pk + '.anchor.x'] ? parseInt(pp[pk + '.anchor.x']) : 0;
+						anchorY = pp[pk + '.anchor.y'] ? parseInt(pp[pk + '.anchor.y']) : 0;
+						
+						parentOptions[pk] = {
+							url: pp[pk + '.url'],
+							size: width && height ? new google.maps.Size(width, height) : null,
+							origin: new google.maps.Point(originX,originY),
+							anchor: new google.maps.Point(anchorX,anchorY)
+						};
+					},
+					createInfo : function (parentProps) {
+						var pp = parentProps;
+						if(pp['infowindow.content'] && pp['infowindow.content'].length > 0) {
+							var gg= google.maps,
+						    po = {
+								content: pp['infowindow.content']	
+							};
+							if (pp['infowindow.pixelOffset']) po['pixelOffset'] = pp['infowindow.pixelOffset'];
+							if (pp['infowindow.latitude'] && pp['infowindow.longitude']) po['position'] = new gg.LatLng(pp['infowindow.latitude'], pp['infowindow.longitude']);
+							if (pp['infowindow.maxWidth']) po['maxWidth'] = pp['infowindow.maxWidth'];
+							return new gg.InfoWindow(po);	
+						}
+						return null;
+					},
+					placeMarkers: function (markers, map) {
+						if(markers){
+							var j;
+							for (var i = 0; i < markers.length; i++) {
+							    var markerProps = markers[i];
+							    var markerLatLng = new google.maps.LatLng(markerProps['latitude'], markerProps['longitude']);
+							    var markerOptions = {
+								        position: markerLatLng,
+								        map: map
+								    };
+							    if(markerProps['icon.url'] && markerProps['icon.url'].length > 0) this.configureImage('icon', markerProps, markerOptions);
+							    else if (markerProps['icon'] && markerProps['icon'].length > 0) markerOptions['icon'] = markerProps['icon'];
+							    else if (markerProps['color'] && markerProps['color'].length > 0) markerOptions['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + ((markerProps['label'] && markerProps['label'].length > 0) ? markerProps['label'] : '%E2%80%A2')+ '%7C' + markerProps['color'];
+							    else if(markerProps['label'] && markerProps['label'].length > 0) markerOptions['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + markerProps['label'] + '%7CFE7569';
+							    if(markerProps['shadow.url'] && markerProps['shadow.url'].length > 0) this.configureImage('shadow', markerProps, markerOptions);
+							    for (j in markerProps) {
+									if (j.indexOf(".") < 0 && markerProps.hasOwnProperty(j) && !markerOptions.hasOwnProperty(j)) markerOptions[j] = markerProps[j];
+								}
+							    var marker = new google.maps.Marker(markerOptions);
+							    marker['info'] = this.createInfo(markerProps);
+								google.maps.event.addListener(marker, 'click', function() {
+									if(map.autocloseinfo && infowindow) infowindow.close();
+									if(this['info']) {
+										infowindow = this['info'];
+										this['info'].open(map, this);
+									} else if (this['url'] && this['url'].length > 0) window.open(this['url'], this['target']);
+								});	
+							}
+						}
+					},
+					drawPaths: function(p, map){
+						if(p) {
+							for(var k=0; k<p.length; k++){
+								var props = p[k],o={}, l=[],isPoly = false;
+								for(prop in props){
+									if(prop === 'locations' && props[prop]){
+										var loc = props[prop];
+										for(var j = 0; j<loc.length; j++) {
+											var latln = loc[j];
+											l.push(new google.maps.LatLng(latln['latitude'], latln['longitude']));
+										}
+									} else if (prop === 'isPolygon'){
+										isPoly= this.getBooleanValue(props[prop]);
+									} else if (prop === 'visible' || prop === 'editable' || prop === 'clickable' || prop === 'draggable' || prop === 'geodesic') {
+										o[prop]=this.getBooleanValue(props[prop]);
+									}else{o[prop] = props[prop];}
+								}
+								o['map']=map;
+								if(isPoly){
+									o['paths']=l;
+									new google.maps.Polygon(o);
+								} else {
+									o['path']=l;
+									new google.maps.Polyline(o);
+								}
+							}
+						}
+					},
+					getBooleanValue: function(v){
+						return (v === true || v === 'true');
+					}
+				}
+			}					
+		</script>
+		<script class='jasperreports' type='text/javascript'>
+		(function () {
+			var map = new google.maps.Map(document.getElementById('map_canvas_31375261'), {
+						zoom: 8,
+						center: new google.maps.LatLng(-0.162325, -78.47701), 
+						mapTypeId: google.maps.MapTypeId.ROADMAP,
+						autocloseinfo: true
+					});
+			var markers = [];
+			jasperreports.map.placeMarkers(markers, map);
+			var paths = [];
+			jasperreports.map.drawPaths(paths, map);
+		}());	
+	</script>
+</td>
+  <td colspan="2"><img alt="" src="asistenciamap.html_files/px" style="width: 106px; height: 200px;"/></td>
+</tr>
+<tr valign="top">
+  <td colspan="9"><img alt="" src="asistenciamap.html_files/px" style="width: 595px; height: 428px;"/></td>
+</tr>
+</table>
+
+<![if IE]>
+<script>
+var links = document.querySelectorAll('link.jrWebFont');
+setTimeout(function(){ if (links) { for (var i = 0; i < links.length; i++) { links.item(i).href = links.item(i).href; } } }, 0);
+</script>
+<![endif]>
+</td><td width="50%">&nbsp;</td></tr>
+</table>
+</body>
+</html>

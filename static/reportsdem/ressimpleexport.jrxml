@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompleto" language="groovy" printOrder="Horizontal" pageWidth="1150" pageHeight="595" orientation="Landscape" columnWidth="1150" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="446"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic1" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblresumen_esadicional1}]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic2" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblresumen_esadicional2}]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic3" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblresumen_esadicional3}]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic4" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblresumen_esadicional4}]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic5" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblresumen_esadicional5}]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic6" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblresumen_esadicional6}]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic7" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblresumen_esadicional7}]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic8" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{tblresumen_esadicional8}]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblresumen."mpcodigo" AS tblresumen_mpcodigo,
+     tblresumen."fecha" AS tblresumen_fecha,
+     tblresumen."numtimbradas" AS tblresumen_numtimbradas,
+     tblresumen."hora1" AS tblresumen_hora1,
+     tblresumen."esadicional1" AS tblresumen_esadicional1,
+     tblresumen."hora2" AS tblresumen_hora2,
+     tblresumen."esadicional2" AS tblresumen_esadicional2,
+     tblresumen."hora3" AS tblresumen_hora3,
+     tblresumen."esadicional3" AS tblresumen_esadicional3,
+     tblresumen."hora4" AS tblresumen_hora4,
+     tblresumen."esadicional4" AS tblresumen_esadicional4,
+     tblresumen."hora5" AS tblresumen_hora5,
+     tblresumen."esadicional5" AS tblresumen_esadicional5,
+     tblresumen."hora6" AS tblresumen_hora6,
+     tblresumen."esadicional6" AS tblresumen_esadicional6,
+     tblresumen."hora7" AS tblresumen_hora7,
+     tblresumen."esadicional7" AS tblresumen_esadicional7,
+     tblresumen."hora8" AS tblresumen_hora8,
+     tblresumen."esadicional8" AS tblresumen_esadicional8,
+     tblresumen."totalhoras" AS tblresumen_totalhoras,
+     tblresumen."hayatraso" AS tblresumen_hayatraso,
+     tblresumen."horasnormales" AS tblresumen_horasnormales,
+     tblresumen."horasnocturnas" AS tblresumen_horasnocturnas,
+     tblresumen."horassuplementarias" AS tblresumen_horassuplementarias,
+     tblresumen."horasextraordinarias" AS tblresumen_horasextraordinarias,
+     tblresumen."horassuplementariaspaga" AS tblresumen_horassuplementariaspaga,
+     tblresumen."horasextraordinariaspaga" AS tblresumen_horasextraordinariaspaga,
+     tblresumen."hocodigo" AS tblresumen_hocodigo,
+     tblresumen."tiempoatraso" AS tblresumen_tiempoatraso,
+     tblpersonal."id" AS tblpersonal_codigo,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblpersonal."emcodigo" AS tblpersonal_emcodigo,
+     tblpersonal."jecodigo" AS tblpersonal_jecodigo,
+     tblpersonal."arcodigo" AS tblpersonal_arcodigo,
+     tblpersonal."lucodigo" AS tblpersonal_lucodigo,
+     tblpersonal."secodigo" AS tblpersonal_secodigo,
+     tblresumen."esfalta" AS tblresumen_esfalta,
+     tblresumen."tiempoatrasod" AS tblresumen_tiempoatrasod,
+     tblsecciones."id" AS tblsecciones_codigo,
+     tblsecciones."descripcion" AS tblsecciones_descripcion,
+     tblresumen."is_active" AS tblresumen_is_active
+FROM
+     "tblpersonal" tblpersonal INNER JOIN "tblresumen" tblresumen ON tblpersonal."id" = tblresumen."mpcodigo"
+     INNER JOIN "tblsecciones" tblsecciones ON tblpersonal."secodigo" = tblsecciones."id"
+WHERE
+     tblresumen."is_active"=1 AND
+     (tblresumen.numtimbradas <> 0
+     or esfalta = 1)$P!{filtro}
+ORDER BY
+     apellidos ASC,
+     nombres ASC,
+     fecha ASC]]>
+	</queryString>
+	<field name="tblresumen_mpcodigo" class="java.lang.Integer"/>
+	<field name="tblresumen_fecha" class="java.sql.Timestamp"/>
+	<field name="tblresumen_numtimbradas" class="java.lang.Integer"/>
+	<field name="tblresumen_hora1" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional1" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora2" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional2" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora3" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional3" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora4" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional4" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora5" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional5" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora6" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional6" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora7" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional7" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora8" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional8" class="java.lang.Boolean"/>
+	<field name="tblresumen_totalhoras" class="java.sql.Time"/>
+	<field name="tblresumen_hayatraso" class="java.lang.Boolean"/>
+	<field name="tblresumen_horasnormales" class="java.sql.Time"/>
+	<field name="tblresumen_horasnocturnas" class="java.sql.Time"/>
+	<field name="tblresumen_horassuplementarias" class="java.sql.Time"/>
+	<field name="tblresumen_horasextraordinarias" class="java.sql.Time"/>
+	<field name="tblresumen_horassuplementariaspaga" class="java.sql.Time"/>
+	<field name="tblresumen_horasextraordinariaspaga" class="java.sql.Time"/>
+	<field name="tblresumen_hocodigo" class="java.lang.Integer"/>
+	<field name="tblresumen_tiempoatraso" class="java.sql.Time"/>
+	<field name="tblpersonal_codigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblpersonal_emcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_jecodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_arcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_lucodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_secodigo" class="java.lang.Integer"/>
+	<field name="tblresumen_esfalta" class="java.lang.Boolean"/>
+	<field name="tblresumen_tiempoatrasod" class="java.math.BigDecimal"/>
+	<field name="tblsecciones_codigo" class="java.lang.Integer"/>
+	<field name="tblsecciones_descripcion" class="java.lang.String"/>
+	<field name="tblresumen_is_active" class="java.lang.Boolean"/>
+	<variable name="hayatrasotxt" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tblresumen_hayatraso} ? "Si" : ""]]></variableExpression>
+	</variable>
+	<variable name="esfaltatxt" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tblresumen_esfalta} ? "Si" : ""]]></variableExpression>
+	</variable>
+	<variable name="contatraso" class="java.lang.Integer" resetType="Group" resetGroup="tblresumen_mpcodigo" calculation="Sum">
+		<variableExpression><![CDATA[$F{tblresumen_hayatraso}? 1 : 0]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblresumen_hayatraso}? 1 : 0]]></initialValueExpression>
+	</variable>
+	<variable name="apellidosnombres" class="java.lang.String" resetType="Group" resetGroup="tblresumen_mpcodigo">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></initialValueExpression>
+	</variable>
+	<variable name="faltascont" class="java.lang.Integer" resetType="Group" resetGroup="tblresumen_mpcodigo" calculation="Sum">
+		<variableExpression><![CDATA[$F{tblresumen_esfalta}? 1 : 0]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblresumen_esfalta}? 1 : 0]]></initialValueExpression>
+	</variable>
+	<variable name="totatraso" class="java.math.BigDecimal" resetType="Group" resetGroup="tblresumen_mpcodigo" calculation="Sum">
+		<variableExpression><![CDATA[$F{tblresumen_tiempoatrasod}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblresumen_tiempoatrasod}]]></initialValueExpression>
+	</variable>
+	<group name="tblresumen_mpcodigo">
+		<groupExpression><![CDATA[$F{tblresumen_mpcodigo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="14">
+			<staticText>
+				<reportElement style="Column header" x="0" y="4" width="54" height="10" forecolor="#000000" uuid="8804f14b-da99-4c89-bd16-6f6433a6b079"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cedula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="346" y="4" width="69" height="10" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="415" y="4" width="44" height="10" forecolor="#000000" uuid="4ca5c5cd-c1fb-4d85-b7d9-ed946c8a647d"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Timbradas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="459" y="4" width="30" height="10" forecolor="#000000" uuid="ad792740-6665-4b4c-b684-d624ca96a2f7"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="489" y="4" width="30" height="10" forecolor="#000000" uuid="530a63fd-a0a0-4618-bdd0-cee647a167ca"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="519" y="4" width="30" height="10" forecolor="#000000" uuid="ca66fb2b-3790-43d0-aa3f-57550076a97a"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="549" y="4" width="30" height="10" forecolor="#000000" uuid="0347697a-e375-4c28-848d-fd1f0f583867"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="579" y="4" width="70" height="10" forecolor="#000000" uuid="43ab50e4-2125-4b8b-97a6-35911652d91e"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas Trabajadas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="904" y="4" width="40" height="10" forecolor="#000000" uuid="a5192b74-084c-411a-abd6-cfe7b348212d"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atrasos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="944" y="4" width="54" height="10" forecolor="#000000" uuid="dc7df422-f508-4630-a7c6-7509fae13bca"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas Atraso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="998" y="4" width="30" height="10" forecolor="#000000" uuid="662999de-b397-4e6b-bf98-b626156ca2a0"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Faltas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="54" y="4" width="146" height="10" forecolor="#000000" uuid="4be8c45a-d1f6-4c59-bfa4-e26376324e5a"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos y nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="200" y="4" width="146" height="10" forecolor="#000000" uuid="5bf2b99d-8a6e-49b1-8544-7db3479a6049"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="649" y="4" width="40" height="10" forecolor="#000000" uuid="3059f8be-ef14-44f1-abb8-579c7191c706"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hrs. 25%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="689" y="4" width="50" height="10" forecolor="#000000" uuid="123832c6-bbc2-464a-9b12-aa8ae4ac4a09"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hrs. 50% Cal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="739" y="4" width="50" height="10" forecolor="#000000" uuid="656adabd-5915-4ba2-a41e-1b391f5eef6b"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hrs. 50% Pag]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="789" y="4" width="55" height="10" forecolor="#000000" uuid="19fff89c-5851-4b59-b5e2-64c51e7159ee"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hrs. 100% Cal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="844" y="4" width="60" height="10" forecolor="#000000" uuid="970ff883-6066-49d6-9417-bd20d58b06d5"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hrs. 100% Pag]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy EE">
+				<reportElement style="Detail" positionType="Float" x="346" y="0" width="69" height="10" uuid="b4069e64-26b6-48c5-811c-9aba18d88005"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_fecha}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="415" y="0" width="44" height="10" uuid="f4590653-d5ea-4665-98b0-1ee291e76ceb"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_numtimbradas}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="HH:mm">
+				<reportElement style="timbadic1" positionType="Float" x="459" y="0" width="30" height="10" uuid="96feb0d5-18f1-48e7-87f8-00e86bd5cf07"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_hora1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="HH:mm">
+				<reportElement style="timbadic2" positionType="Float" x="489" y="0" width="30" height="10" uuid="4e707895-4bbf-4b6e-b0ed-4c819bf3f4d0"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_hora2}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="HH:mm">
+				<reportElement style="timbadic3" positionType="Float" x="519" y="0" width="30" height="10" uuid="6ac72ff1-ca58-4bc2-bc93-de130ea1580d"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_hora3}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="HH:mm">
+				<reportElement style="timbadic4" positionType="Float" x="549" y="0" width="30" height="10" uuid="d8330700-19c3-4982-a1d8-6fd51c55be68"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_hora4}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="HH:mm">
+				<reportElement style="Detail" positionType="Float" x="579" y="0" width="70" height="10" uuid="33a1cad1-86c5-4e9a-9003-0c4f90f0509a"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_totalhoras}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="904" y="0" width="40" height="10" uuid="6ba842ec-73ad-4259-8958-3829ea450bac"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{hayatrasotxt}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="0" y="0" width="54" height="10" forecolor="#000000" uuid="b04a429b-7b44-4d48-9649-3fd07c2d391a"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_mpcodigo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" positionType="Float" x="54" y="0" width="146" height="10" forecolor="#000000" uuid="52a4bcfc-9623-4f47-a5eb-1af9a620bec0"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{apellidosnombres}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement positionType="Float" mode="Transparent" x="200" y="0" width="146" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="2239d634-7ef8-4476-9149-080d7fb131b1"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblsecciones_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="649" y="0" width="40" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="588ea795-50e3-4385-9014-f3dd5835b883"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_horasnocturnas}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="689" y="0" width="50" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="906d8e1b-78e0-4b7f-917e-60a307d28afb"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_horassuplementarias}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="739" y="0" width="50" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="38e58d63-6359-49df-863b-bda5b0c0c560"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_horassuplementariaspaga}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm" isBlankWhenNull="false">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="789" y="0" width="55" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="ae7af251-1b0e-4e9c-8bf1-14302daea741"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_horasextraordinarias}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm" isBlankWhenNull="false">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="844" y="0" width="60" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="5ce5d7e5-d75c-49ed-817d-5540da97e969"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_horasextraordinariaspaga}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="HH:mm">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="944" y="0" width="54" height="10" uuid="bcdbb211-5a2f-461d-b608-82475bbd665e"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblresumen_tiempoatraso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="998" y="0" width="30" height="10" uuid="bcd75edc-fab1-433d-9efc-33360d77f535"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{esfaltatxt}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

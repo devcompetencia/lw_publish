@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompleto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic1" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumencp_esadicional1}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic2" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumencp_esadicional2}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic3" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumencp_esadicional3}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic4" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumencp_esadicional4}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic5" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumencp_esadicional5}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic6" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumencp_esadicional6}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic7" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumencp_esadicional7}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic8" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumencp_esadicional8}.length()>0)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblresumencp."mpcodigo" AS tblresumencp_mpcodigo,
+     tblresumencp."fecha" AS tblresumencp_fecha,
+     tblresumencp."numtimbradas" AS tblresumencp_numtimbradas,
+     tblresumencp."hora1" AS tblresumencp_hora1,
+     tblresumencp."esadicional1" AS tblresumencp_esadicional1,
+     tblresumencp."hora2" AS tblresumencp_hora2,
+     tblresumencp."esadicional2" AS tblresumencp_esadicional2,
+     tblresumencp."hora3" AS tblresumencp_hora3,
+     tblresumencp."esadicional3" AS tblresumencp_esadicional3,
+     tblresumencp."hora4" AS tblresumencp_hora4,
+     tblresumencp."esadicional4" AS tblresumencp_esadicional4,
+     tblresumencp."hora5" AS tblresumencp_hora5,
+     tblresumencp."esadicional5" AS tblresumencp_esadicional5,
+     tblresumencp."hora6" AS tblresumencp_hora6,
+     tblresumencp."esadicional6" AS tblresumencp_esadicional6,
+     tblresumencp."hora7" AS tblresumencp_hora7,
+     tblresumencp."esadicional7" AS tblresumencp_esadicional7,
+     tblresumencp."hora8" AS tblresumencp_hora8,
+     tblresumencp."esadicional8" AS tblresumencp_esadicional8,
+     tblresumencp."totalhoras" AS tblresumencp_totalhoras,
+     tblresumencp."hayatraso" AS tblresumencp_hayatraso,
+     tblresumencp."horasnormales" AS tblresumencp_horasnormales,
+     tblresumencp."horasnocturnas" AS tblresumencp_horasnocturnas,
+     tblresumencp."horassuplementarias" AS tblresumencp_horassuplementarias,
+     tblresumencp."horasextraordinarias" AS tblresumencp_horasextraordinarias,
+     tblresumencp."hocodigo" AS tblresumencp_hocodigo,
+     tblresumencp."tiempoatraso" AS tblresumencp_tiempoatraso,
+     tblpersonal."id" AS tblpersonal_codigo,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblpersonal."emcodigo" AS tblpersonal_emcodigo,
+     tblpersonal."jecodigo" AS tblpersonal_jecodigo,
+     tblpersonal."arcodigo" AS tblpersonal_arcodigo,
+     tblpersonal."lucodigo" AS tblpersonal_lucodigo,
+     tblpersonal."secodigo" AS tblpersonal_secodigo,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tblresumencp."is_active" AS tblresumencp_is_active
+FROM
+     "tblpersonal" tblpersonal INNER JOIN "tblresumencp" tblresumencp ON tblpersonal."id" = tblresumencp."mpcodigo",
+     "tblparcontasist" tblparcontasist
+WHERE
+     tblresumencp.is_active = 'T'
+ AND tblresumencp.numtimbradas <> 0
+ AND hayatraso = 'T'$P!{filtro}
+ORDER BY
+     apellidos ASC,
+     nombres ASC,
+     fecha ASC]]>
+	</queryString>
+	<field name="tblresumencp_mpcodigo" class="java.lang.Integer"/>
+	<field name="tblresumencp_fecha" class="java.sql.Date"/>
+	<field name="tblresumencp_numtimbradas" class="java.lang.Integer"/>
+	<field name="tblresumencp_hora1" class="java.sql.Time"/>
+	<field name="tblresumencp_esadicional1" class="java.lang.String"/>
+	<field name="tblresumencp_hora2" class="java.sql.Time"/>
+	<field name="tblresumencp_esadicional2" class="java.lang.String"/>
+	<field name="tblresumencp_hora3" class="java.sql.Time"/>
+	<field name="tblresumencp_esadicional3" class="java.lang.String"/>
+	<field name="tblresumencp_hora4" class="java.sql.Time"/>
+	<field name="tblresumencp_esadicional4" class="java.lang.String"/>
+	<field name="tblresumencp_hora5" class="java.sql.Time"/>
+	<field name="tblresumencp_esadicional5" class="java.lang.String"/>
+	<field name="tblresumencp_hora6" class="java.sql.Time"/>
+	<field name="tblresumencp_esadicional6" class="java.lang.String"/>
+	<field name="tblresumencp_hora7" class="java.sql.Time"/>
+	<field name="tblresumencp_esadicional7" class="java.lang.String"/>
+	<field name="tblresumencp_hora8" class="java.sql.Time"/>
+	<field name="tblresumencp_esadicional8" class="java.lang.String"/>
+	<field name="tblresumencp_totalhoras" class="java.sql.Time"/>
+	<field name="tblresumencp_hayatraso" class="java.lang.String"/>
+	<field name="tblresumencp_horasnormales" class="java.sql.Time"/>
+	<field name="tblresumencp_horasnocturnas" class="java.sql.Time"/>
+	<field name="tblresumencp_horassuplementarias" class="java.sql.Time"/>
+	<field name="tblresumencp_horasextraordinarias" class="java.sql.Time"/>
+	<field name="tblresumencp_hocodigo" class="java.lang.Integer"/>
+	<field name="tblresumencp_tiempoatraso" class="java.sql.Time"/>
+	<field name="tblpersonal_codigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblpersonal_emcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_jecodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_arcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_lucodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_secodigo" class="java.lang.Integer"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tblresumencp_is_active" class="java.lang.String"/>
+	<variable name="totalatrasos" class="java.lang.Double" resetType="Group" resetGroup="tblresumencp_mpcodigo" calculation="Sum">
+		<variableExpression><![CDATA[$F{tblresumencp_tiempoatraso}.getHours()+$F{tblresumencp_tiempoatraso}.getMinutes()/60.00]]></variableExpression>
+	</variable>
+	<variable name="contadoratrasos" class="java.lang.Integer" resetType="Group" resetGroup="tblresumencp_mpcodigo" calculation="Count">
+		<variableExpression><![CDATA[$F{tblresumencp_fecha}]]></variableExpression>
+	</variable>
+	<variable name="hayatrasotxt" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tblresumencp_hayatraso}.contentEquals('T') ? "S": ""]]></variableExpression>
+	</variable>
+	<variable name="apellidosnombres" class="java.lang.String" resetType="Group" resetGroup="tblresumencp_mpcodigo">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></initialValueExpression>
+	</variable>
+	<variable name="contadoratrasostot" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tblresumencp_fecha}]]></variableExpression>
+	</variable>
+	<variable name="totalatrasostot" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{tblresumencp_tiempoatraso}.getHours()+$F{tblresumencp_tiempoatraso}.getMinutes()/60.00]]></variableExpression>
+	</variable>
+	<group name="tblresumencp_mpcodigo">
+		<groupExpression><![CDATA[$F{tblresumencp_mpcodigo}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="3" width="555" height="24" forecolor="#B89F7D" backcolor="#CCCCCC" uuid="ea4f31bd-8d4e-4a67-a7f3-0d24370900b4"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" x="2" y="0" width="97" height="24" forecolor="#000000" uuid="b04a429b-7b44-4d48-9649-3fd07c2d391a"/>
+						<textElement>
+							<font fontName="Arial" size="14" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{tblresumencp_mpcodigo}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" positionType="Float" x="99" y="0" width="376" height="18" forecolor="#000000" uuid="52a4bcfc-9623-4f47-a5eb-1af9a620bec0"/>
+						<textElement>
+							<font fontName="Arial" size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{apellidosnombres}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="27">
+				<textField pattern="###0.00">
+					<reportElement x="452" y="0" width="41" height="10" uuid="47cb4bec-8e82-4e34-acdd-e1f3125d89c1"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalatrasos}]]></textFieldExpression>
+				</textField>
+				<textField pattern="">
+					<reportElement x="451" y="11" width="42" height="10" uuid="11c85224-71e9-4b03-b30c-33dbb961f780"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{totalatrasos}.intValue().toString()+":"+String.format("%02d",Math.round((($V{totalatrasos}-$V{totalatrasos}.intValue())*60)).toInteger())]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="493" y="1" width="28" height="10" forecolor="#000000" uuid="1e2f9543-9bd8-4088-b47b-717e026b6eae"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Horas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="493" y="11" width="38" height="10" forecolor="#000000" uuid="1e2f9543-9bd8-4088-b47b-717e026b6eae"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[HH:mm]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="86" y="0" width="57" height="10" forecolor="#000000" uuid="1e2f9543-9bd8-4088-b47b-717e026b6eae"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Atrasos:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="158" y="0" width="30" height="11" uuid="35b0e217-bbf7-4801-9fe3-be9f271e910a"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{contadoratrasos}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="66" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="555" height="66" uuid="84a5835f-5956-4e3d-878a-23d3f4bb25b7"/>
+					<graphicElement>
+						<pen lineWidth="1.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement style="SubTitle" x="199" y="0" width="161" height="29" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte atrasos]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="143" y="46" width="271" height="20" uuid="fdf71be3-7371-4625-aadc-8b5b50840831"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Title" x="466" y="39" width="89" height="27" forecolor="#000000" uuid="2a2d4dc9-43fb-4131-b024-ed1e7485f55c"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[LinceWeb V9]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="555" height="32" forecolor="#000000" backcolor="#999999" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="411" y="11" width="144" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="104" y="0" width="349" height="20" uuid="66990a10-c035-45b5-b989-6b52a6999983"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{filtrofecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="2" y="7" width="54" height="10" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="56" y="7" width="28" height="10" forecolor="#000000" uuid="4ca5c5cd-c1fb-4d85-b7d9-ed946c8a647d"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N.Tim.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="84" y="7" width="30" height="10" forecolor="#000000" uuid="ad792740-6665-4b4c-b684-d624ca96a2f7"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="122" y="7" width="30" height="10" forecolor="#000000" uuid="530a63fd-a0a0-4618-bdd0-cee647a167ca"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="7" width="30" height="10" forecolor="#000000" uuid="ca66fb2b-3790-43d0-aa3f-57550076a97a"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="199" y="7" width="30" height="10" forecolor="#000000" uuid="0347697a-e375-4c28-848d-fd1f0f583867"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="7" width="30" height="10" forecolor="#000000" uuid="475c0437-5aa7-4c59-ace6-57bfd82b23df"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="277" y="7" width="28" height="10" forecolor="#000000" uuid="1e2f9543-9bd8-4088-b47b-717e026b6eae"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="313" y="7" width="30" height="10" forecolor="#000000" uuid="70372f9d-80c2-42a1-9719-4b4118ab5994"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="355" y="7" width="28" height="10" forecolor="#000000" uuid="fd2ba19b-d9fb-47b4-b03c-4b1a7968dc3b"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="405" y="8" width="30" height="10" forecolor="#000000" uuid="a5192b74-084c-411a-abd6-cfe7b348212d"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atraso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="503" y="8" width="52" height="10" forecolor="#000000" uuid="662999de-b397-4e6b-bf98-b626156ca2a0"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cod.Horario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="453" y="7" width="40" height="10" forecolor="#000000" uuid="dc7df422-f508-4630-a7c6-7509fae13bca"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T.Atraso]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="eb0f71e5-643b-4e23-95ef-15f0219db920"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="2" y="0" width="553" height="18" uuid="25539e9e-6854-43d9-84d4-c07ed27b5f11"/>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy EE">
+					<reportElement style="Detail" positionType="Float" x="2" y="0" width="67" height="10" uuid="b4069e64-26b6-48c5-811c-9aba18d88005"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="69" y="0" width="9" height="10" uuid="f4590653-d5ea-4665-98b0-1ee291e76ceb"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_numtimbradas}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="timbadic1" positionType="Float" x="84" y="0" width="28" height="10" uuid="96feb0d5-18f1-48e7-87f8-00e86bd5cf07"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hora1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="timbadic2" positionType="Float" x="122" y="0" width="28" height="10" uuid="4e707895-4bbf-4b6e-b0ed-4c819bf3f4d0"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hora2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="timbadic3" positionType="Float" x="160" y="0" width="28" height="10" uuid="6ac72ff1-ca58-4bc2-bc93-de130ea1580d"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hora3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="timbadic4" positionType="Float" x="199" y="0" width="28" height="10" uuid="d8330700-19c3-4982-a1d8-6fd51c55be68"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hora4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="timbadic5" positionType="Float" x="237" y="0" width="28" height="10" uuid="fbe27c09-414d-4640-9ffa-f925433aceca"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hora5}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="timbadic6" positionType="Float" x="275" y="0" width="28" height="10" uuid="d4d2e0ea-1cbb-4ea7-bc68-b7fede1677d0"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hora6}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="timbadic7" positionType="Float" x="313" y="0" width="28" height="10" uuid="38540ae7-681e-4a8f-a1d4-1475b38ee30e"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hora7}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="timbadic8" positionType="Float" x="353" y="0" width="28" height="10" uuid="be968066-8611-4003-909c-99435b8d80c8"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hora8}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="501" y="0" width="28" height="10" uuid="18c80007-2573-4f03-9b95-818e4eaaabf6"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_hocodigo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="Detail" positionType="Float" x="451" y="0" width="40" height="10" uuid="bcdbb211-5a2f-461d-b608-82475bbd665e"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumencp_tiempoatraso}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="403" y="0" width="35" height="10" uuid="b5d9c5e5-1a06-4694-b979-3cbe6f88a087"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{hayatrasotxt}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="5137aecf-97b4-4590-b2cd-eb42471be997"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="515" y="5" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="435" y="5" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="124" y="23" width="112" height="10" forecolor="#000000" uuid="5391ed99-2e3d-4660-ba59-5e73c7794c10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total General Num. Atrasos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="239" y="23" width="30" height="10" uuid="6925c5d3-fb11-4f39-a80e-133b05b19178"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{contadoratrasostot}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="292" y="23" width="51" height="10" uuid="71d21800-fd74-4068-9d07-18b2020440ea"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalatrasostot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="343" y="23" width="28" height="10" forecolor="#000000" uuid="64d431ce-86d2-4439-8071-3b5a12980553"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="3" width="128" height="20" uuid="5f426ad7-7d0a-44e1-a433-36e98d9c9393"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Resumen total atrasos]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="292" y="36" width="51" height="10" uuid="fc841db1-9c1a-4243-b46c-70f940fdb522"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalatrasostot}.intValue().toString()+":"+String.format("%02d",Math.round((($V{totalatrasostot}-$V{totalatrasostot}.intValue())*60)).toInteger())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="345" y="36" width="38" height="10" forecolor="#000000" uuid="b027398b-efb2-4520-8733-dd3042a2f944"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HH:mm]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

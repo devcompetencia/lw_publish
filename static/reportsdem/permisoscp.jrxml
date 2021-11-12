@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompleto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="21"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblpersonal."id" AS tblpersonal_codigo,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblpersonal."emcodigo" AS tblpersonal_emcodigo,
+     tblpersonal."jecodigo" AS tblpersonal_jecodigo,
+     tblpersonal."arcodigo" AS tblpersonal_arcodigo,
+     tblpersonal."lucodigo" AS tblpersonal_lucodigo,
+     tblpersonal."secodigo" AS tblpersonal_secodigo,
+     tblpermisos."id" AS tblpermisos_codigo,
+     tblpermisos."mpcodigo" AS tblpermisos_mpcodigo,
+     tblpermisos."cpcodigo" AS tblpermisos_cpcodigo,
+     tblpermisos."fechainicial" AS tblpermisos_fechainicial,
+     tblpermisos."fechafinal" AS tblpermisos_fechafinal,
+     tblpermisos."horainicial" AS tblpermisos_horainicial,
+     tblpermisos."horafinal" AS tblpermisos_horafinal,
+     tblpermisos."tiempo" AS tblpermisos_tiempo,
+     tblpermisos."jecodigo" AS tblpermisos_jecodigo,
+     tblpermisos."descripcion" AS tblpermisos_descripcion,
+     tblpermisos."fecharegistro" AS tblpermisos_fecharegistro,
+     tblpermisos."diremail" AS tblpermisos_diremail,
+     tblpermisos."autorizado" AS tblpermisos_autorizado,
+     tblconceptos."id" AS tblconceptos_codigo,
+     tblconceptos."descripcion" AS tblconceptos_descripcion,
+     tblconceptos."esjustificado" AS tblconceptos_esjustificado,
+     tblconceptos."afectaiess" AS tblconceptos_afectaiess,
+     tblconceptos."esarecuperar" AS tblconceptos_esarecuperar,
+     tblconceptos."ingresatimbrada" AS tblconceptos_ingresatimbrada,
+     tblconceptos."estaactivo" AS tblconceptos_estaactivo,
+     tblconceptos."essinremuneracion" AS tblconceptos_essinremuneracion,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tblpermisos."is_active" AS tblpermisos_is_active
+FROM
+     "tblpersonal" tblpersonal INNER JOIN "tblpermisos" tblpermisos ON tblpersonal."id" = tblpermisos."mpcodigo"
+     INNER JOIN "tblconceptos" tblconceptos ON tblpermisos."cpcodigo" = tblconceptos."id",
+     "tblparcontasist" tblparcontasist
+WHERE
+     tblpermisos."is_active"='T' AND
+     1 = 1$P!{filtro}
+ORDER BY
+     apellidos ASC,
+     nombres ASC,
+     tblpermisos.descripcion ASC]]>
+	</queryString>
+	<field name="tblpersonal_codigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblpersonal_emcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_jecodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_arcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_lucodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_secodigo" class="java.lang.Integer"/>
+	<field name="tblpermisos_codigo" class="java.lang.Integer"/>
+	<field name="tblpermisos_mpcodigo" class="java.lang.Integer"/>
+	<field name="tblpermisos_cpcodigo" class="java.lang.Integer"/>
+	<field name="tblpermisos_fechainicial" class="java.sql.Date"/>
+	<field name="tblpermisos_fechafinal" class="java.sql.Date"/>
+	<field name="tblpermisos_horainicial" class="java.sql.Time"/>
+	<field name="tblpermisos_horafinal" class="java.sql.Time"/>
+	<field name="tblpermisos_tiempo" class="java.sql.Time"/>
+	<field name="tblpermisos_jecodigo" class="java.lang.Integer"/>
+	<field name="tblpermisos_descripcion" class="java.lang.String"/>
+	<field name="tblpermisos_fecharegistro" class="java.sql.Date"/>
+	<field name="tblpermisos_diremail" class="java.lang.String"/>
+	<field name="tblpermisos_autorizado" class="java.lang.String"/>
+	<field name="tblconceptos_codigo" class="java.lang.Integer"/>
+	<field name="tblconceptos_descripcion" class="java.lang.String"/>
+	<field name="tblconceptos_esjustificado" class="java.lang.String"/>
+	<field name="tblconceptos_afectaiess" class="java.lang.String"/>
+	<field name="tblconceptos_esarecuperar" class="java.lang.String"/>
+	<field name="tblconceptos_ingresatimbrada" class="java.lang.String"/>
+	<field name="tblconceptos_estaactivo" class="java.lang.String"/>
+	<field name="tblconceptos_essinremuneracion" class="java.lang.String"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tblpermisos_is_active" class="java.lang.String"/>
+	<variable name="contadorpermisos" class="java.lang.Integer" resetType="Group" resetGroup="tblpermisos_mpcodigo" calculation="Count">
+		<variableExpression><![CDATA[$F{tblpermisos_codigo}]]></variableExpression>
+	</variable>
+	<variable name="apellidosnombres" class="java.lang.String" resetType="Group" resetGroup="tblpermisos_mpcodigo">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></initialValueExpression>
+	</variable>
+	<variable name="contadorpermisostot" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tblpermisos_codigo}]]></variableExpression>
+	</variable>
+	<group name="tblpermisos_mpcodigo">
+		<groupExpression><![CDATA[$F{tblpermisos_mpcodigo}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="3" width="555" height="24" forecolor="#B89F7D" backcolor="#CCCCCC" uuid="ea4f31bd-8d4e-4a67-a7f3-0d24370900b4"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" x="2" y="0" width="75" height="24" forecolor="#000000" uuid="b04a429b-7b44-4d48-9649-3fd07c2d391a"/>
+						<textElement>
+							<font fontName="Arial" size="14" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{tblpermisos_mpcodigo}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" positionType="Float" x="77" y="0" width="388" height="18" forecolor="#000000" uuid="52a4bcfc-9623-4f47-a5eb-1af9a620bec0"/>
+						<textElement>
+							<font fontName="Arial" size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{apellidosnombres}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="27">
+				<staticText>
+					<reportElement style="Column header" x="46" y="1" width="97" height="10" forecolor="#000000" uuid="1e2f9543-9bd8-4088-b47b-717e026b6eae"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total permisos:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="158" y="0" width="30" height="11" uuid="35b0e217-bbf7-4801-9fe3-be9f271e910a"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{contadorpermisos}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="66" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="2" y="0" width="553" height="66" uuid="550ee40a-0563-42d2-9b28-57bed1569d40"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="SubTitle" x="119" y="0" width="324" height="29" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="20" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte permisos y justificaciones]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="143" y="46" width="271" height="20" uuid="3ff4f026-8c23-4f08-a227-522b0d515a9a"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Title" x="466" y="39" width="89" height="27" forecolor="#000000" uuid="bbe05c31-9cf8-4484-b04d-82e6b06b791b"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[LinceWeb V9]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="555" height="32" forecolor="#000000" backcolor="#999999" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="411" y="12" width="144" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="119" y="0" width="349" height="20" uuid="ce9ebe1f-ccf3-4aea-9f80-f6d94bdb3229"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{filtrofecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="164" y="5" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha
+Inicial]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="29" width="551" height="1" uuid="465f2d7c-f27e-41b5-ba55-b10eb275f04f"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="5" y="5" width="97" height="10" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción permiso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="213" y="5" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha
+Final]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="262" y="5" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora
+Inicial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="311" y="5" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora
+FInal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="360" y="5" width="45" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número
+Horas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="409" y="5" width="136" height="20" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="1" width="555" height="17" uuid="25539e9e-6854-43d9-84d4-c07ed27b5f11"/>
+				<textField>
+					<reportElement x="3" y="0" width="150" height="10" uuid="75ab63e8-b87a-4561-8cc7-90814742bc3e"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblconceptos_descripcion}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="162" y="0" width="47" height="10" uuid="8f321756-93a2-4197-bfe3-b49e3371f9ec"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpermisos_fechainicial}]]></textFieldExpression>
+				</textField>
+				<textField pattern="HH:mm">
+					<reportElement x="262" y="0" width="35" height="10" uuid="8e349953-2b8d-4a98-8e14-7c2c06a25935"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpermisos_horainicial}]]></textFieldExpression>
+				</textField>
+				<textField pattern="HH:mm">
+					<reportElement x="311" y="0" width="35" height="10" uuid="ea6489ba-35f4-4d9a-8f95-842b262df390"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpermisos_horafinal}]]></textFieldExpression>
+				</textField>
+				<textField pattern="HH:mm" isBlankWhenNull="true">
+					<reportElement x="360" y="0" width="35" height="10" uuid="66bfe834-c5ae-40b4-bb3a-744a31c9cd2d"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpermisos_tiempo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="409" y="0" width="140" height="10" uuid="9d1084d2-b419-4952-bb2b-aff038ac7994"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblpermisos_descripcion}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="213" y="0" width="45" height="10" uuid="3c67284e-4499-49f8-87b1-8e41adfc068d"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpermisos_fechafinal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="5137aecf-97b4-4590-b2cd-eb42471be997"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="515" y="5" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="435" y="5" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="46" y="10" width="97" height="10" forecolor="#000000" uuid="93aaf8f2-3b5c-478d-be28-770e100e49b5"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total permisos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="10" width="30" height="11" uuid="98600555-72db-42cc-a270-58bcc714f204"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{contadorpermisostot}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

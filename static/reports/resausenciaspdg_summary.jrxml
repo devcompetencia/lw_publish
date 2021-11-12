@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="resausenciaspdg_summary" pageWidth="542" pageHeight="595" orientation="Landscape" columnWidth="522" leftMargin="0" rightMargin="20" topMargin="20" bottomMargin="20" uuid="47b7e70a-50e5-41c7-9040-20b106fa6b88">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lince"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="net.sf.jasperreports.export.xls.wrap.text" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.columns" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.white.page.background" value="false"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filtro" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT dbo.tblconceptos.descripcion as concepto,
+count(dbo.tblconceptos.descripcion) as nopermisos,
+SUM(Day(dbo.tblpermisos.fechafinal - dbo.tblpermisos.fechainicial) * tiempod) * 60 as minutos,
+	SUM(Day(dbo.tblpermisos.fechafinal - dbo.tblpermisos.fechainicial) * tiempod) as horas,
+	SUM(Day(dbo.tblpermisos.fechafinal - dbo.tblpermisos.fechainicial) * tiempod)/8 as dias,
+	0 as vacacion
+FROM dbo.tblpermisos
+	INNER JOIN dbo.tblpersonal ON
+	 dbo.tblpermisos.mpcodigo = dbo.tblpersonal.id
+	INNER JOIN dbo.tblareas ON
+	 dbo.tblpersonal.arcodigo = dbo.tblareas.id
+	INNER JOIN dbo.tbljefaturas ON
+	 dbo.tblpersonal.jecodigo = dbo.tbljefaturas.id
+	INNER JOIN dbo.tblconceptos ON
+	 dbo.tblpermisos.cpcodigo = dbo.tblconceptos.id
+	 WHERE (dbo.tblconceptos.cargavacaciones=0 and dbo.tblpermisos.autorizado=1) $P!{filtro}
+	 group by dbo.tblconceptos.descripcion
+UNION
+SELECT
+	dbo.tblconceptos.descripcion as concepto,
+	count(dbo.tblconceptos.descripcion) as nopermisos,
+	SUM(dbo.tblvacaciones_descuentos.tiempodescuentod) * 60 as minutos,
+	SUM(dbo.tblvacaciones_descuentos.tiempodescuentod) as horas,
+	SUM(dbo.tblvacaciones_descuentos.tiempodescuentod/dbo.tblvacaciones_descuentos.horasLaborablesDiarias) as dias,
+	1 as vacacion
+FROM dbo.tblpermisos
+	INNER JOIN dbo.tblpersonal ON
+	 dbo.tblpermisos.mpcodigo = dbo.tblpersonal.id
+	INNER JOIN dbo.tblareas ON
+	 dbo.tblpersonal.arcodigo = dbo.tblareas.id
+	INNER JOIN dbo.tbljefaturas ON
+	 dbo.tblpersonal.jecodigo = dbo.tbljefaturas.id
+	INNER JOIN dbo.tblconceptos ON
+	 dbo.tblpermisos.cpcodigo = dbo.tblconceptos.id
+	 INNER JOIN dbo.tblvacaciones_descuentos ON
+	 dbo.tblpermisos.id = dbo.tblvacaciones_descuentos.pjcodigo
+	 WHERE (dbo.tblconceptos.cargavacaciones=1 and dbo.tblpermisos.autorizado=1) $P!{filtro}
+	 group by dbo.tblconceptos.descripcion]]>
+	</queryString>
+	<field name="concepto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="concepto"/>
+		<property name="com.jaspersoft.studio.field.label" value="concepto"/>
+	</field>
+	<field name="nopermisos" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nopermisos"/>
+		<property name="com.jaspersoft.studio.field.label" value="nopermisos"/>
+	</field>
+	<field name="minutos" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="minutos"/>
+		<property name="com.jaspersoft.studio.field.label" value="minutos"/>
+	</field>
+	<field name="horas" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="horas"/>
+		<property name="com.jaspersoft.studio.field.label" value="horas"/>
+	</field>
+	<field name="dias" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="dias"/>
+		<property name="com.jaspersoft.studio.field.label" value="dias"/>
+	</field>
+	<field name="vacacion" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="vacacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="vacacion"/>
+	</field>
+	<variable name="sumapermisos" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{nopermisos}]]></variableExpression>
+	</variable>
+	<variable name="sumapermisosnovac" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{vacacion}==0?
+$F{nopermisos}:
+0]]></variableExpression>
+	</variable>
+	<variable name="sumaminutosnovac" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vacacion}==0?
+$F{minutos}:
+0]]></variableExpression>
+	</variable>
+	<variable name="sumahorasnovac" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vacacion}==0?
+$F{horas}:
+0]]></variableExpression>
+	</variable>
+	<variable name="sumadiasnovac" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vacacion}==0?
+$F{dias}:
+0]]></variableExpression>
+	</variable>
+	<variable name="sumaminutos" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{minutos}]]></variableExpression>
+	</variable>
+	<variable name="sumahoras" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{horas}]]></variableExpression>
+	</variable>
+	<variable name="sumadias" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{dias}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupHeader>
+			<band height="30">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<staticText>
+					<reportElement x="0" y="0" width="120" height="30" uuid="db5a265a-8774-4a92-9f48-afc3fa199649"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Concepto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="120" y="0" width="100" height="30" uuid="16195677-3d3f-4b70-a1b4-f90fa9f3e005">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1fa708e9-d076-4457-b188-5ec582967661"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[No. Permisos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="220" y="0" width="100" height="30" uuid="485f305a-b0e9-42a5-adb9-53e99a752e45">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dca953e2-81ec-4d5a-acc5-f5af7d1db5cf"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Minutos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="320" y="0" width="100" height="30" uuid="bc20189d-f889-4b47-9406-7f3da04d7c69">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aace2ed3-a7da-455b-b5d6-889dba4ff4a8"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Minutos en Horas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="0" width="100" height="30" uuid="cefb9b66-ef93-4264-9fca-9d63b5298e92">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ecefd85-bcda-4bcf-b6b2-c4e61e8c2213"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Horas en Días]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="70">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<textField>
+					<reportElement x="120" y="0" width="100" height="15" uuid="38b40391-4ecb-43b1-9607-70ed51786e11"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sumapermisos}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="120" y="30" width="100" height="15" forecolor="#F57876" uuid="0731c5e6-4e8c-4f01-9270-a13918f07f06"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{sumapermisosnovac}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00#;#,##0.00#-">
+					<reportElement x="220" y="30" width="100" height="15" forecolor="#F57876" uuid="d965dfae-7da7-462e-91b8-3e27cee7eead"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{sumaminutosnovac}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00#;#,##0.00#-">
+					<reportElement x="320" y="30" width="100" height="15" forecolor="#F57876" uuid="89c4a959-7d42-4da3-9e6e-4e010018723a"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{sumahorasnovac}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00#;#,##0.00#-">
+					<reportElement x="420" y="30" width="100" height="15" forecolor="#F57876" uuid="7803cf66-84c3-41af-aacd-5887567c3e54"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{sumadiasnovac}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00#;#,##0.00#-">
+					<reportElement x="220" y="0" width="100" height="15" uuid="72c9418c-544e-4038-ad38-3c92584f2312"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sumaminutos}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00#;#,##0.00#-">
+					<reportElement x="320" y="0" width="100" height="15" uuid="8f3fc78a-485f-48ec-b4ae-34ea13fb5850"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sumahoras}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00#;#,##0.00#-">
+					<reportElement x="420" y="0" width="100" height="15" uuid="b4016944-23ab-4478-951b-09778d72b8a2"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sumadias}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="120" height="15" uuid="b793328c-19b1-4478-9c43-c8c91f2be5d4"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTALES]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="120" height="30" uuid="e506cdf5-9a49-45da-8115-f0b65990f324"/>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="100" height="30" uuid="f7ec3448-40d2-4c90-a57e-a8ec57800061">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1fa708e9-d076-4457-b188-5ec582967661"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nopermisos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#;#,##0.00#-">
+				<reportElement x="220" y="0" width="100" height="30" uuid="e18be0cf-a11a-419a-b022-46c584f74cf8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dca953e2-81ec-4d5a-acc5-f5af7d1db5cf"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{minutos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#;#,##0.00#-">
+				<reportElement x="320" y="0" width="100" height="30" uuid="b56d8aa3-1ed1-4310-b31f-ebb5b3e31a6f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aace2ed3-a7da-455b-b5d6-889dba4ff4a8"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{horas}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00#;#,##0.00#-">
+				<reportElement x="420" y="0" width="100" height="30" uuid="6e3c850d-223f-4ca8-b067-c1c5f5699993">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ecefd85-bcda-4bcf-b6b2-c4e61e8c2213"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{dias}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

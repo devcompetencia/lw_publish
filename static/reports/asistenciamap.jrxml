@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="asistenciamap" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="698fcd0c-b1fe-4a30-b65f-804709ad033c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="60"/>
+	<queryString>
+		<![CDATA[SELECT
+     tbllugares."id" AS tbllugares_id,
+     tbllugares."descripcion" AS tbllugares_descripcion,
+     tbllugares."created_by" AS tbllugares_created_by,
+     tbllugares."created_on" AS tbllugares_created_on,
+     tbllugares."modified_by" AS tbllugares_modified_by,
+     tbllugares."modified_on" AS tbllugares_modified_on,
+     tbllugares."is_active" AS tbllugares_is_active
+FROM
+     "dbo"."tbllugares" tbllugares]]>
+	</queryString>
+	<field name="tbllugares_id" class="java.lang.Integer"/>
+	<field name="tbllugares_descripcion" class="java.lang.String"/>
+	<field name="tbllugares_created_by" class="java.lang.Integer"/>
+	<field name="tbllugares_created_on" class="java.sql.Timestamp"/>
+	<field name="tbllugares_modified_by" class="java.lang.Integer"/>
+	<field name="tbllugares_modified_on" class="java.sql.Timestamp"/>
+	<field name="tbllugares_is_active" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="297" splitType="Stretch">
+			<staticText>
+				<reportElement x="66" y="17" width="100" height="20" uuid="e65a8c0a-5df2-4c8a-a12a-5f406b6caf54"/>
+				<text><![CDATA[Test]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="166" y="17" width="100" height="20" uuid="ecca3033-0730-476e-b1c3-7ce666f9bc59"/>
+				<textFieldExpression><![CDATA["test"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="307" y="17" width="100" height="20" uuid="7928d2a6-8832-4066-a100-f45ac6b326e7"/>
+				<text><![CDATA[tbllugares_descripcion]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="407" y="17" width="100" height="20" uuid="4220f707-99d0-40ad-b6a6-053282e1024c"/>
+				<textFieldExpression><![CDATA[$F{tbllugares_descripcion}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="74" y="80" width="395" height="200" uuid="75622c53-8c51-4960-8bbb-df778ebd2fe0"/>
+				<mp:map xmlns:mp="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" mapScale="4" imageType="jpg">
+					<mp:latitudeExpression><![CDATA[-0.162325f]]></mp:latitudeExpression>
+					<mp:longitudeExpression><![CDATA[-78.4770096f]]></mp:longitudeExpression>
+				</mp:map>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

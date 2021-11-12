@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompletopermisossubrep1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f4750494-13a3-41a1-ac6b-a32503486f86">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="mpcodigo" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblpermisos."cpcodigo" AS tblpermisos_cpcodigo,
+     tblconceptos."id" AS tblconceptos_codigo,
+     tblconceptos."descripcion" AS tblconceptos_descripcion,
+     tblpermisos."mpcodigo" AS tblpermisos_mpcodigo,
+     tblpermisos."fechainicial" AS tblpermisos_fechainicial,
+     tblpermisos."fechafinal" AS tblpermisos_fechafinal,
+     tblpermisos."horainicial" AS tblpermisos_horainicial,
+     tblpermisos."horafinal" AS tblpermisos_horafinal,
+     tblpermisos."is_active" AS tblpermisos_is_active
+FROM
+     "tblconceptos" tblconceptos INNER JOIN "tblpermisos" tblpermisos ON tblconceptos."id" = tblpermisos."cpcodigo"
+WHERE
+     tblpermisos."is_active"=1 AND
+     tblpermisos."mpcodigo" = $P{mpcodigo}
+     and tblpermisos."fechainicial" <= $P{fecha}
+     and tblpermisos."fechafinal" >= $P{fecha}]]>
+	</queryString>
+	<field name="tblpermisos_cpcodigo" class="java.lang.Integer"/>
+	<field name="tblconceptos_codigo" class="java.lang.Integer"/>
+	<field name="tblconceptos_descripcion" class="java.lang.String"/>
+	<field name="tblpermisos_mpcodigo" class="java.lang.Integer"/>
+	<field name="tblpermisos_fechainicial" class="java.sql.Timestamp"/>
+	<field name="tblpermisos_fechafinal" class="java.sql.Timestamp"/>
+	<field name="tblpermisos_horainicial" class="java.sql.Time"/>
+	<field name="tblpermisos_horafinal" class="java.sql.Time"/>
+	<field name="tblpermisos_is_active" class="java.lang.Boolean"/>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="73" height="17" uuid="801b39f5-6377-49d9-bdc8-a0326db6d111"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpermisos_cpcodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="0" width="177" height="17" uuid="c1f3ed4a-5105-44cd-a673-cd4c3f029031"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblconceptos_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="250" y="0" width="57" height="17" uuid="19b76dbb-4c29-4f62-8980-d454e2d58220"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpermisos_horainicial}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="307" y="0" width="55" height="17" forecolor="#000000" backcolor="#FFFFFF" uuid="8b52ace8-7408-46dc-a27c-0ff353f69593"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpermisos_horafinal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fichapermiso" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a968609f-bcf5-46dd-8cba-a141c9d78005">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblpersonal.cedula AS tblpersonal_cedula,
+     tblpersonal.apellidos AS tblpersonal_apellidos,
+     tblpersonal.nombres AS tblpersonal_nombres,
+     tbljefaturas.id AS tbljefaturas_codigo,
+     tbljefaturas.descripcion AS tbljefaturas_descripcion,
+     tblareas.id AS tblareas_codigo,
+     tblareas.descripcion AS tblareas_descripcion,
+     tbltimbradasadicionales.id AS tbltimbradasadicionales_codigo,
+     tbltimbradasadicionales.mpcodigo AS tbltimbradasadicionales_mpcodigo,
+     tbltimbradasadicionales.fecha AS tbltimbradasadicionales_fecha,
+     tbltimbradasadicionales.hora AS tbltimbradasadicionales_hora,
+     tbltimbradasadicionales.jecodigo AS tbltimbradasadicionales_jecodigo,
+     tbltimbradasadicionales.razon AS tbltimbradasadicionales_razon,
+     tbltimbradasadicionales.fecharegistro AS tbltimbradasadicionales_fecharegistro,
+     tbltimbradasadicionales.diremail AS tbltimbradasadicionales_diremail,
+     tbltimbradasadicionales.autorizado AS tbltimbradasadicionales_autorizado,
+     tblparcontasist.razonsocial AS tblparcontasist_razonsocial
+FROM
+     tblpersonal tblpersonal INNER JOIN tblareas tblareas ON tblpersonal.arcodigo = tblareas.id
+     INNER JOIN tbltimbradasadicionales tbltimbradasadicionales ON tblpersonal.id = tbltimbradasadicionales.mpcodigo
+     INNER JOIN tbljefaturas tbljefaturas ON tbltimbradasadicionales.jecodigo = tbljefaturas.id,
+     tblparcontasist tblparcontasist
+WHERE
+     1 = 1$P!{filtro}]]>
+	</queryString>
+	<field name="tblpersonal_cedula" class="java.lang.String"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tbljefaturas_codigo" class="java.lang.Integer"/>
+	<field name="tbljefaturas_descripcion" class="java.lang.String"/>
+	<field name="tblareas_codigo" class="java.lang.Integer"/>
+	<field name="tblareas_descripcion" class="java.lang.String"/>
+	<field name="tbltimbradasadicionales_codigo" class="java.lang.Integer"/>
+	<field name="tbltimbradasadicionales_mpcodigo" class="java.lang.Integer"/>
+	<field name="tbltimbradasadicionales_fecha" class="java.sql.Date"/>
+	<field name="tbltimbradasadicionales_hora" class="java.sql.Time"/>
+	<field name="tbltimbradasadicionales_jecodigo" class="java.lang.Integer"/>
+	<field name="tbltimbradasadicionales_razon" class="java.lang.String"/>
+	<field name="tbltimbradasadicionales_fecharegistro" class="java.sql.Date"/>
+	<field name="tbltimbradasadicionales_diremail" class="java.lang.String"/>
+	<field name="tbltimbradasadicionales_autorizado" class="java.lang.String"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<variable name="apellidonombre" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+	</variable>
+	<variable name="estado" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tbltimbradasadicionales_autorizado} ? "AUTORIZADO": "NO AUTORIZADO"]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="401" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="73" width="51" height="13" uuid="8cb4f626-035f-42e6-bbcf-834ff06d87cc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="51" y="73" width="273" height="13" uuid="b12b3675-c43a-4346-9fee-8e7867dca858"/>
+				<textFieldExpression><![CDATA[$V{apellidonombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="73" width="43" height="13" uuid="ee537015-f0f0-40e8-b384-7ae610c16161"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="387" y="73" width="148" height="13" uuid="0c6f5617-09ad-4108-902b-652b17f28c9a"/>
+				<textFieldExpression><![CDATA[$F{tblareas_descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="96" width="67" height="16" uuid="82df2827-6eac-447f-999d-636292f6ecee"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Novedad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="136" width="75" height="14" uuid="e06caf08-d617-4836-bf59-49364149247d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Detalle:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="150" width="75" height="14" uuid="ce846aa0-340d-44f7-911a-e507be32b21a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="164" width="75" height="14" uuid="4236cafe-cf5a-47f9-8af0-ebb54cb92c80"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="191" width="87" height="14" uuid="53bb9f6d-e4a0-4768-9581-1eae2d2d0389"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autorizado por:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="191" width="429" height="14" uuid="dc372536-2bfc-4d4a-af5a-efa05a0810ef"/>
+				<textFieldExpression><![CDATA[$F{tbljefaturas_descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="205" width="87" height="14" uuid="1bdedf7b-d2e2-40c6-ac29-77a14bad63df"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="304" width="151" height="1" uuid="1ab0faf8-bec1-43a5-a02a-fae0f6c20e6f"/>
+			</line>
+			<line>
+				<reportElement x="191" y="305" width="151" height="1" uuid="d9e4314a-e2fe-40f9-a0a2-9aad994581ba"/>
+			</line>
+			<line>
+				<reportElement x="384" y="306" width="151" height="1" uuid="1a16794e-feed-4e62-992a-beb4611f5467"/>
+			</line>
+			<staticText>
+				<reportElement x="41" y="311" width="63" height="14" uuid="38931b3a-ad53-409c-a3ea-17e15cbe5b12"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="311" width="63" height="14" uuid="e5726bc5-b0cb-47c8-8df7-a06d1ad1ddeb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="311" width="104" height="14" uuid="52bf6ec9-7377-4f21-a3af-6f5265d2dcf9"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Talento Humano]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="94" y="136" width="441" height="14" uuid="717ad9ed-2ad3-4ce6-9360-ab06ec09c387"/>
+				<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_razon}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="94" y="150" width="100" height="14" uuid="b53f9639-ca8f-443c-a693-69aa15286850"/>
+				<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_fecha}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="94" y="164" width="100" height="14" uuid="678178a4-0363-4742-a4ad-2c5355db16cd"/>
+				<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="205" width="429" height="14" uuid="3f132525-6f7d-4333-9af6-2f3784adc4d0"/>
+				<textFieldExpression><![CDATA[$V{estado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="48" width="41" height="14" uuid="6e497b57-0782-4cb5-8a5e-f94750df12e4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="41" y="48" width="100" height="14" uuid="b0a1e49b-9d9a-4d45-9797-5019f29a486b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="141" y="12" width="275" height="20" uuid="ec244582-2c5b-4366-a3ea-4b7ea9a03df6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Novedades de timbrada adicional]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="32" width="275" height="20" uuid="5a3f33be-b460-4434-8c06-98388c9bb4a4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="401">
+			<staticText>
+				<reportElement x="51" y="309" width="63" height="14" uuid="7783958d-4127-417c-8f3a-abc523cbe4ad"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empleado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="104" y="134" width="441" height="14" uuid="ccf31512-3738-424d-8413-e89ff713f929"/>
+				<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_razon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="71" width="148" height="13" uuid="09f03064-44b0-4d92-b02e-69027cd2401f"/>
+				<textFieldExpression><![CDATA[$F{tblareas_descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="417" y="309" width="104" height="14" uuid="b79729f1-086a-4a35-89e1-e33503514036"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Talento Humano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="94" width="67" height="16" uuid="429a33b5-1ded-4d63-82b3-513ab2e0d412"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Novedad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="134" width="75" height="14" uuid="ff4feb0d-066a-4189-93c7-645ab666c422"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Detalle:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="302" width="151" height="1" uuid="3964f77b-10b1-4f4a-a6e8-1eea667439b5"/>
+			</line>
+			<staticText>
+				<reportElement x="29" y="203" width="87" height="14" uuid="43b211e2-e1bc-4f1a-b7d4-4927498654b7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="104" y="148" width="100" height="14" uuid="e0daa77d-3adc-458e-97e6-c49e54925806"/>
+				<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="162" width="75" height="14" uuid="a6a62393-cd72-4ddf-bf95-21c60c3cb601"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="104" y="162" width="100" height="14" uuid="6561b1b6-aa79-40ba-a3a5-d40ac85b1080"/>
+				<textFieldExpression><![CDATA[$F{tbltimbradasadicionales_hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="71" width="273" height="13" uuid="22a0cfe1-0c09-475f-a302-cc6f180f7411"/>
+				<textFieldExpression><![CDATA[$V{apellidonombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="249" y="309" width="63" height="14" uuid="ffb06154-c620-4a15-aecf-99ac9b63e241"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="148" width="75" height="14" uuid="3fa6d3e5-ce64-49a6-be10-bce718784db3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="116" y="189" width="429" height="14" uuid="7605e1ad-5d43-4062-970b-a41a527e6ae9"/>
+				<textFieldExpression><![CDATA[$F{tbljefaturas_descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="189" width="87" height="14" uuid="1eefbab4-60f9-42d7-bfd7-39a96c78e0ec"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autorizado por:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="51" y="46" width="100" height="14" uuid="ea000fd8-9c8e-48d2-9877-6a47874f49ee"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="354" y="71" width="43" height="13" uuid="f5a94cc6-40d6-48c8-9c1b-6e520344a755"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Área:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="46" width="41" height="14" uuid="450e2947-4f20-4d2f-8326-ebb7ee91f2d4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="394" y="304" width="151" height="1" uuid="8141cee3-708e-4329-b8ce-cdce9b50d45a"/>
+			</line>
+			<staticText>
+				<reportElement x="10" y="71" width="51" height="13" uuid="eb0337a5-f539-4f81-896e-0413f5a4e20d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre: ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="201" y="303" width="151" height="1" uuid="454cf519-db16-4c52-9550-b4479f05c770"/>
+			</line>
+			<staticText>
+				<reportElement x="151" y="10" width="275" height="20" uuid="2c7fcc86-fa0b-4d96-8819-549d72961f7c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Novedades de timbrada adicional]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="116" y="203" width="429" height="14" uuid="3a199f0c-48ed-4cec-96a2-80591c27f7b0"/>
+				<textFieldExpression><![CDATA[$V{estado}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="435" y="7" width="100" height="20" uuid="c3b69902-ed7a-4851-912f-547c9b7854d3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="435" y="10" width="100" height="20" uuid="e7c4ac5a-9b07-445d-b09d-5952217489e3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Copia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="151" y="27" width="275" height="20" uuid="0f76ccba-0f58-4e18-b34c-3ddb4589a99a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

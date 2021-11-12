@@ -1,0 +1,3276 @@
+timestamp: 2018-08-06T09:37:50.748000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" VARCHAR(512) NULL,
+    "task_name" VARCHAR(512) NULL,
+    "group_name" VARCHAR(512) NULL,
+    "status" VARCHAR(512) NULL,
+    "function_name" VARCHAR(512) NULL,
+    "uuid" VARCHAR(255) NULL UNIQUE,
+    "args" VARCHAR(MAX) NULL,
+    "vars" VARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" VARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-08-06T09:50:59.371000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" VARCHAR(512) NULL,
+    "task_name" VARCHAR(512) NULL,
+    "group_name" VARCHAR(512) NULL,
+    "status" VARCHAR(512) NULL,
+    "function_name" VARCHAR(512) NULL,
+    "uuid" VARCHAR(255) NULL UNIQUE,
+    "args" VARCHAR(MAX) NULL,
+    "vars" VARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" VARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-08-06T09:55:30.356000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" VARCHAR(512) NULL,
+    "task_name" VARCHAR(512) NULL,
+    "group_name" VARCHAR(512) NULL,
+    "status" VARCHAR(512) NULL,
+    "function_name" VARCHAR(512) NULL,
+    "uuid" VARCHAR(255) NULL UNIQUE,
+    "args" VARCHAR(MAX) NULL,
+    "vars" VARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" VARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-08-06T09:56:00.481000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" VARCHAR(512) NULL,
+    "task_name" VARCHAR(512) NULL,
+    "group_name" VARCHAR(512) NULL,
+    "status" VARCHAR(512) NULL,
+    "function_name" VARCHAR(512) NULL,
+    "uuid" VARCHAR(255) NULL UNIQUE,
+    "args" VARCHAR(MAX) NULL,
+    "vars" VARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" VARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-08-06T09:56:25.751000
+CREATE TABLE "auth_user"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "first_name" VARCHAR(128) NULL,
+    "last_name" VARCHAR(128) NULL,
+    "email" VARCHAR(512) NULL,
+    "username" VARCHAR(128) NULL,
+    "password" VARCHAR(512) NULL,
+    "registration_key" VARCHAR(512) NULL,
+    "reset_password_key" VARCHAR(512) NULL,
+    "registration_id" VARCHAR(512) NULL,
+    "accesoappmovil" BIT NOT NULL DEFAULT 1,
+    "is_active" BIT NULL,
+    "created_on" DATETIME NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_user_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_user_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION
+);
+success!
+timestamp: 2018-08-06T09:56:25.798000
+CREATE TABLE "tblgrupohorario"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblgrupohorario_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblgrupohorario_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:25.814000
+CREATE TABLE "tblhorarios"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "color" VARCHAR(10) NULL,
+    "toleranciaatrasos" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempomaximonormales" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempomaximonocturnas" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempomaximosuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempomaximoextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "timbradasintermediasvariables" BIT NOT NULL,
+    "horasextrasendescanso" BIT NOT NULL DEFAULT 0,
+    "esarecuperar" BIT NOT NULL,
+    "desistema" BIT NOT NULL DEFAULT 0,
+    "nocambiohorario" BIT NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblhorarios_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhorarios_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:25.876000
+CREATE TABLE "tblhorariosgrupo"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "grcodigo" INT NOT NULL, CONSTRAINT "tblhorariosgrupo_grcodigo__constraint" FOREIGN KEY ("grcodigo") REFERENCES "tblgrupohorario" ("id") ON DELETE NO ACTION,
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblhorariosgrupo_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "secuencia" INT NOT NULL DEFAULT 1,
+    "holgura" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "aplilunes" BIT NOT NULL DEFAULT 1,
+    "aplimartes" BIT NOT NULL DEFAULT 1,
+    "aplimiercoles" BIT NOT NULL DEFAULT 1,
+    "aplijueves" BIT NOT NULL DEFAULT 1,
+    "apliviernes" BIT NOT NULL DEFAULT 1,
+    "aplisabado" BIT NOT NULL DEFAULT 1,
+    "aplidomingo" BIT NOT NULL DEFAULT 1,
+    "numdiasaplihorrot" INT NOT NULL DEFAULT 7,
+    "created_by" INT NULL, CONSTRAINT "tblhorariosgrupo_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhorariosgrupo_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:25.892000
+CREATE TABLE "tblempresas"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblempresas_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblempresas_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:25.908000
+CREATE TABLE "tbllugares"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tbllugares_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbllugares_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:25.923000
+CREATE TABLE "tblareas"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblareas_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblareas_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:25.955000
+CREATE TABLE "tblcentrocosto"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblcentrocosto_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblcentrocosto_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:25.970000
+CREATE TABLE "tblsecciones"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblsecciones_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblsecciones_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:25.986000
+CREATE TABLE "tbljefaturas"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "diremail" VARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tbljefaturas_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbljefaturas_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:26.001000
+CREATE TABLE "tblpersonal"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "tarjeta" VARCHAR(20) NOT NULL,
+    "cedula" VARCHAR(15) NOT NULL,
+    "apellidos" VARCHAR(100) NOT NULL,
+    "nombres" VARCHAR(100) NOT NULL,
+    "archivofoto" VARCHAR(512) NULL,
+    "telefono" VARCHAR(20) NOT NULL DEFAULT 'N/D',
+    "celular" VARCHAR(50) NOT NULL DEFAULT 'N/D',
+    "direccion" VARCHAR(200) NOT NULL DEFAULT 'N/D',
+    "fechanacimiento" DATE NOT NULL DEFAULT '2018-08-06',
+    "estadocivil" VARCHAR(50) NOT NULL DEFAULT 'N/D',
+    "numerocargas" INT NOT NULL DEFAULT 0,
+    "remuneracion" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "esdiscapacitado" BIT NOT NULL,
+    "dircorreo" VARCHAR(100) NOT NULL DEFAULT 'correo@correo.com',
+    "fechaingreso" DATE NOT NULL DEFAULT '2018-08-06',
+    "situacion" BIT NOT NULL DEFAULT 1,
+    "fechasalida" DATE NULL,
+    "emcodigo" INT NOT NULL, CONSTRAINT "tblpersonal_emcodigo__constraint" FOREIGN KEY ("emcodigo") REFERENCES "tblempresas" ("id") ON DELETE NO ACTION,
+    "lucodigo" INT NOT NULL, CONSTRAINT "tblpersonal_lucodigo__constraint" FOREIGN KEY ("lucodigo") REFERENCES "tbllugares" ("id") ON DELETE NO ACTION,
+    "arcodigo" INT NOT NULL, CONSTRAINT "tblpersonal_arcodigo__constraint" FOREIGN KEY ("arcodigo") REFERENCES "tblareas" ("id") ON DELETE NO ACTION,
+    "cccodigo" INT NOT NULL, CONSTRAINT "tblpersonal_cccodigo__constraint" FOREIGN KEY ("cccodigo") REFERENCES "tblcentrocosto" ("id") ON DELETE NO ACTION,
+    "secodigo" INT NOT NULL, CONSTRAINT "tblpersonal_secodigo__constraint" FOREIGN KEY ("secodigo") REFERENCES "tblsecciones" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tblpersonal_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "cargo" VARCHAR(100) NOT NULL DEFAULT 'N/D',
+    "partidapresupuestaria" VARCHAR(50) NOT NULL DEFAULT 'N/D',
+    "numerocontrato" VARCHAR(30) NOT NULL DEFAULT 'N/D',
+    "timbra" BIT NOT NULL DEFAULT 1,
+    "esflexible" BIT NOT NULL DEFAULT 0,
+    "grcodigo" INT NOT NULL DEFAULT 1, CONSTRAINT "tblpersonal_grcodigo__constraint" FOREIGN KEY ("grcodigo") REFERENCES "tblgrupohorario" ("id") ON DELETE NO ACTION,
+    "fecaplihorrot" DATE NOT NULL DEFAULT '2018-08-06',
+    "colchonentrada" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "colchonsalida" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "atrasosintermedios" BIT NOT NULL DEFAULT 1,
+    "ganaextras" BIT NOT NULL DEFAULT 1,
+    "sepagasuplementarias" BIT NOT NULL DEFAULT 1,
+    "sepagaextraordinarias" BIT NOT NULL DEFAULT 1,
+    "topesuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "topeextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "exportaresumen" BIT NOT NULL DEFAULT 1,
+    "numdiasvac" INT NOT NULL DEFAULT 0,
+    "clasificador1" VARCHAR(25) NULL,
+    "clasificador2" VARCHAR(25) NULL,
+    "clasificador3" VARCHAR(25) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblpersonal_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblpersonal_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:26.048000
+CREATE TABLE "tblfestivos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "finomb" VARCHAR(100) NOT NULL,
+    "lucodigo" INT NOT NULL, CONSTRAINT "tblfestivos_lucodigo__constraint" FOREIGN KEY ("lucodigo") REFERENCES "tbllugares" ("id") ON DELETE NO ACTION,
+    "created_by" INT NULL, CONSTRAINT "tblfestivos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblfestivos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:26.111000
+CREATE TABLE "tblitemhorario"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblitemhorario_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "dia" INT NOT NULL DEFAULT 1,
+    "numerohoras" TIME(7) NOT NULL DEFAULT '08:00:00',
+    "numerotimbradas" INT NOT NULL DEFAULT 2,
+    "horainicio" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "duracionjornada" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "esnocturna" BIT NOT NULL,
+    "ingresodiurno" BIT NOT NULL,
+    "pagaextras" BIT NOT NULL,
+    "haycena" BIT NOT NULL DEFAULT 0,
+    "adescontar" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sisupera" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada1" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida1" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada2" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida2" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada3" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida3" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada4" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida4" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada5" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida5" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada6" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida6" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada7" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida7" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada8" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida8" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada9" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida9" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "entrada10" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "salida10" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "created_by" INT NULL, CONSTRAINT "tblitemhorario_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblitemhorario_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:26.220000
+CREATE TABLE "tblresumen"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblresumen_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "numtimbradas" INT NULL,
+    "hora1" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora1" DATETIME NULL,
+    "esadicional1" BIT NOT NULL DEFAULT 0,
+    "numter1" VARCHAR(5) NULL,
+    "hora2" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora2" DATETIME NULL,
+    "esadicional2" BIT NOT NULL DEFAULT 0,
+    "numter2" VARCHAR(5) NULL,
+    "hora3" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora3" DATETIME NULL,
+    "esadicional3" BIT NOT NULL DEFAULT 0,
+    "numter3" VARCHAR(5) NULL,
+    "hora4" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora4" DATETIME NULL,
+    "esadicional4" BIT NOT NULL DEFAULT 0,
+    "numter4" VARCHAR(5) NULL,
+    "hora5" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora5" DATETIME NULL,
+    "esadicional5" BIT NOT NULL DEFAULT 0,
+    "numter5" VARCHAR(5) NULL,
+    "hora6" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora6" DATETIME NULL,
+    "esadicional6" BIT NOT NULL DEFAULT 0,
+    "numter6" VARCHAR(5) NULL,
+    "hora7" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora7" DATETIME NULL,
+    "esadicional7" BIT NOT NULL DEFAULT 0,
+    "numter7" VARCHAR(5) NULL,
+    "hora8" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora8" DATETIME NULL,
+    "esadicional8" BIT NOT NULL DEFAULT 0,
+    "numter8" VARCHAR(5) NULL,
+    "hora9" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora9" DATETIME NULL,
+    "esadicional9" BIT NOT NULL DEFAULT 0,
+    "numter9" VARCHAR(5) NULL,
+    "hora10" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora10" DATETIME NULL,
+    "esadicional10" BIT NOT NULL DEFAULT 0,
+    "numter10" VARCHAR(5) NULL,
+    "hora11" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora11" DATETIME NULL,
+    "esadicional11" BIT NOT NULL DEFAULT 0,
+    "numter11" VARCHAR(5) NULL,
+    "hora12" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora12" DATETIME NULL,
+    "esadicional12" BIT NOT NULL DEFAULT 0,
+    "numter12" VARCHAR(5) NULL,
+    "hora13" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora13" DATETIME NULL,
+    "esadicional13" BIT NOT NULL DEFAULT 0,
+    "numter13" VARCHAR(5) NULL,
+    "hora14" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora14" DATETIME NULL,
+    "esadicional14" BIT NOT NULL DEFAULT 0,
+    "numter14" VARCHAR(5) NULL,
+    "hora15" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora15" DATETIME NULL,
+    "esadicional15" BIT NOT NULL DEFAULT 0,
+    "numter15" VARCHAR(5) NULL,
+    "hora16" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora16" DATETIME NULL,
+    "esadicional16" BIT NOT NULL DEFAULT 0,
+    "numter16" VARCHAR(5) NULL,
+    "hora17" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora17" DATETIME NULL,
+    "esadicional17" BIT NOT NULL DEFAULT 0,
+    "numter17" VARCHAR(5) NULL,
+    "hora18" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora18" DATETIME NULL,
+    "esadicional18" BIT NOT NULL DEFAULT 0,
+    "numter18" VARCHAR(5) NULL,
+    "hora19" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora19" DATETIME NULL,
+    "esadicional19" BIT NOT NULL DEFAULT 0,
+    "numter19" VARCHAR(5) NULL,
+    "hora20" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora20" DATETIME NULL,
+    "esadicional20" BIT NOT NULL DEFAULT 0,
+    "numter20" VARCHAR(5) NULL,
+    "tienenovedad" BIT NOT NULL DEFAULT 0,
+    "esfalta" BIT NOT NULL DEFAULT 0,
+    "totalhoras" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempotrabajo" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoesperado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasfalta" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblresumen_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "ihcodigo" INT NOT NULL, CONSTRAINT "tblresumen_ihcodigo__constraint" FOREIGN KEY ("ihcodigo") REFERENCES "tblitemhorario" ("id") ON DELETE NO ACTION,
+    "horainicio" DATETIME NULL,
+    "horafin" DATETIME NULL,
+    "horasnormales" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnas" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hayatraso" BIT NOT NULL DEFAULT 0,
+    "tiempoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sejustificaatraso" BIT NOT NULL DEFAULT 0,
+    "tiempojustificadoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "haycena" BIT NOT NULL DEFAULT 0,
+    "tiempojustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoinjustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoarecuperar" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiemposinremuneracion" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sequitaiess" BIT NOT NULL DEFAULT 0,
+    "numtimbradaadicional" INT NULL,
+    "numeropermisos" INT NULL,
+    "sabdomfer" BIT NOT NULL DEFAULT 0,
+    "totalhorasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempotrabajod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnormalesd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempofaltad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoesperadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoinjustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoarecuperard" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiemposinremuneraciond" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "observaciones" VARCHAR(150) NULL,
+    "otrasnovedades" VARCHAR(100) NULL,
+    "semuestra" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblresumen_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblresumen_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:26.283000
+CREATE TABLE "auth_group"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "role" VARCHAR(512) NULL,
+    "description" VARCHAR(MAX) NULL,
+    "is_active" BIT NULL,
+    "created_on" DATETIME NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_group_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_group_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION
+);
+success!
+timestamp: 2018-08-06T09:56:26.330000
+CREATE TABLE "auth_options"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "optionname" VARCHAR(100) NOT NULL,
+    "optionsequence" INT NOT NULL,
+    "superioroption" INT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "auth_options_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_options_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:26.361000
+CREATE TABLE "auth_group_options"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "groupid" INT NOT NULL, CONSTRAINT "auth_group_options_groupid__constraint" FOREIGN KEY ("groupid") REFERENCES "auth_group" ("id") ON DELETE NO ACTION,
+    "optionid" INT NOT NULL, CONSTRAINT "auth_group_options_optionid__constraint" FOREIGN KEY ("optionid") REFERENCES "auth_options" ("id") ON DELETE NO ACTION,
+    "view_option" BIT NOT NULL DEFAULT 1,
+    "new_option" BIT NOT NULL DEFAULT 1,
+    "edit_option" BIT NOT NULL DEFAULT 1,
+    "delete_option" BIT NOT NULL DEFAULT 1,
+    "optionsequence" INT NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_group_options_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_group_options_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:26.423000
+CREATE TABLE "tbllicencia"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "licencia" VARCHAR(MAX) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tbllicencia_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbllicencia_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:44.705000
+CREATE TABLE "auth_membership"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "user_id" INT NULL, CONSTRAINT "auth_membership_user_id__constraint" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "group_id" INT NULL, CONSTRAINT "auth_membership_group_id__constraint" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") ON DELETE NO ACTION,
+    "acc_empresa" INT NULL, CONSTRAINT "auth_membership_acc_empresa__constraint" FOREIGN KEY ("acc_empresa") REFERENCES "tblempresas" ("id") ON DELETE NO ACTION,
+    "acc_lugar" INT NULL, CONSTRAINT "auth_membership_acc_lugar__constraint" FOREIGN KEY ("acc_lugar") REFERENCES "tbllugares" ("id") ON DELETE NO ACTION,
+    "acc_area" INT NULL, CONSTRAINT "auth_membership_acc_area__constraint" FOREIGN KEY ("acc_area") REFERENCES "tblareas" ("id") ON DELETE NO ACTION,
+    "acc_seccion" INT NULL, CONSTRAINT "auth_membership_acc_seccion__constraint" FOREIGN KEY ("acc_seccion") REFERENCES "tblsecciones" ("id") ON DELETE NO ACTION,
+    "acc_centrocosto" INT NULL, CONSTRAINT "auth_membership_acc_centrocosto__constraint" FOREIGN KEY ("acc_centrocosto") REFERENCES "tblcentrocosto" ("id") ON DELETE NO ACTION,
+    "acc_jefatura" INT NULL, CONSTRAINT "auth_membership_acc_jefatura__constraint" FOREIGN KEY ("acc_jefatura") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "acc_empleado" INT NULL, CONSTRAINT "auth_membership_acc_empleado__constraint" FOREIGN KEY ("acc_empleado") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "is_active" BIT NULL,
+    "created_on" DATETIME NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_membership_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_membership_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION
+);
+success!
+timestamp: 2018-08-06T09:56:44.720000
+CREATE TABLE "auth_permission"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "group_id" INT NULL, CONSTRAINT "auth_permission_group_id__constraint" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") ON DELETE NO ACTION,
+    "name" VARCHAR(512) NULL,
+    "table_name" VARCHAR(512) NULL,
+    "record_id" INT NULL,
+    "is_active" BIT NULL,
+    "created_on" DATETIME NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_permission_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_permission_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION
+);
+success!
+timestamp: 2018-08-06T09:56:44.752000
+CREATE TABLE "auth_event"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "time_stamp" DATETIME NULL,
+    "client_ip" VARCHAR(512) NULL,
+    "user_id" INT NULL, CONSTRAINT "auth_event_user_id__constraint" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "origin" VARCHAR(512) NULL,
+    "description" VARCHAR(MAX) NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_event_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_event_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:44.767000
+CREATE TABLE "auth_cas"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "user_id" INT NULL, CONSTRAINT "auth_cas_user_id__constraint" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "service" VARCHAR(512) NULL,
+    "ticket" VARCHAR(512) NULL,
+    "renew" BIT NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_cas_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_by" INT NULL, CONSTRAINT "auth_cas_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:44.783000
+CREATE TABLE "tbldiassemana"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "dia" VARCHAR(15) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tbldiassemana_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbldiassemana_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:44.814000
+CREATE TABLE "tblconceptos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "sigla" VARCHAR(3) NOT NULL DEFAULT 'PJ',
+    "esjustificado" BIT NOT NULL DEFAULT 1,
+    "afectaiess" BIT NOT NULL DEFAULT 0,
+    "esarecuperar" BIT NOT NULL DEFAULT 0,
+    "ingresatimbrada" BIT NOT NULL DEFAULT 1,
+    "estaactivo" BIT NOT NULL DEFAULT 1,
+    "essinremuneracion" BIT NOT NULL DEFAULT 0,
+    "noensolicitudes" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblconceptos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblconceptos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:44.830000
+CREATE TABLE "tblregistros"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mptarjeta" VARCHAR(20) NOT NULL,
+    "mpcodigo" VARCHAR(20) NULL,
+    "fechatxt" VARCHAR(8) NOT NULL,
+    "fechahora" DATETIME NULL,
+    "horatxt" VARCHAR(4) NOT NULL,
+    "jecodigo" INT NULL,
+    "esprocesado" BIT NOT NULL DEFAULT 0,
+    "esadicional" BIT NOT NULL DEFAULT 0,
+    "espermiso" BIT NOT NULL DEFAULT 0,
+    "terminal" VARCHAR(5) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblregistros_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblregistros_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:44.892000
+CREATE TABLE "tblhisregistros"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mptarjeta" VARCHAR(20) NOT NULL,
+    "mpcodigo" VARCHAR(20) NULL,
+    "fechatxt" VARCHAR(8) NOT NULL,
+    "fechahora" DATETIME NULL,
+    "horatxt" VARCHAR(4) NOT NULL,
+    "jecodigo" INT NULL,
+    "esprocesado" BIT NOT NULL DEFAULT 0,
+    "esadicional" BIT NOT NULL DEFAULT 0,
+    "espermiso" BIT NOT NULL DEFAULT 0,
+    "terminal" VARCHAR(5) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblhisregistros_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhisregistros_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:44.923000
+CREATE TABLE "tblresumencp"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblresumencp_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "numtimbradas" INT NULL,
+    "hora1" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora1" DATETIME NULL,
+    "esadicional1" BIT NOT NULL DEFAULT 0,
+    "numter1" VARCHAR(5) NULL,
+    "hora2" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora2" DATETIME NULL,
+    "esadicional2" BIT NOT NULL DEFAULT 0,
+    "numter2" VARCHAR(5) NULL,
+    "hora3" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora3" DATETIME NULL,
+    "esadicional3" BIT NOT NULL DEFAULT 0,
+    "numter3" VARCHAR(5) NULL,
+    "hora4" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora4" DATETIME NULL,
+    "esadicional4" BIT NOT NULL DEFAULT 0,
+    "numter4" VARCHAR(5) NULL,
+    "hora5" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora5" DATETIME NULL,
+    "esadicional5" BIT NOT NULL DEFAULT 0,
+    "numter5" VARCHAR(5) NULL,
+    "hora6" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora6" DATETIME NULL,
+    "esadicional6" BIT NOT NULL DEFAULT 0,
+    "numter6" VARCHAR(5) NULL,
+    "hora7" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora7" DATETIME NULL,
+    "esadicional7" BIT NOT NULL DEFAULT 0,
+    "numter7" VARCHAR(5) NULL,
+    "hora8" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora8" DATETIME NULL,
+    "esadicional8" BIT NOT NULL DEFAULT 0,
+    "numter8" VARCHAR(5) NULL,
+    "hora9" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora9" DATETIME NULL,
+    "esadicional9" BIT NOT NULL DEFAULT 0,
+    "numter9" VARCHAR(5) NULL,
+    "hora10" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora10" DATETIME NULL,
+    "esadicional10" BIT NOT NULL DEFAULT 0,
+    "numter10" VARCHAR(5) NULL,
+    "hora11" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora11" DATETIME NULL,
+    "esadicional11" BIT NOT NULL DEFAULT 0,
+    "numter11" VARCHAR(5) NULL,
+    "hora12" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora12" DATETIME NULL,
+    "esadicional12" BIT NOT NULL DEFAULT 0,
+    "numter12" VARCHAR(5) NULL,
+    "hora13" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora13" DATETIME NULL,
+    "esadicional13" BIT NOT NULL DEFAULT 0,
+    "numter13" VARCHAR(5) NULL,
+    "hora14" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora14" DATETIME NULL,
+    "esadicional14" BIT NOT NULL DEFAULT 0,
+    "numter14" VARCHAR(5) NULL,
+    "hora15" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora15" DATETIME NULL,
+    "esadicional15" BIT NOT NULL DEFAULT 0,
+    "numter15" VARCHAR(5) NULL,
+    "hora16" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora16" DATETIME NULL,
+    "esadicional16" BIT NOT NULL DEFAULT 0,
+    "numter16" VARCHAR(5) NULL,
+    "hora17" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora17" DATETIME NULL,
+    "esadicional17" BIT NOT NULL DEFAULT 0,
+    "numter17" VARCHAR(5) NULL,
+    "hora18" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora18" DATETIME NULL,
+    "esadicional18" BIT NOT NULL DEFAULT 0,
+    "numter18" VARCHAR(5) NULL,
+    "hora19" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora19" DATETIME NULL,
+    "esadicional19" BIT NOT NULL DEFAULT 0,
+    "numter19" VARCHAR(5) NULL,
+    "hora20" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora20" DATETIME NULL,
+    "esadicional20" BIT NOT NULL DEFAULT 0,
+    "numter20" VARCHAR(5) NULL,
+    "tienenovedad" BIT NOT NULL DEFAULT 0,
+    "esfalta" BIT NOT NULL DEFAULT 0,
+    "totalhoras" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempotrabajo" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoesperado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasfalta" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblresumencp_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "ihcodigo" INT NOT NULL, CONSTRAINT "tblresumencp_ihcodigo__constraint" FOREIGN KEY ("ihcodigo") REFERENCES "tblitemhorario" ("id") ON DELETE NO ACTION,
+    "horainicio" DATETIME NULL,
+    "horafin" DATETIME NULL,
+    "horasnormales" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnas" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hayatraso" BIT NOT NULL DEFAULT 0,
+    "tiempoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sejustificaatraso" BIT NOT NULL DEFAULT 0,
+    "tiempojustificadoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "haycena" BIT NOT NULL DEFAULT 0,
+    "tiempojustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoinjustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoarecuperar" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiemposinremuneracion" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sequitaiess" BIT NOT NULL DEFAULT 0,
+    "numtimbradaadicional" INT NULL,
+    "numeropermisos" INT NULL,
+    "sabdomfer" BIT NOT NULL DEFAULT 0,
+    "totalhorasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempotrabajod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnormalesd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempofaltad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoesperadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoinjustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoarecuperard" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiemposinremuneraciond" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "observaciones" VARCHAR(150) NULL,
+    "otrasnovedades" VARCHAR(100) NULL,
+    "semuestra" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblresumencp_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblresumencp_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.033000
+CREATE TABLE "tblhisresumen"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblhisresumen_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "numtimbradas" INT NULL,
+    "hora1" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora1" DATETIME NULL,
+    "esadicional1" BIT NOT NULL DEFAULT 0,
+    "numter1" VARCHAR(5) NULL,
+    "hora2" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora2" DATETIME NULL,
+    "esadicional2" BIT NOT NULL DEFAULT 0,
+    "numter2" VARCHAR(5) NULL,
+    "hora3" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora3" DATETIME NULL,
+    "esadicional3" BIT NOT NULL DEFAULT 0,
+    "numter3" VARCHAR(5) NULL,
+    "hora4" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora4" DATETIME NULL,
+    "esadicional4" BIT NOT NULL DEFAULT 0,
+    "numter4" VARCHAR(5) NULL,
+    "hora5" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora5" DATETIME NULL,
+    "esadicional5" BIT NOT NULL DEFAULT 0,
+    "numter5" VARCHAR(5) NULL,
+    "hora6" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora6" DATETIME NULL,
+    "esadicional6" BIT NOT NULL DEFAULT 0,
+    "numter6" VARCHAR(5) NULL,
+    "hora7" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora7" DATETIME NULL,
+    "esadicional7" BIT NOT NULL DEFAULT 0,
+    "numter7" VARCHAR(5) NULL,
+    "hora8" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora8" DATETIME NULL,
+    "esadicional8" BIT NOT NULL DEFAULT 0,
+    "numter8" VARCHAR(5) NULL,
+    "hora9" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora9" DATETIME NULL,
+    "esadicional9" BIT NOT NULL DEFAULT 0,
+    "numter9" VARCHAR(5) NULL,
+    "hora10" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora10" DATETIME NULL,
+    "esadicional10" BIT NOT NULL DEFAULT 0,
+    "numter10" VARCHAR(5) NULL,
+    "hora11" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora11" DATETIME NULL,
+    "esadicional11" BIT NOT NULL DEFAULT 0,
+    "numter11" VARCHAR(5) NULL,
+    "hora12" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora12" DATETIME NULL,
+    "esadicional12" BIT NOT NULL DEFAULT 0,
+    "numter12" VARCHAR(5) NULL,
+    "hora13" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora13" DATETIME NULL,
+    "esadicional13" BIT NOT NULL DEFAULT 0,
+    "numter13" VARCHAR(5) NULL,
+    "hora14" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora14" DATETIME NULL,
+    "esadicional14" BIT NOT NULL DEFAULT 0,
+    "numter14" VARCHAR(5) NULL,
+    "hora15" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora15" DATETIME NULL,
+    "esadicional15" BIT NOT NULL DEFAULT 0,
+    "numter15" VARCHAR(5) NULL,
+    "hora16" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora16" DATETIME NULL,
+    "esadicional16" BIT NOT NULL DEFAULT 0,
+    "numter16" VARCHAR(5) NULL,
+    "hora17" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora17" DATETIME NULL,
+    "esadicional17" BIT NOT NULL DEFAULT 0,
+    "numter17" VARCHAR(5) NULL,
+    "hora18" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora18" DATETIME NULL,
+    "esadicional18" BIT NOT NULL DEFAULT 0,
+    "numter18" VARCHAR(5) NULL,
+    "hora19" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora19" DATETIME NULL,
+    "esadicional19" BIT NOT NULL DEFAULT 0,
+    "numter19" VARCHAR(5) NULL,
+    "hora20" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora20" DATETIME NULL,
+    "esadicional20" BIT NOT NULL DEFAULT 0,
+    "numter20" VARCHAR(5) NULL,
+    "tienenovedad" BIT NOT NULL DEFAULT 0,
+    "esfalta" BIT NOT NULL DEFAULT 0,
+    "totalhoras" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempotrabajo" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoesperado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasfalta" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblhisresumen_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "ihcodigo" INT NOT NULL, CONSTRAINT "tblhisresumen_ihcodigo__constraint" FOREIGN KEY ("ihcodigo") REFERENCES "tblitemhorario" ("id") ON DELETE NO ACTION,
+    "horainicio" DATETIME NULL,
+    "horafin" DATETIME NULL,
+    "horasnormales" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnas" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hayatraso" BIT NOT NULL DEFAULT 0,
+    "tiempoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sejustificaatraso" BIT NOT NULL DEFAULT 0,
+    "tiempojustificadoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "haycena" BIT NOT NULL DEFAULT 0,
+    "tiempojustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoinjustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoarecuperar" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiemposinremuneracion" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sequitaiess" BIT NOT NULL DEFAULT 0,
+    "numtimbradaadicional" INT NULL,
+    "numeropermisos" INT NULL,
+    "sabdomfer" BIT NOT NULL DEFAULT 0,
+    "totalhorasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempotrabajod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnormalesd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempofaltad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoesperadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoinjustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoarecuperard" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiemposinremuneraciond" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "observaciones" VARCHAR(150) NULL,
+    "otrasnovedades" VARCHAR(100) NULL,
+    "semuestra" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblhisresumen_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhisresumen_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.173000
+CREATE TABLE "tblhisresumencp"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblhisresumencp_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "numtimbradas" INT NULL,
+    "hora1" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora1" DATETIME NULL,
+    "esadicional1" BIT NOT NULL DEFAULT 0,
+    "numter1" VARCHAR(5) NULL,
+    "hora2" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora2" DATETIME NULL,
+    "esadicional2" BIT NOT NULL DEFAULT 0,
+    "numter2" VARCHAR(5) NULL,
+    "hora3" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora3" DATETIME NULL,
+    "esadicional3" BIT NOT NULL DEFAULT 0,
+    "numter3" VARCHAR(5) NULL,
+    "hora4" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora4" DATETIME NULL,
+    "esadicional4" BIT NOT NULL DEFAULT 0,
+    "numter4" VARCHAR(5) NULL,
+    "hora5" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora5" DATETIME NULL,
+    "esadicional5" BIT NOT NULL DEFAULT 0,
+    "numter5" VARCHAR(5) NULL,
+    "hora6" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora6" DATETIME NULL,
+    "esadicional6" BIT NOT NULL DEFAULT 0,
+    "numter6" VARCHAR(5) NULL,
+    "hora7" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora7" DATETIME NULL,
+    "esadicional7" BIT NOT NULL DEFAULT 0,
+    "numter7" VARCHAR(5) NULL,
+    "hora8" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora8" DATETIME NULL,
+    "esadicional8" BIT NOT NULL DEFAULT 0,
+    "numter8" VARCHAR(5) NULL,
+    "hora9" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora9" DATETIME NULL,
+    "esadicional9" BIT NOT NULL DEFAULT 0,
+    "numter9" VARCHAR(5) NULL,
+    "hora10" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora10" DATETIME NULL,
+    "esadicional10" BIT NOT NULL DEFAULT 0,
+    "numter10" VARCHAR(5) NULL,
+    "hora11" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora11" DATETIME NULL,
+    "esadicional11" BIT NOT NULL DEFAULT 0,
+    "numter11" VARCHAR(5) NULL,
+    "hora12" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora12" DATETIME NULL,
+    "esadicional12" BIT NOT NULL DEFAULT 0,
+    "numter12" VARCHAR(5) NULL,
+    "hora13" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora13" DATETIME NULL,
+    "esadicional13" BIT NOT NULL DEFAULT 0,
+    "numter13" VARCHAR(5) NULL,
+    "hora14" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora14" DATETIME NULL,
+    "esadicional14" BIT NOT NULL DEFAULT 0,
+    "numter14" VARCHAR(5) NULL,
+    "hora15" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora15" DATETIME NULL,
+    "esadicional15" BIT NOT NULL DEFAULT 0,
+    "numter15" VARCHAR(5) NULL,
+    "hora16" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora16" DATETIME NULL,
+    "esadicional16" BIT NOT NULL DEFAULT 0,
+    "numter16" VARCHAR(5) NULL,
+    "hora17" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora17" DATETIME NULL,
+    "esadicional17" BIT NOT NULL DEFAULT 0,
+    "numter17" VARCHAR(5) NULL,
+    "hora18" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora18" DATETIME NULL,
+    "esadicional18" BIT NOT NULL DEFAULT 0,
+    "numter18" VARCHAR(5) NULL,
+    "hora19" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora19" DATETIME NULL,
+    "esadicional19" BIT NOT NULL DEFAULT 0,
+    "numter19" VARCHAR(5) NULL,
+    "hora20" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora20" DATETIME NULL,
+    "esadicional20" BIT NOT NULL DEFAULT 0,
+    "numter20" VARCHAR(5) NULL,
+    "tienenovedad" BIT NOT NULL DEFAULT 0,
+    "esfalta" BIT NOT NULL DEFAULT 0,
+    "totalhoras" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempotrabajo" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoesperado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasfalta" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblhisresumencp_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "ihcodigo" INT NOT NULL, CONSTRAINT "tblhisresumencp_ihcodigo__constraint" FOREIGN KEY ("ihcodigo") REFERENCES "tblitemhorario" ("id") ON DELETE NO ACTION,
+    "horainicio" DATETIME NULL,
+    "horafin" DATETIME NULL,
+    "horasnormales" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnas" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hayatraso" BIT NOT NULL DEFAULT 0,
+    "tiempoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sejustificaatraso" BIT NOT NULL DEFAULT 0,
+    "tiempojustificadoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "haycena" BIT NOT NULL DEFAULT 0,
+    "tiempojustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoinjustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoarecuperar" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiemposinremuneracion" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sequitaiess" BIT NOT NULL DEFAULT 0,
+    "numtimbradaadicional" INT NULL,
+    "numeropermisos" INT NULL,
+    "sabdomfer" BIT NOT NULL DEFAULT 0,
+    "totalhorasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempotrabajod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnormalesd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempofaltad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoesperadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoinjustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoarecuperard" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiemposinremuneraciond" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "observaciones" VARCHAR(150) NULL,
+    "otrasnovedades" VARCHAR(100) NULL,
+    "semuestra" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblhisresumencp_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhisresumencp_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.283000
+CREATE TABLE "tblpermisos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblpermisos_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tblpermisos_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "cpcodigo" INT NOT NULL, CONSTRAINT "tblpermisos_cpcodigo__constraint" FOREIGN KEY ("cpcodigo") REFERENCES "tblconceptos" ("id") ON DELETE NO ACTION,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "fechainicial" DATE NOT NULL DEFAULT '2018-08-06',
+    "fechafinal" DATE NOT NULL DEFAULT '2018-08-06',
+    "horainicial" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horafinal" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempo" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "fecharegistro" DATE NOT NULL DEFAULT '2018-08-06',
+    "diremail" VARCHAR(100) NULL,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblpermisos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblpermisos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.314000
+CREATE TABLE "tblhispermisos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblhispermisos_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tblhispermisos_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "cpcodigo" INT NOT NULL, CONSTRAINT "tblhispermisos_cpcodigo__constraint" FOREIGN KEY ("cpcodigo") REFERENCES "tblconceptos" ("id") ON DELETE NO ACTION,
+    "descripcion" VARCHAR(100) NOT NULL,
+    "fechainicial" DATE NOT NULL DEFAULT '2018-08-06',
+    "fechafinal" DATE NOT NULL DEFAULT '2018-08-06',
+    "horainicial" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horafinal" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempo" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "fecharegistro" DATE NOT NULL DEFAULT '2018-08-06',
+    "diremail" VARCHAR(100) NULL,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblhispermisos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhispermisos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.330000
+CREATE TABLE "tbltimbradasadicionales"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tbltimbradasadicionales_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tbltimbradasadicionales_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "razon" VARCHAR(100) NOT NULL,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "hora" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "latitud" VARCHAR(20) NULL,
+    "longitud" VARCHAR(20) NULL,
+    "fecharegistro" DATE NOT NULL DEFAULT '2018-08-06',
+    "diremail" VARCHAR(100) NULL,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbltimbradasadicionales_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbltimbradasadicionales_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.345000
+CREATE TABLE "tblhistimbradasadicionales"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblhistimbradasadicionales_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tblhistimbradasadicionales_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "razon" VARCHAR(100) NOT NULL,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "hora" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "latitud" VARCHAR(20) NULL,
+    "longitud" VARCHAR(20) NULL,
+    "fecharegistro" DATE NOT NULL DEFAULT '2018-08-06',
+    "diremail" VARCHAR(100) NULL,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblhistimbradasadicionales_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhistimbradasadicionales_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.377000
+CREATE TABLE "tblparcontasist"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "razonsocial" VARCHAR(100) NOT NULL,
+    "codvacaciones" INT NOT NULL, CONSTRAINT "tblparcontasist_codvacaciones__constraint" FOREIGN KEY ("codvacaciones") REFERENCES "tblconceptos" ("id") ON DELETE NO ACTION,
+    "tolatrasos" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "servermail" VARCHAR(100) NOT NULL,
+    "dircorreo" VARCHAR(50) NOT NULL,
+    "usrcorreo" VARCHAR(50) NOT NULL,
+    "paswdcorreo" VARCHAR(20) NOT NULL,
+    "urlapp" VARCHAR(100) NOT NULL,
+    "seenviacorreo" BIT NOT NULL DEFAULT 0,
+    "dircorreocopia" VARCHAR(200) NULL,
+    "urlappext" VARCHAR(50) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblparcontasist_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblparcontasist_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.423000
+CREATE TABLE "tblcalendario"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblcalendario_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblcalendario_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "fechainicial" VARCHAR(48) NOT NULL,
+    "fechafinal" VARCHAR(48) NOT NULL,
+    "todoeldia" VARCHAR(5) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblcalendario_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblcalendario_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.439000
+CREATE TABLE "tblcalendariodiario"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "cacodigo" INT NOT NULL, CONSTRAINT "tblcalendariodiario_cacodigo__constraint" FOREIGN KEY ("cacodigo") REFERENCES "tblcalendario" ("id") ON DELETE NO ACTION,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblcalendariodiario_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblcalendariodiario_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "esprocesado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblcalendariodiario_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblcalendariodiario_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.455000
+CREATE TABLE "tblreportesexternos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "nomreporte" VARCHAR(100) NOT NULL,
+    "descreporte" VARCHAR(100) NOT NULL,
+    "tiporeporte" VARCHAR(50) NOT NULL DEFAULT 'Detallado',
+    "asociado" VARCHAR(50) NOT NULL DEFAULT 'Ninguno',
+    "created_by" INT NULL, CONSTRAINT "tblreportesexternos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblreportesexternos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.470000
+CREATE TABLE "tblparprocesamiento"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "fechainicial" DATE NOT NULL DEFAULT '2018-08-06',
+    "fechafinal" DATE NOT NULL DEFAULT '2018-08-06',
+    "created_by" INT NULL, CONSTRAINT "tblparprocesamiento_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblparprocesamiento_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.502000
+CREATE TABLE "tbltotalresumen"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tbltotalresumen_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "totalhoras" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalnormales" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalnocturnas" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalnocturnaspaga" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalnocturnasreal" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalsuplementarias" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalsuplementariaspaga" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalsuplementariasreal" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalextraordinarias" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalextraordinariaspaga" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalextraordinariasreal" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalnumeropermisos" INT NOT NULL DEFAULT 0,
+    "totaltiempopermisos" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalatrasos" INT NOT NULL DEFAULT 0,
+    "totaltiempoatrasos" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalatrasosjust" INT NOT NULL DEFAULT 0,
+    "totaltiempoatrasosjust" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totaldiasfalta" INT NOT NULL DEFAULT 0,
+    "totaltiempofalta" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totaltiempoesperado" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totaltiempoarecuperar" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totaltiemposinremuneracion" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalsabdomfer" INT NOT NULL DEFAULT 0,
+    "totaltiempoinjustificado" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totaltimbradasadicionales" INT NOT NULL DEFAULT 0,
+    "fechainicial" DATE NOT NULL DEFAULT '2018-08-06',
+    "fechafinal" DATE NOT NULL DEFAULT '2018-08-06',
+    "totalingresos" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totaldescuentos" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "totalapagar" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbltotalresumen_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbltotalresumen_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.611000
+CREATE TABLE "current_user_group"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "user_id" INT NOT NULL, CONSTRAINT "current_user_group_user_id__constraint" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "group_id" INT NOT NULL, CONSTRAINT "current_user_group_group_id__constraint" FOREIGN KEY ("group_id") REFERENCES "auth_group" ("id") ON DELETE NO ACTION,
+    "created_by" INT NULL, CONSTRAINT "current_user_group_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "current_user_group_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.627000
+CREATE TABLE "tblsoljustatrasos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblsoljustatrasos_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tblsoljustatrasos_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "razon" VARCHAR(100) NOT NULL,
+    "fecha" DATE NOT NULL DEFAULT '2018-08-06',
+    "fecharegistro" DATE NOT NULL DEFAULT '2018-08-06',
+    "diremail" VARCHAR(100) NULL,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblsoljustatrasos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblsoljustatrasos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.642000
+CREATE TABLE "tblregistaprocesar"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "fechaini" DATE NOT NULL DEFAULT '2018-08-06',
+    "fechafin" DATE NOT NULL DEFAULT '2018-08-06',
+    "filtro" VARCHAR(100) NULL,
+    "userid" INT NULL,
+    "procesado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblregistaprocesar_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblregistaprocesar_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.673000
+CREATE TABLE "tblredondeominutos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "desde" INT NULL,
+    "hasta" INT NULL,
+    "redondeo" INT NULL,
+    "aplicahorasnormales" BIT NOT NULL DEFAULT 0,
+    "aplicahorasnocturnas" BIT NOT NULL DEFAULT 0,
+    "aplicahorassuplementarias" BIT NOT NULL DEFAULT 0,
+    "aplicahorasextraordinarias" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblredondeominutos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblredondeominutos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.689000
+CREATE TABLE "tblcargacalendario"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL,
+    "anio" INT NOT NULL,
+    "mes" INT NOT NULL,
+    "ho1" INT NULL,
+    "ho2" INT NULL,
+    "ho3" INT NULL,
+    "ho4" INT NULL,
+    "ho5" INT NULL,
+    "ho6" INT NULL,
+    "ho7" INT NULL,
+    "ho8" INT NULL,
+    "ho9" INT NULL,
+    "ho10" INT NULL,
+    "ho11" INT NULL,
+    "ho12" INT NULL,
+    "ho13" INT NULL,
+    "ho14" INT NULL,
+    "ho15" INT NULL,
+    "ho16" INT NULL,
+    "ho17" INT NULL,
+    "ho18" INT NULL,
+    "ho19" INT NULL,
+    "ho20" INT NULL,
+    "ho21" INT NULL,
+    "ho22" INT NULL,
+    "ho23" INT NULL,
+    "ho24" INT NULL,
+    "ho25" INT NULL,
+    "ho26" INT NULL,
+    "ho27" INT NULL,
+    "ho28" INT NULL,
+    "ho29" INT NULL,
+    "ho30" INT NULL,
+    "ho31" INT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblcargacalendario_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblcargacalendario_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.705000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" VARCHAR(512) NULL,
+    "task_name" VARCHAR(512) NULL,
+    "group_name" VARCHAR(512) NULL,
+    "status" VARCHAR(512) NULL,
+    "function_name" VARCHAR(512) NULL,
+    "uuid" VARCHAR(255) NULL UNIQUE,
+    "args" VARCHAR(MAX) NULL,
+    "vars" VARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" VARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.736000
+CREATE TABLE "scheduler_run"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "task_id" INT NULL, CONSTRAINT "scheduler_run_task_id__constraint" FOREIGN KEY ("task_id") REFERENCES "scheduler_task" ("id") ON DELETE NO ACTION,
+    "status" VARCHAR(512) NULL,
+    "start_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "run_output" VARCHAR(MAX) NULL,
+    "run_result" VARCHAR(MAX) NULL,
+    "traceback" VARCHAR(MAX) NULL,
+    "worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_run_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_run_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.767000
+CREATE TABLE "scheduler_worker"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "worker_name" VARCHAR(255) NULL UNIQUE,
+    "first_heartbeat" DATETIME NULL,
+    "last_heartbeat" DATETIME NULL,
+    "status" VARCHAR(512) NULL,
+    "is_ticker" BIT NULL,
+    "group_names" VARCHAR(MAX) NULL,
+    "worker_stats" VARCHAR(MAX) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_worker_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_worker_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-06T09:56:45.783000
+CREATE TABLE "scheduler_task_deps"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "job_name" VARCHAR(512) NULL,
+    "task_parent" INT NULL,
+    "task_child" INT NULL, CONSTRAINT "scheduler_task_deps_task_child__constraint" FOREIGN KEY ("task_child") REFERENCES "scheduler_task" ("id") ON DELETE NO ACTION,
+    "can_visit" BIT NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_deps_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_deps_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-07T10:09:37.064000
+CREATE TABLE "auth_user"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "first_name" VARCHAR(128) NULL,
+    "last_name" VARCHAR(128) NULL,
+    "email" VARCHAR(512) NULL,
+    "username" VARCHAR(128) NULL,
+    "password" VARCHAR(512) NULL,
+    "registration_key" VARCHAR(512) NULL,
+    "reset_password_key" VARCHAR(512) NULL,
+    "registration_id" VARCHAR(512) NULL,
+    "accesoappmovil" BIT NOT NULL DEFAULT 1,
+    "is_active" BIT NULL,
+    "created_on" DATETIME NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_user_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_user_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION
+);
+timestamp: 2018-08-07T10:10:55.264000
+CREATE TABLE "auth_user"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "first_name" VARCHAR(128) NULL,
+    "last_name" VARCHAR(128) NULL,
+    "email" VARCHAR(512) NULL,
+    "username" VARCHAR(128) NULL,
+    "password" VARCHAR(512) NULL,
+    "registration_key" VARCHAR(512) NULL,
+    "reset_password_key" VARCHAR(512) NULL,
+    "registration_id" VARCHAR(512) NULL,
+    "accesoappmovil" BIT NOT NULL DEFAULT 1,
+    "is_active" BIT NULL,
+    "created_on" DATETIME NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_user_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_user_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION
+);
+timestamp: 2018-08-07T12:05:01.397000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" VARCHAR(512) NULL,
+    "task_name" VARCHAR(512) NULL,
+    "group_name" VARCHAR(512) NULL,
+    "status" VARCHAR(512) NULL,
+    "function_name" VARCHAR(512) NULL,
+    "uuid" VARCHAR(255) NULL UNIQUE,
+    "args" VARCHAR(MAX) NULL,
+    "vars" VARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" VARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-08-07T12:07:06.275000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" VARCHAR(512) NULL,
+    "task_name" VARCHAR(512) NULL,
+    "group_name" VARCHAR(512) NULL,
+    "status" VARCHAR(512) NULL,
+    "function_name" VARCHAR(512) NULL,
+    "uuid" VARCHAR(255) NULL UNIQUE,
+    "args" VARCHAR(MAX) NULL,
+    "vars" VARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" VARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-08-07T12:21:20.393000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" VARCHAR(512) NULL,
+    "task_name" VARCHAR(512) NULL,
+    "group_name" VARCHAR(512) NULL,
+    "status" VARCHAR(512) NULL,
+    "function_name" VARCHAR(512) NULL,
+    "uuid" VARCHAR(255) NULL UNIQUE,
+    "args" VARCHAR(MAX) NULL,
+    "vars" VARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" VARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" VARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-08-30T15:50:43.925000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-09-11T15:58:08.540000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-10-04T11:35:47.980000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-12-17T17:01:29.049000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "broadcast" BIT NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-12-17T17:02:24.583000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "broadcast" BIT NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2018-12-18T08:26:14.636000
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "broadcast" BIT NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-12-18T08:26:14.705000
+CREATE TABLE "scheduler_run"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "task_id" INT NULL, CONSTRAINT "scheduler_run_task_id__constraint" FOREIGN KEY ("task_id") REFERENCES "scheduler_task" ("id") ON DELETE NO ACTION,
+    "status" NVARCHAR(512) NULL,
+    "start_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "run_output" NVARCHAR(MAX) NULL,
+    "run_result" NVARCHAR(MAX) NULL,
+    "traceback" NVARCHAR(MAX) NULL,
+    "worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_run_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_run_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-12-18T08:26:14.750000
+CREATE TABLE "scheduler_worker"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "worker_name" NVARCHAR(255) NULL UNIQUE,
+    "first_heartbeat" DATETIME NULL,
+    "last_heartbeat" DATETIME NULL,
+    "status" NVARCHAR(512) NULL,
+    "is_ticker" BIT NULL,
+    "group_names" NVARCHAR(MAX) NULL,
+    "worker_stats" NVARCHAR(MAX) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_worker_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_worker_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2018-12-18T08:26:14.799000
+CREATE TABLE "scheduler_task_deps"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "job_name" NVARCHAR(512) NULL,
+    "task_parent" INT NULL,
+    "task_child" INT NULL, CONSTRAINT "scheduler_task_deps_task_child__constraint" FOREIGN KEY ("task_child") REFERENCES "scheduler_task" ("id") ON DELETE NO ACTION,
+    "can_visit" BIT NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_deps_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_deps_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-04T12:27:37.784971
+CREATE TABLE "auth_user"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "first_name" NVARCHAR(128) NULL,
+    "last_name" NVARCHAR(128) NULL,
+    "email" NVARCHAR(512) NULL,
+    "username" NVARCHAR(128) NULL,
+    "password" NVARCHAR(512) NULL,
+    "registration_key" NVARCHAR(512) NULL,
+    "reset_password_key" NVARCHAR(512) NULL,
+    "registration_id" NVARCHAR(512) NULL,
+    "accesoappmovil" BIT NOT NULL DEFAULT 1,
+    "is_active" BIT NULL,
+    "created_on" DATETIME NULL,
+    "created_by" INT NULL, CONSTRAINT "auth_user_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "auth_user_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION
+);
+timestamp: 2020-03-16T19:45:54.004159
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "broadcast" BIT NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-03-16T19:49:34.180074
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "broadcast" BIT NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-03-16T20:08:36.910892
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "broadcast" BIT NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-03-16T20:40:28.866108
+CREATE TABLE "scheduler_task"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "application_name" NVARCHAR(512) NULL,
+    "task_name" NVARCHAR(512) NULL,
+    "group_name" NVARCHAR(512) NULL,
+    "status" NVARCHAR(512) NULL,
+    "broadcast" BIT NULL,
+    "function_name" NVARCHAR(512) NULL,
+    "uuid" NVARCHAR(255) NULL UNIQUE,
+    "args" NVARCHAR(MAX) NULL,
+    "vars" NVARCHAR(MAX) NULL,
+    "enabled" BIT NULL,
+    "start_time" DATETIME NULL,
+    "next_run_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "repeats" INT NULL,
+    "retry_failed" INT NULL,
+    "period" INT NULL,
+    "prevent_drift" BIT NULL,
+    "cronline" NVARCHAR(512) NULL,
+    "timeout" INT NULL,
+    "sync_output" INT NULL,
+    "times_run" INT NULL,
+    "times_failed" INT NULL,
+    "last_run_time" DATETIME NULL,
+    "assigned_worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-16T20:40:30.499734
+CREATE TABLE "scheduler_run"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "task_id" INT NULL, CONSTRAINT "scheduler_run_task_id__constraint" FOREIGN KEY ("task_id") REFERENCES "scheduler_task" ("id") ON DELETE NO ACTION,
+    "status" NVARCHAR(512) NULL,
+    "start_time" DATETIME NULL,
+    "stop_time" DATETIME NULL,
+    "run_output" NVARCHAR(MAX) NULL,
+    "run_result" NVARCHAR(MAX) NULL,
+    "traceback" NVARCHAR(MAX) NULL,
+    "worker_name" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_run_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_run_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-16T20:40:31.402317
+CREATE TABLE "scheduler_worker"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "worker_name" NVARCHAR(255) NULL UNIQUE,
+    "first_heartbeat" DATETIME NULL,
+    "last_heartbeat" DATETIME NULL,
+    "status" NVARCHAR(512) NULL,
+    "is_ticker" BIT NULL,
+    "group_names" NVARCHAR(MAX) NULL,
+    "worker_stats" NVARCHAR(MAX) NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_worker_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_worker_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-16T20:40:32.093475
+CREATE TABLE "scheduler_task_deps"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "job_name" NVARCHAR(512) NULL,
+    "task_parent" INT NULL,
+    "task_child" INT NULL, CONSTRAINT "scheduler_task_deps_task_child__constraint" FOREIGN KEY ("task_child") REFERENCES "scheduler_task" ("id") ON DELETE NO ACTION,
+    "can_visit" BIT NULL,
+    "created_by" INT NULL, CONSTRAINT "scheduler_task_deps_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "scheduler_task_deps_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-16T20:48:20.832504
+CREATE TABLE "tblregistrosgeneral"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mptarjeta" NVARCHAR(20) NOT NULL,
+    "mpcodigo" NVARCHAR(20) NULL,
+    "fechatxt" NVARCHAR(8) NOT NULL,
+    "fechahora" DATETIME NULL,
+    "horatxt" NVARCHAR(4) NOT NULL,
+    "jecodigo" INT NULL,
+    "esprocesado" BIT NOT NULL DEFAULT 0,
+    "esadicional" BIT NOT NULL DEFAULT 0,
+    "espermiso" BIT NOT NULL DEFAULT 0,
+    "terminal" NVARCHAR(5) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblregistrosgeneral_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblregistrosgeneral_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-17T16:13:03.581069
+CREATE TABLE "tblresumen_gen"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblresumen_gen_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2020-03-17',
+    "numtimbradas" INT NULL,
+    "hora1" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora1" DATETIME NULL,
+    "esadicional1" BIT NOT NULL DEFAULT 0,
+    "numter1" NVARCHAR(5) NULL,
+    "hora2" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora2" DATETIME NULL,
+    "esadicional2" BIT NOT NULL DEFAULT 0,
+    "numter2" NVARCHAR(5) NULL,
+    "hora3" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora3" DATETIME NULL,
+    "esadicional3" BIT NOT NULL DEFAULT 0,
+    "numter3" NVARCHAR(5) NULL,
+    "hora4" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora4" DATETIME NULL,
+    "esadicional4" BIT NOT NULL DEFAULT 0,
+    "numter4" NVARCHAR(5) NULL,
+    "hora5" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora5" DATETIME NULL,
+    "esadicional5" BIT NOT NULL DEFAULT 0,
+    "numter5" NVARCHAR(5) NULL,
+    "hora6" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora6" DATETIME NULL,
+    "esadicional6" BIT NOT NULL DEFAULT 0,
+    "numter6" NVARCHAR(5) NULL,
+    "hora7" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora7" DATETIME NULL,
+    "esadicional7" BIT NOT NULL DEFAULT 0,
+    "numter7" NVARCHAR(5) NULL,
+    "hora8" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora8" DATETIME NULL,
+    "esadicional8" BIT NOT NULL DEFAULT 0,
+    "numter8" NVARCHAR(5) NULL,
+    "hora9" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora9" DATETIME NULL,
+    "esadicional9" BIT NOT NULL DEFAULT 0,
+    "numter9" NVARCHAR(5) NULL,
+    "hora10" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora10" DATETIME NULL,
+    "esadicional10" BIT NOT NULL DEFAULT 0,
+    "numter10" NVARCHAR(5) NULL,
+    "hora11" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora11" DATETIME NULL,
+    "esadicional11" BIT NOT NULL DEFAULT 0,
+    "numter11" NVARCHAR(5) NULL,
+    "hora12" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora12" DATETIME NULL,
+    "esadicional12" BIT NOT NULL DEFAULT 0,
+    "numter12" NVARCHAR(5) NULL,
+    "hora13" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora13" DATETIME NULL,
+    "esadicional13" BIT NOT NULL DEFAULT 0,
+    "numter13" NVARCHAR(5) NULL,
+    "hora14" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora14" DATETIME NULL,
+    "esadicional14" BIT NOT NULL DEFAULT 0,
+    "numter14" NVARCHAR(5) NULL,
+    "hora15" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora15" DATETIME NULL,
+    "esadicional15" BIT NOT NULL DEFAULT 0,
+    "numter15" NVARCHAR(5) NULL,
+    "hora16" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora16" DATETIME NULL,
+    "esadicional16" BIT NOT NULL DEFAULT 0,
+    "numter16" NVARCHAR(5) NULL,
+    "hora17" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora17" DATETIME NULL,
+    "esadicional17" BIT NOT NULL DEFAULT 0,
+    "numter17" NVARCHAR(5) NULL,
+    "hora18" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora18" DATETIME NULL,
+    "esadicional18" BIT NOT NULL DEFAULT 0,
+    "numter18" NVARCHAR(5) NULL,
+    "hora19" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora19" DATETIME NULL,
+    "esadicional19" BIT NOT NULL DEFAULT 0,
+    "numter19" NVARCHAR(5) NULL,
+    "hora20" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "fechahora20" DATETIME NULL,
+    "esadicional20" BIT NOT NULL DEFAULT 0,
+    "numter20" NVARCHAR(5) NULL,
+    "tienenovedad" BIT NOT NULL DEFAULT 0,
+    "esfalta" BIT NOT NULL DEFAULT 0,
+    "totalhoras" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempotrabajo" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoesperado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasfalta" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hocodigo" INT NOT NULL, CONSTRAINT "tblresumen_gen_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "ihcodigo" INT NOT NULL, CONSTRAINT "tblresumen_gen_ihcodigo__constraint" FOREIGN KEY ("ihcodigo") REFERENCES "tblitemhorario" ("id") ON DELETE NO ACTION,
+    "horainicio" DATETIME NULL,
+    "horafin" DATETIME NULL,
+    "horasnormales" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnas" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasnocturnaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horassuplementariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horasextraordinariaspaga" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "hayatraso" BIT NOT NULL DEFAULT 0,
+    "tiempoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sejustificaatraso" BIT NOT NULL DEFAULT 0,
+    "tiempojustificadoatraso" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "haycena" BIT NOT NULL DEFAULT 0,
+    "tiempojustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoinjustificado" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempoarecuperar" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiemposinremuneracion" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "sequitaiess" BIT NOT NULL DEFAULT 0,
+    "numtimbradaadicional" INT NULL,
+    "numeropermisos" INT NULL,
+    "sabdomfer" BIT NOT NULL DEFAULT 0,
+    "totalhorasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempotrabajod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnormalesd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasnocturnaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horassuplementariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariasd" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "horasextraordinariaspagad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempofaltad" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoesperadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoinjustificadod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempoarecuperard" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiemposinremuneraciond" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "tiempojustificadoatrasod" NUMERIC(6,2) NOT NULL DEFAULT 0,
+    "observaciones" NVARCHAR(150) NULL,
+    "otrasnovedades" NVARCHAR(100) NULL,
+    "semuestra" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblresumen_gen_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblresumen_gen_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-18T08:54:12.225244
+CREATE TABLE "tbltiposempleados"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tbltiposempleados_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbltiposempleados_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-18T09:02:55.568807
+CREATE TABLE "tblpersonal"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "tarjeta" NVARCHAR(20) NOT NULL,
+    "cedula" NVARCHAR(15) NOT NULL,
+    "apellidos" NVARCHAR(100) NOT NULL,
+    "nombres" NVARCHAR(100) NOT NULL,
+    "archivofoto" NVARCHAR(512) NULL,
+    "telefono" NVARCHAR(20) NOT NULL DEFAULT N'N/D',
+    "celular" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "direccion" NVARCHAR(200) NOT NULL DEFAULT N'N/D',
+    "fechanacimiento" DATE NOT NULL DEFAULT '2020-03-18',
+    "estadocivil" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "numerocargas" INT NOT NULL DEFAULT 0,
+    "remuneracion" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoranormal" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoraextra" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoranocturna" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "esdiscapacitado" BIT NOT NULL,
+    "dircorreo" NVARCHAR(100) NOT NULL DEFAULT N'@correo.com',
+    "fechaingreso" DATE NOT NULL DEFAULT '2020-03-18',
+    "tipoempleado" INT NOT NULL, CONSTRAINT "tblpersonal_tipoempleado__constraint" FOREIGN KEY ("tipoempleado") REFERENCES "tbltiposempleados" ("id") ON DELETE NO ACTION,
+    "situacion" BIT NOT NULL DEFAULT 1,
+    "fechasalida" DATE NULL,
+    "emcodigo" INT NOT NULL, CONSTRAINT "tblpersonal_emcodigo__constraint" FOREIGN KEY ("emcodigo") REFERENCES "tblempresas" ("id") ON DELETE NO ACTION,
+    "lucodigo" INT NOT NULL, CONSTRAINT "tblpersonal_lucodigo__constraint" FOREIGN KEY ("lucodigo") REFERENCES "tbllugares" ("id") ON DELETE NO ACTION,
+    "arcodigo" INT NOT NULL, CONSTRAINT "tblpersonal_arcodigo__constraint" FOREIGN KEY ("arcodigo") REFERENCES "tblareas" ("id") ON DELETE NO ACTION,
+    "cccodigo" INT NOT NULL, CONSTRAINT "tblpersonal_cccodigo__constraint" FOREIGN KEY ("cccodigo") REFERENCES "tblcentrocosto" ("id") ON DELETE NO ACTION,
+    "secodigo" INT NOT NULL, CONSTRAINT "tblpersonal_secodigo__constraint" FOREIGN KEY ("secodigo") REFERENCES "tblsecciones" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tblpersonal_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "cargo" NVARCHAR(100) NOT NULL DEFAULT N'N/D',
+    "partidapresupuestaria" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "numerocontrato" NVARCHAR(30) NOT NULL DEFAULT N'N/D',
+    "timbra" BIT NOT NULL DEFAULT 1,
+    "esflexible" BIT NOT NULL DEFAULT 0,
+    "grcodigo" INT NOT NULL DEFAULT 1, CONSTRAINT "tblpersonal_grcodigo__constraint" FOREIGN KEY ("grcodigo") REFERENCES "tblgrupohorario" ("id") ON DELETE NO ACTION,
+    "fecaplihorrot" DATE NOT NULL DEFAULT '2020-03-18',
+    "colchonentrada" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "colchonsalida" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "atrasosintermedios" BIT NOT NULL DEFAULT 1,
+    "ganaextras" BIT NOT NULL DEFAULT 1,
+    "sepagasuplementarias" BIT NOT NULL DEFAULT 1,
+    "sepagaextraordinarias" BIT NOT NULL DEFAULT 1,
+    "topesuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "topeextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "exportaresumen" BIT NOT NULL DEFAULT 1,
+    "numdiasvac" INT NOT NULL DEFAULT 0,
+    "clasificador1" NVARCHAR(25) NULL,
+    "clasificador2" NVARCHAR(25) NULL,
+    "clasificador3" NVARCHAR(25) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblpersonal_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblpersonal_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-03-18T09:08:09.599593
+CREATE TABLE "tblpersonal"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "tarjeta" NVARCHAR(20) NOT NULL,
+    "cedula" NVARCHAR(15) NOT NULL,
+    "apellidos" NVARCHAR(100) NOT NULL,
+    "nombres" NVARCHAR(100) NOT NULL,
+    "archivofoto" NVARCHAR(512) NULL,
+    "telefono" NVARCHAR(20) NOT NULL DEFAULT N'N/D',
+    "celular" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "direccion" NVARCHAR(200) NOT NULL DEFAULT N'N/D',
+    "fechanacimiento" DATE NOT NULL DEFAULT '2020-03-18',
+    "estadocivil" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "numerocargas" INT NOT NULL DEFAULT 0,
+    "remuneracion" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoranormal" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoraextra" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoranocturna" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "esdiscapacitado" BIT NOT NULL,
+    "dircorreo" NVARCHAR(100) NOT NULL DEFAULT N'@correo.com',
+    "fechaingreso" DATE NOT NULL DEFAULT '2020-03-18',
+    "tipoempleado" INT NOT NULL, CONSTRAINT "tblpersonal_tipoempleado__constraint" FOREIGN KEY ("tipoempleado") REFERENCES "tbltiposempleados" ("id") ON DELETE NO ACTION,
+    "situacion" BIT NOT NULL DEFAULT 1,
+    "fechasalida" DATE NULL,
+    "emcodigo" INT NOT NULL, CONSTRAINT "tblpersonal_emcodigo__constraint" FOREIGN KEY ("emcodigo") REFERENCES "tblempresas" ("id") ON DELETE NO ACTION,
+    "lucodigo" INT NOT NULL, CONSTRAINT "tblpersonal_lucodigo__constraint" FOREIGN KEY ("lucodigo") REFERENCES "tbllugares" ("id") ON DELETE NO ACTION,
+    "arcodigo" INT NOT NULL, CONSTRAINT "tblpersonal_arcodigo__constraint" FOREIGN KEY ("arcodigo") REFERENCES "tblareas" ("id") ON DELETE NO ACTION,
+    "cccodigo" INT NOT NULL, CONSTRAINT "tblpersonal_cccodigo__constraint" FOREIGN KEY ("cccodigo") REFERENCES "tblcentrocosto" ("id") ON DELETE NO ACTION,
+    "secodigo" INT NOT NULL, CONSTRAINT "tblpersonal_secodigo__constraint" FOREIGN KEY ("secodigo") REFERENCES "tblsecciones" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tblpersonal_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "cargo" NVARCHAR(100) NOT NULL DEFAULT N'N/D',
+    "partidapresupuestaria" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "numerocontrato" NVARCHAR(30) NOT NULL DEFAULT N'N/D',
+    "timbra" BIT NOT NULL DEFAULT 1,
+    "esflexible" BIT NOT NULL DEFAULT 0,
+    "grcodigo" INT NOT NULL DEFAULT 1, CONSTRAINT "tblpersonal_grcodigo__constraint" FOREIGN KEY ("grcodigo") REFERENCES "tblgrupohorario" ("id") ON DELETE NO ACTION,
+    "fecaplihorrot" DATE NOT NULL DEFAULT '2020-03-18',
+    "colchonentrada" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "colchonsalida" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "atrasosintermedios" BIT NOT NULL DEFAULT 1,
+    "ganaextras" BIT NOT NULL DEFAULT 1,
+    "sepagasuplementarias" BIT NOT NULL DEFAULT 1,
+    "sepagaextraordinarias" BIT NOT NULL DEFAULT 1,
+    "topesuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "topeextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "exportaresumen" BIT NOT NULL DEFAULT 1,
+    "numdiasvac" INT NOT NULL DEFAULT 0,
+    "clasificador1" NVARCHAR(25) NULL,
+    "clasificador2" NVARCHAR(25) NULL,
+    "clasificador3" NVARCHAR(25) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblpersonal_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblpersonal_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-03-21T21:54:47.827155
+CREATE TABLE "tblnotificaciones"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblnotificaciones_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2020-03-21',
+    "fechatimbrado" DATE NOT NULL,
+    "tiponotificacion" NVARCHAR(15) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblnotificaciones_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblnotificaciones_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-22T00:04:35.529741
+ALTER TABLE "tblnotificaciones" ADD "tiponotificacion__tmp" NVARCHAR(20) NOT NULL;
+UPDATE "tblnotificaciones" SET "tiponotificacion__tmp"="tiponotificacion";
+ALTER TABLE "tblnotificaciones" DROP COLUMN "tiponotificacion";
+ALTER TABLE "tblnotificaciones" ADD "tiponotificacion" NVARCHAR(20) NOT NULL;
+UPDATE "tblnotificaciones" SET "tiponotificacion"="tiponotificacion__tmp";
+ALTER TABLE "tblnotificaciones" DROP COLUMN "tiponotificacion__tmp";
+success!
+timestamp: 2020-03-29T19:43:13.916470
+CREATE TABLE "tblclientes"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "cedularuc" NVARCHAR(15) NOT NULL,
+    "razonsocial" NVARCHAR(100) NOT NULL,
+    "apellidos" NVARCHAR(100) NOT NULL,
+    "nombres" NVARCHAR(100) NOT NULL,
+    "telefono" NVARCHAR(20) NOT NULL DEFAULT N'N/D',
+    "celular" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "direccion" NVARCHAR(200) NOT NULL DEFAULT N'N/D',
+    "dircorreo" NVARCHAR(100) NOT NULL DEFAULT N'@correo.com',
+    "clasificador1" NVARCHAR(25) NULL,
+    "clasificador2" NVARCHAR(25) NULL,
+    "clasificador3" NVARCHAR(25) NULL,
+    "situacion" BIT NOT NULL DEFAULT 1,
+    "created_by" INT NULL, CONSTRAINT "tblclientes_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblclientes_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-29T19:43:40.087505
+CREATE TABLE "tbleventos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "clcodigo" INT NOT NULL, CONSTRAINT "tbleventos_clcodigo__constraint" FOREIGN KEY ("clcodigo") REFERENCES "tblclientes" ("id") ON DELETE NO ACTION,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "fechainicial" DATE NOT NULL DEFAULT '2020-03-29',
+    "fechafinal" DATE NOT NULL DEFAULT '2020-03-29',
+    "horainicial" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horafinal" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "recargos" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-03-29T20:55:38.731656
+CREATE TABLE "tbleventos_personal"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "evcodigo" INT NOT NULL, CONSTRAINT "tbleventos_personal_evcodigo__constraint" FOREIGN KEY ("evcodigo") REFERENCES "tbleventos" ("id") ON DELETE NO ACTION,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tbleventos_personal_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_personal_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_personal_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-03T01:05:28.803572
+ALTER TABLE "tbleventos_personal" ADD "asignado" NVARCHAR(512) NOT NULL DEFAULT N'True';
+success!
+timestamp: 2020-04-03T01:29:04.074060
+ALTER TABLE "tbleventos_personal" ADD "asignado__tmp" BIT NOT NULL DEFAULT 1;
+UPDATE "tbleventos_personal" SET "asignado__tmp"="asignado";
+ALTER TABLE "tbleventos_personal" DROP COLUMN "asignado";
+timestamp: 2020-04-03T01:29:40.485974
+ALTER TABLE "tbleventos_personal" ADD "asignado__tmp" BIT NOT NULL DEFAULT 1;
+UPDATE "tbleventos_personal" SET "asignado__tmp"="asignado";
+ALTER TABLE "tbleventos_personal" DROP COLUMN "asignado";
+timestamp: 2020-04-03T01:35:45.638594
+ALTER TABLE "tbleventos_personal" ADD "asignado__tmp" BIT NOT NULL DEFAULT 1;
+UPDATE "tbleventos_personal" SET "asignado__tmp"="asignado";
+ALTER TABLE "tbleventos_personal" DROP COLUMN "asignado";
+ALTER TABLE "tbleventos_personal" ADD "asignado" BIT NOT NULL DEFAULT 1;
+UPDATE "tbleventos_personal" SET "asignado"="asignado__tmp";
+ALTER TABLE "tbleventos_personal" DROP COLUMN "asignado__tmp";
+timestamp: 2020-04-03T01:37:55.349597
+ALTER TABLE "tbleventos_personal" ADD "asignado__tmp" BIT NOT NULL DEFAULT 1;
+UPDATE "tbleventos_personal" SET "asignado__tmp"="asignado";
+ALTER TABLE "tbleventos_personal" DROP COLUMN "asignado";
+ALTER TABLE "tbleventos_personal" ADD "asignado" BIT NOT NULL DEFAULT 1;
+UPDATE "tbleventos_personal" SET "asignado"="asignado__tmp";
+ALTER TABLE "tbleventos_personal" DROP COLUMN "asignado__tmp";
+timestamp: 2020-04-03T01:38:57.406253
+ALTER TABLE "tbleventos_personal" ADD "asignado__tmp" BIT NOT NULL;
+UPDATE "tbleventos_personal" SET "asignado__tmp"="asignado";
+ALTER TABLE "tbleventos_personal" DROP COLUMN "asignado";
+ALTER TABLE "tbleventos_personal" ADD "asignado" BIT NOT NULL;
+UPDATE "tbleventos_personal" SET "asignado"="asignado__tmp";
+ALTER TABLE "tbleventos_personal" DROP COLUMN "asignado__tmp";
+success!
+timestamp: 2020-04-03T01:53:24.686941
+ALTER TABLE "tbleventos" ADD "nombre" NVARCHAR(100) NOT NULL;
+timestamp: 2020-04-03T01:54:59.763076
+ALTER TABLE "tbleventos" ADD "nombre" NVARCHAR(100) NULL;
+timestamp: 2020-04-03T01:54:59.779152
+ALTER TABLE "tbleventos" ADD "capcodigo" INT NOT NULL; ALTER TABLE "tbleventos" ADD CONSTRAINT "tbleventos_capcodigo__constraint" FOREIGN KEY ("capcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION;
+timestamp: 2020-04-03T01:55:35.849376
+ALTER TABLE "tbleventos" ADD "capcodigo" INT NULL; ALTER TABLE "tbleventos" ADD CONSTRAINT "tbleventos_capcodigo__constraint" FOREIGN KEY ("capcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION;
+success!
+timestamp: 2020-04-03T02:18:27.525623
+ALTER TABLE "tbltiposempleados" ADD "numhorasmax" INT NOT NULL DEFAULT 0;
+timestamp: 2020-04-03T02:18:27.545570
+ALTER TABLE "tbltiposempleados" ADD "valorhoraext" NUMERIC(7,2) NOT NULL DEFAULT 0;
+timestamp: 2020-04-03T02:18:27.556541
+ALTER TABLE "tbltiposempleados" ADD "valorhoranoc" NUMERIC(7,2) NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-04-03T02:32:18.285514
+CREATE TABLE "tbleventos_lugares"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "nombre" NVARCHAR(100) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_lugares_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_lugares_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-03T02:50:52.590684
+ALTER TABLE "tbleventos" ADD "evlugcodigo" INT NULL; ALTER TABLE "tbleventos" ADD CONSTRAINT "tbleventos_evlugcodigo__constraint" FOREIGN KEY ("evlugcodigo") REFERENCES "tbleventos_lugares" ("id") ON DELETE NO ACTION;
+success!
+timestamp: 2020-04-03T14:30:34.544254
+ALTER TABLE "tbleventos_lugares" ADD "direccion" NVARCHAR(2500) NOT NULL;
+timestamp: 2020-04-03T14:30:40.467510
+ALTER TABLE "tbleventos_lugares" ADD "direccion" NVARCHAR(2500) NOT NULL;
+timestamp: 2020-04-03T14:30:43.788617
+ALTER TABLE "tbleventos_lugares" ADD "direccion" NVARCHAR(2500) NOT NULL;
+timestamp: 2020-04-03T14:30:46.770637
+ALTER TABLE "tbleventos_lugares" ADD "direccion" NVARCHAR(2500) NOT NULL;
+timestamp: 2020-04-03T14:30:50.784904
+ALTER TABLE "tbleventos_lugares" ADD "direccion" NVARCHAR(2500) NOT NULL;
+timestamp: 2020-04-03T14:31:05.170423
+ALTER TABLE "tbleventos_lugares" ADD "direccion" NVARCHAR(2500) NOT NULL;
+timestamp: 2020-04-03T14:31:57.496625
+ALTER TABLE "tbleventos_lugares" ADD "direccion" NVARCHAR(2500) NOT NULL;
+timestamp: 2020-04-03T14:32:53.703837
+ALTER TABLE "tbleventos_lugares" ADD "direccion" NVARCHAR(2500) NULL;
+timestamp: 2020-04-03T14:32:53.722787
+ALTER TABLE "tbleventos_lugares" ADD "telefono" NVARCHAR(100) NULL;
+timestamp: 2020-04-03T14:32:53.725778
+ALTER TABLE "tbleventos_lugares" ADD "ciudad" NVARCHAR(100) NULL;
+timestamp: 2020-04-03T14:32:53.729769
+ALTER TABLE "tbleventos_lugares" ADD "referencia" NVARCHAR(100) NULL;
+success!
+timestamp: 2020-04-03T15:01:54.221355
+ALTER TABLE "tbleventos_lugares" ADD "clcodigo" INT NOT NULL; ALTER TABLE "tbleventos_lugares" ADD CONSTRAINT "tbleventos_lugares_clcodigo__constraint" FOREIGN KEY ("clcodigo") REFERENCES "tblclientes" ("id") ON DELETE NO ACTION;
+timestamp: 2020-04-03T15:02:33.880661
+ALTER TABLE "tbleventos_lugares" ADD "clcodigo" INT NULL; ALTER TABLE "tbleventos_lugares" ADD CONSTRAINT "tbleventos_lugares_clcodigo__constraint" FOREIGN KEY ("clcodigo") REFERENCES "tblclientes" ("id") ON DELETE NO ACTION;
+success!
+timestamp: 2020-04-03T18:46:46.529721
+ALTER TABLE "tbleventos" ADD "lugarexterno" BIT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-04-04T11:54:33.025295
+ALTER TABLE "tbleventos" ADD "fechafinal__tmp" DATE NULL;
+UPDATE "tbleventos" SET "fechafinal__tmp"="fechafinal";
+ALTER TABLE "tbleventos" DROP COLUMN "fechafinal";
+timestamp: 2020-04-04T11:54:33.281610
+ALTER TABLE "tbleventos" ADD "fechafinal__tmp" DATE NULL;
+UPDATE "tbleventos" SET "fechafinal__tmp"="fechafinal";
+ALTER TABLE "tbleventos" DROP COLUMN "fechafinal";
+timestamp: 2020-04-04T12:27:04.910383
+CREATE TABLE "tblhorarios"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "color" NVARCHAR(10) NULL,
+    "toleranciaatrasos" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempomaximonormales" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempomaximonocturnas" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempomaximosuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempomaximoextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "timbradasintermediasvariables" BIT NOT NULL,
+    "horasextrasendescanso" BIT NOT NULL DEFAULT 0,
+    "esarecuperar" BIT NOT NULL DEFAULT 0,
+    "desistema" BIT NOT NULL DEFAULT 0,
+    "nocambiohorario" BIT NOT NULL,
+    "quitacolentrada" BIT NULL,
+    "quitacolsalida" BIT NULL,
+    "horariotemporal" BIT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblhorarios_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhorarios_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-04-04T12:58:42.862198
+ALTER TABLE "tbleventos" ADD "toleranciaatrasos" TIME(7) NOT NULL DEFAULT '00:00:00';
+success!
+timestamp: 2020-04-04T23:07:43.085558
+ALTER TABLE "tbleventos" ADD "hocodigo" INT NULL; ALTER TABLE "tbleventos" ADD CONSTRAINT "tbleventos_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION;
+success!
+timestamp: 2020-04-05T00:57:48.596568
+CREATE TABLE "tbleventos_actividades"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "evcodigo" INT NOT NULL, CONSTRAINT "tbleventos_actividades_evcodigo__constraint" FOREIGN KEY ("evcodigo") REFERENCES "tbleventos" ("id") ON DELETE NO ACTION,
+    "nombre" NVARCHAR(100) NULL,
+    "descripcion" NVARCHAR(500) NOT NULL,
+    "valor" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_actividades_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_actividades_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-05T01:03:45.325981
+ALTER TABLE "tbleventos" ADD "nombre__tmp" NVARCHAR(100) NOT NULL;
+timestamp: 2020-04-05T01:06:44.421752
+ALTER TABLE "tbleventos_actividades" ADD "nombre__tmp" NVARCHAR(100) NOT NULL;
+UPDATE "tbleventos_actividades" SET "nombre__tmp"="nombre";
+ALTER TABLE "tbleventos_actividades" DROP COLUMN "nombre";
+ALTER TABLE "tbleventos_actividades" ADD "nombre" NVARCHAR(100) NOT NULL;
+UPDATE "tbleventos_actividades" SET "nombre"="nombre__tmp";
+ALTER TABLE "tbleventos_actividades" DROP COLUMN "nombre__tmp";
+success!
+timestamp: 2020-04-05T01:06:53.599555
+ALTER TABLE "tbleventos" ADD "nombre__tmp" NVARCHAR(100) NOT NULL;
+UPDATE "tbleventos" SET "nombre__tmp"="nombre";
+ALTER TABLE "tbleventos" DROP COLUMN "nombre";
+ALTER TABLE "tbleventos" ADD "nombre" NVARCHAR(100) NOT NULL;
+UPDATE "tbleventos" SET "nombre"="nombre__tmp";
+ALTER TABLE "tbleventos" DROP COLUMN "nombre__tmp";
+success!
+timestamp: 2020-04-05T01:11:52.344679
+CREATE TABLE "tblpersonal"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "tarjeta" NVARCHAR(20) NOT NULL,
+    "tarjetac" NVARCHAR(20) NOT NULL,
+    "cedula" NVARCHAR(15) NOT NULL,
+    "apellidos" NVARCHAR(100) NOT NULL,
+    "nombres" NVARCHAR(100) NOT NULL,
+    "archivofoto" NVARCHAR(512) NULL,
+    "telefono" NVARCHAR(20) NOT NULL DEFAULT N'N/D',
+    "celular" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "direccion" NVARCHAR(200) NOT NULL DEFAULT N'N/D',
+    "fechanacimiento" DATE NOT NULL DEFAULT '2020-04-05',
+    "estadocivil" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "numerocargas" INT NOT NULL DEFAULT 0,
+    "remuneracion" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoranormal" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoraextra" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valhoranocturna" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "esdiscapacitado" BIT NOT NULL,
+    "essupervisor" BIT NOT NULL DEFAULT 0,
+    "dircorreo" NVARCHAR(100) NOT NULL DEFAULT N'@correo.com',
+    "fechaingreso" DATE NOT NULL DEFAULT '2020-04-05',
+    "tipoempleado" INT NOT NULL, CONSTRAINT "tblpersonal_tipoempleado__constraint" FOREIGN KEY ("tipoempleado") REFERENCES "tbltiposempleados" ("id") ON DELETE NO ACTION,
+    "situacion" BIT NOT NULL DEFAULT 1,
+    "fechasalida" DATE NULL,
+    "emcodigo" INT NOT NULL, CONSTRAINT "tblpersonal_emcodigo__constraint" FOREIGN KEY ("emcodigo") REFERENCES "tblempresas" ("id") ON DELETE NO ACTION,
+    "lucodigo" INT NOT NULL, CONSTRAINT "tblpersonal_lucodigo__constraint" FOREIGN KEY ("lucodigo") REFERENCES "tbllugares" ("id") ON DELETE NO ACTION,
+    "arcodigo" INT NOT NULL, CONSTRAINT "tblpersonal_arcodigo__constraint" FOREIGN KEY ("arcodigo") REFERENCES "tblareas" ("id") ON DELETE NO ACTION,
+    "cccodigo" INT NOT NULL, CONSTRAINT "tblpersonal_cccodigo__constraint" FOREIGN KEY ("cccodigo") REFERENCES "tblcentrocosto" ("id") ON DELETE NO ACTION,
+    "secodigo" INT NOT NULL, CONSTRAINT "tblpersonal_secodigo__constraint" FOREIGN KEY ("secodigo") REFERENCES "tblsecciones" ("id") ON DELETE NO ACTION,
+    "jecodigo" INT NOT NULL, CONSTRAINT "tblpersonal_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION,
+    "cargo" NVARCHAR(100) NOT NULL DEFAULT N'N/D',
+    "partidapresupuestaria" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "numerocontrato" NVARCHAR(30) NOT NULL DEFAULT N'N/D',
+    "timbra" BIT NOT NULL DEFAULT 1,
+    "esflexible" BIT NOT NULL DEFAULT 0,
+    "grcodigo" INT NOT NULL DEFAULT 1, CONSTRAINT "tblpersonal_grcodigo__constraint" FOREIGN KEY ("grcodigo") REFERENCES "tblgrupohorario" ("id") ON DELETE NO ACTION,
+    "fecaplihorrot" DATE NOT NULL DEFAULT '2020-04-05',
+    "colchonentrada" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "colchonsalida" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "atrasosintermedios" BIT NOT NULL DEFAULT 1,
+    "ganaextras" BIT NOT NULL DEFAULT 1,
+    "sepagasuplementarias" BIT NOT NULL DEFAULT 1,
+    "sepagaextraordinarias" BIT NOT NULL DEFAULT 1,
+    "topesuplementarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "topeextraordinarias" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "exportaresumen" BIT NOT NULL DEFAULT 1,
+    "numdiasvac" INT NOT NULL DEFAULT 0,
+    "clasificador1" NVARCHAR(25) NULL,
+    "clasificador2" NVARCHAR(25) NULL,
+    "clasificador3" NVARCHAR(25) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblpersonal_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblpersonal_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-04-05T01:29:15.248411
+ALTER TABLE "tbltiposempleados" ADD "valorhora" NUMERIC(7,2) NOT NULL DEFAULT 0;
+success!
+success!
+timestamp: 2020-04-06T23:29:58.797319
+CREATE TABLE "tblterminales"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "nombre" NVARCHAR(100) NOT NULL,
+    "codigo" NVARCHAR(5) NOT NULL,
+    "calcula" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblterminales_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblterminales_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-07T20:47:18.841749
+ALTER TABLE "tbleventos" ADD "cerrado" BIT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-04-13T12:46:16.091891
+ALTER TABLE "tbltiposempleados" ADD "valorhorasup" NUMERIC(7,2) NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-04-18T21:59:24.332874
+ALTER TABLE "tbleventos_personal" ADD "autorizado" BIT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-04-19T23:28:09.165544
+CREATE TABLE "tbleventos_solicitudes"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "evcodigo" INT NOT NULL, CONSTRAINT "tbleventos_solicitudes_evcodigo__constraint" FOREIGN KEY ("evcodigo") REFERENCES "tbleventos" ("id") ON DELETE NO ACTION,
+    "nombre" NVARCHAR(100) NOT NULL,
+    "descripcion" NVARCHAR(500) NOT NULL,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_solicitudes_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_solicitudes_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-19T23:39:29.910463
+CREATE TABLE "tbleventos_notificaciones"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "evcodigo" INT NOT NULL, CONSTRAINT "tbleventos_notificaciones_evcodigo__constraint" FOREIGN KEY ("evcodigo") REFERENCES "tbleventos" ("id") ON DELETE NO ACTION,
+    "nombre" NVARCHAR(100) NOT NULL,
+    "descripcion" NVARCHAR(500) NOT NULL,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_notificaciones_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_notificaciones_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-29T14:13:57.192975
+CREATE TABLE "tblhiseventos_valores"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "valorhora" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhoranoc" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhorasup" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhoraext" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblhiseventos_valores_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "evcodigo" INT NOT NULL, CONSTRAINT "tblhiseventos_valores_evcodigo__constraint" FOREIGN KEY ("evcodigo") REFERENCES "tbleventos" ("id") ON DELETE NO ACTION,
+    "created_by" INT NULL, CONSTRAINT "tblhiseventos_valores_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhiseventos_valores_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-29T14:33:47.707388
+CREATE TABLE "tbltiposempleados"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "numhorasmax" INT NOT NULL DEFAULT 0,
+    "valorhora" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhoranoc" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhorasup" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhoraext" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbltiposempleados_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbltiposempleados_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-29T14:33:48.047478
+CREATE TABLE "tblclientes"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "cedularuc" NVARCHAR(15) NOT NULL,
+    "razonsocial" NVARCHAR(100) NOT NULL,
+    "apellidos" NVARCHAR(100) NOT NULL,
+    "nombres" NVARCHAR(100) NOT NULL,
+    "telefono" NVARCHAR(20) NOT NULL DEFAULT N'N/D',
+    "celular" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "direccion" NVARCHAR(200) NOT NULL DEFAULT N'N/D',
+    "dircorreo" NVARCHAR(100) NOT NULL DEFAULT N'@correo.com',
+    "clasificador1" NVARCHAR(25) NULL,
+    "clasificador2" NVARCHAR(25) NULL,
+    "clasificador3" NVARCHAR(25) NULL,
+    "situacion" BIT NOT NULL DEFAULT 1,
+    "created_by" INT NULL, CONSTRAINT "tblclientes_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblclientes_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-29T14:33:48.111305
+CREATE TABLE "tbleventos_lugares"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "nombre" NVARCHAR(100) NOT NULL,
+    "direccion" NVARCHAR(2500) NULL,
+    "telefono" NVARCHAR(100) NULL,
+    "ciudad" NVARCHAR(100) NULL,
+    "referencia" NVARCHAR(100) NULL,
+    "clcodigo" INT NULL, CONSTRAINT "tbleventos_lugares_clcodigo__constraint" FOREIGN KEY ("clcodigo") REFERENCES "tblclientes" ("id") ON DELETE NO ACTION,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_lugares_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_lugares_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-29T14:33:48.181118
+CREATE TABLE "tbleventos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "clcodigo" INT NOT NULL, CONSTRAINT "tbleventos_clcodigo__constraint" FOREIGN KEY ("clcodigo") REFERENCES "tblclientes" ("id") ON DELETE NO ACTION,
+    "nombre" NVARCHAR(100) NOT NULL,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "capcodigo" INT NULL, CONSTRAINT "tbleventos_capcodigo__constraint" FOREIGN KEY ("capcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "lugarexterno" BIT NOT NULL DEFAULT 0,
+    "evlugcodigo" INT NULL, CONSTRAINT "tbleventos_evlugcodigo__constraint" FOREIGN KEY ("evlugcodigo") REFERENCES "tbleventos_lugares" ("id") ON DELETE NO ACTION,
+    "fechainicial" DATE NOT NULL DEFAULT '2020-04-29',
+    "fechafinal" DATE NOT NULL DEFAULT '2020-04-29',
+    "horainicial" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horafinal" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "toleranciaatrasos" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "recargos" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "hocodigo" INT NULL, CONSTRAINT "tbleventos_hocodigo__constraint" FOREIGN KEY ("hocodigo") REFERENCES "tblhorarios" ("id") ON DELETE NO ACTION,
+    "cerrado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-29T14:33:48.238968
+CREATE TABLE "tbleventos_personal"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "evcodigo" INT NOT NULL, CONSTRAINT "tbleventos_personal_evcodigo__constraint" FOREIGN KEY ("evcodigo") REFERENCES "tbleventos" ("id") ON DELETE NO ACTION,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tbleventos_personal_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "asignado" BIT NOT NULL DEFAULT 1,
+    "autorizado" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbleventos_personal_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbleventos_personal_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-04-29T14:37:46.341150
+CREATE TABLE "tblterminales"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "nombre" NVARCHAR(100) NOT NULL,
+    "codigo" NVARCHAR(5) NOT NULL,
+    "calcula" BIT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblterminales_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblterminales_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-01T14:40:59.359707
+ALTER TABLE "tbleventos_actividades" ADD "asignado" BIT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-05-01T14:56:34.314066
+ALTER TABLE "tbleventos_actividades" DROP COLUMN "asignado";
+timestamp: 2020-05-01T14:58:25.957855
+ALTER TABLE "tbleventos_actividades" DROP COLUMN "asignado";
+success!
+timestamp: 2020-05-11T11:42:53.817944
+CREATE TABLE "tblvacaciones_codigotrabajo"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descipcion" NVARCHAR(100) NOT NULL,
+    "numdiasvacacionperiodo" INT NOT NULL DEFAULT 0,
+    "numdiasadicionalesanio" INT NOT NULL DEFAULT 0,
+    "minimoaniosadicionales" INT NOT NULL DEFAULT 0,
+    "maximoaniosadicionales" INT NOT NULL DEFAULT 0,
+    "cargafinsemana" BIT NOT NULL DEFAULT 0,
+    "cargaferiados" BIT NOT NULL DEFAULT 0,
+    "fechainicio" DATE NOT NULL DEFAULT '2020-05-11',
+    "fechafin" DATE NULL,
+    "created_by" INT NULL, CONSTRAINT "tblvacaciones_codigotrabajo_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblvacaciones_codigotrabajo_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-11T11:58:21.811381
+ALTER TABLE "tblvacaciones_codigotrabajo" ADD "fechafin__tmp" DATE NOT NULL DEFAULT '2020-05-11';
+UPDATE "tblvacaciones_codigotrabajo" SET "fechafin__tmp"="fechafin";
+ALTER TABLE "tblvacaciones_codigotrabajo" DROP COLUMN "fechafin";
+ALTER TABLE "tblvacaciones_codigotrabajo" ADD "fechafin" DATE NOT NULL DEFAULT '2020-05-11';
+UPDATE "tblvacaciones_codigotrabajo" SET "fechafin"="fechafin__tmp";
+ALTER TABLE "tblvacaciones_codigotrabajo" DROP COLUMN "fechafin__tmp";
+timestamp: 2020-05-11T12:01:22.705320
+ALTER TABLE "tblvacaciones_codigotrabajo" ADD "descripcion" NVARCHAR(100) NOT NULL;
+timestamp: 2020-05-11T12:02:58.214292
+ALTER TABLE "tblvacaciones_codigotrabajo" ADD "descripcion" NVARCHAR(100) NOT NULL;
+timestamp: 2020-05-11T12:02:58.236233
+ALTER TABLE "tblvacaciones_codigotrabajo" DROP COLUMN "descipcion";
+success!
+timestamp: 2020-05-11T15:16:36.465983
+CREATE TABLE "tblvacaciones_parametros"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "cargaatrasos" BIT NOT NULL DEFAULT 0,
+    "numeroatrasos" INT NOT NULL DEFAULT 0,
+    "periodoatrasos" NVARCHAR(30) NOT NULL,
+    "tiempoatrasos" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "cargafaltas" BIT NOT NULL DEFAULT 0,
+    "cargatiempoincompleto" BIT NOT NULL DEFAULT 0,
+    "tiempominimoincompleto" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "periodotiempoincompleto" NVARCHAR(30) NOT NULL,
+    "tiempoincompleto" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "diasmaximosolicitud" INT NOT NULL DEFAULT 0,
+    "diasadicionalesindividuales" BIT NOT NULL DEFAULT 0,
+    "tiempominimoperiodo" INT NOT NULL DEFAULT 0,
+    "tiempomaximoanio" INT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblvacaciones_parametros_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblvacaciones_parametros_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-11T15:17:53.997132
+ALTER TABLE "tblvacaciones_parametros" ADD "fechainicio" DATE NOT NULL DEFAULT '2020-05-11';
+timestamp: 2020-05-11T15:17:54.007106
+ALTER TABLE "tblvacaciones_parametros" ADD "fechafin" DATE NULL;
+success!
+timestamp: 2020-05-12T01:40:02.246366
+CREATE TABLE "tblvacaciones_feriados"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "tipoferiado" NVARCHAR(30) NOT NULL,
+    "lgcodigo" INT NULL, CONSTRAINT "tblvacaciones_feriados_lgcodigo__constraint" FOREIGN KEY ("lgcodigo") REFERENCES "tbllugares" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2020-05-12',
+    "created_by" INT NULL, CONSTRAINT "tblvacaciones_feriados_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblvacaciones_feriados_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-13T01:36:39.542795
+CREATE TABLE "tblvacaciones_personal"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblvacaciones_personal_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "tiempoacumulado" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "diasvacacionperiodo" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "diasvacacionsolicitados" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "diasvacaciondisponibles" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "diasvacaciondisponiblesacum" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "fechainicio" DATE NOT NULL DEFAULT '2020-05-13',
+    "fechafin" DATE NULL,
+    "created_by" INT NULL, CONSTRAINT "tblvacaciones_personal_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblvacaciones_personal_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-13T01:36:39.589670
+CREATE TABLE "tblpersonalsalidas"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblpersonalsalidas_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fechaentrada" DATE NOT NULL DEFAULT '2020-05-13',
+    "fechasalida" DATE NOT NULL DEFAULT '2020-05-13',
+    "created_by" INT NULL, CONSTRAINT "tblpersonalsalidas_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblpersonalsalidas_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-13T02:52:53.214042
+CREATE TABLE "tblcontrol_cierre"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "fechacierre" DATE NOT NULL DEFAULT '2020-05-13',
+    "created_by" INT NULL, CONSTRAINT "tblcontrol_cierre_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblcontrol_cierre_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-13T03:41:26.421080
+ALTER TABLE "tblvacaciones_codigotrabajo" ADD "periodocaducavacaciones" INT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-05-13T13:54:39.106549
+CREATE TABLE "tblvacaciones_descuentos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblvacaciones_descuentos_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fechainicial" DATE NOT NULL DEFAULT '2020-05-13',
+    "fechafinal" DATE NOT NULL DEFAULT '2020-05-13',
+    "tipodescuento" NVARCHAR(30) NOT NULL,
+    "horainicial" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horafinal" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiempodescuentod" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "diasfinsemana" BIT NOT NULL DEFAULT 0,
+    "diasferiados" BIT NOT NULL DEFAULT 0,
+    "numdiasferiados" BIT NOT NULL DEFAULT 0,
+    "vcparcodigo" INT NOT NULL, CONSTRAINT "tblvacaciones_descuentos_vcparcodigo__constraint" FOREIGN KEY ("vcparcodigo") REFERENCES "tblvacaciones_parametros" ("id") ON DELETE NO ACTION,
+    "vcctcodigo" INT NOT NULL, CONSTRAINT "tblvacaciones_descuentos_vcctcodigo__constraint" FOREIGN KEY ("vcctcodigo") REFERENCES "tblvacaciones_codigotrabajo" ("id") ON DELETE NO ACTION,
+    "pjcodigo" INT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblvacaciones_descuentos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblvacaciones_descuentos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-13T14:18:53.385533
+ALTER TABLE "tblvacaciones_descuentos" ADD "numdiasferiados__tmp" INT NOT NULL DEFAULT 0;
+UPDATE "tblvacaciones_descuentos" SET "numdiasferiados__tmp"="numdiasferiados";
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "numdiasferiados";
+timestamp: 2020-05-13T14:21:41.253211
+ALTER TABLE "tblvacaciones_descuentos" ADD "numdiasferiados__tmp" INT NOT NULL DEFAULT 0;
+UPDATE "tblvacaciones_descuentos" SET "numdiasferiados__tmp"="numdiasferiados";
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "numdiasferiados";
+ALTER TABLE "tblvacaciones_descuentos" ADD "numdiasferiados" INT NOT NULL DEFAULT 0;
+UPDATE "tblvacaciones_descuentos" SET "numdiasferiados"="numdiasferiados__tmp";
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "numdiasferiados__tmp";
+timestamp: 2020-05-13T14:23:20.105648
+ALTER TABLE "tblvacaciones_descuentos" ADD "numdiasferiados__tmp" INT NOT NULL DEFAULT 0;
+UPDATE "tblvacaciones_descuentos" SET "numdiasferiados__tmp"="numdiasferiados";
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "numdiasferiados";
+ALTER TABLE "tblvacaciones_descuentos" ADD "numdiasferiados" INT NOT NULL DEFAULT 0;
+UPDATE "tblvacaciones_descuentos" SET "numdiasferiados"="numdiasferiados__tmp";
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "numdiasferiados__tmp";
+timestamp: 2020-05-13T14:25:23.415194
+ALTER TABLE "tblvacaciones_descuentos" ADD "numdiasferiados__tmp" INT NOT NULL DEFAULT 0;
+UPDATE "tblvacaciones_descuentos" SET "numdiasferiados__tmp"="numdiasferiados";
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "numdiasferiados";
+ALTER TABLE "tblvacaciones_descuentos" ADD "numdiasferiados" INT NOT NULL DEFAULT 0;
+UPDATE "tblvacaciones_descuentos" SET "numdiasferiados"="numdiasferiados__tmp";
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "numdiasferiados__tmp";
+timestamp: 2020-05-13T14:27:00.453636
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "numdiasferiados";
+success!
+timestamp: 2020-05-13T14:27:09.982927
+ALTER TABLE "tblvacaciones_descuentos" ADD "numdiasferiados" INT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-05-14T20:12:11.788890
+ALTER TABLE "tblvacaciones_parametros" ADD "tiempominimoatrasos" TIME(7) NOT NULL DEFAULT '00:00:00';
+success!
+timestamp: 2020-05-14T20:12:11.852721
+ALTER TABLE "tblvacaciones_descuentos" ADD "autorizado" BIT NOT NULL DEFAULT 0;
+success!
+success!
+success!
+success!
+timestamp: 2020-05-14T22:54:09.569851
+ALTER TABLE "tblvacaciones_descuentos" DROP COLUMN "vcctcodigo";
+success!
+timestamp: 2020-05-17T19:05:32.317004
+ALTER TABLE "tblvacaciones_parametros" ADD "horaslaborablesdiaria" INT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-05-18T19:42:45.617303
+CREATE TABLE "tblpersonalcontratos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblpersonalcontratos_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fechainicial" DATE NOT NULL DEFAULT '2020-05-18',
+    "fechafinal" DATE NULL,
+    "horasjornadadiaria" INT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblpersonalcontratos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblpersonalcontratos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-05-20T00:31:25.699108
+ALTER TABLE "tblvacaciones_personal" ADD "diasvacacioncaducadas" NUMERIC(7,2) NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-05-20T03:07:03.489505
+ALTER TABLE "tblvacaciones_parametros" ADD "findesemanaindividual" BIT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-06-15T21:38:29.777569
+CREATE TABLE "tblvacacionescarga_descuentos"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "cedula" NVARCHAR(512) NOT NULL,
+    "fechainicial" DATE NOT NULL DEFAULT '2020-06-15',
+    "fechafinal" DATE NOT NULL DEFAULT '2020-06-15',
+    "horainicial" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "horafinal" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "created_by" INT NULL, CONSTRAINT "tblvacacionescarga_descuentos_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblvacacionescarga_descuentos_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-07-15T19:01:14.409471
+CREATE TABLE "tblencuestas"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "nombre" NVARCHAR(512) NOT NULL,
+    "fechainicial" DATE NOT NULL DEFAULT '2020-07-15',
+    "fechafinal" DATE NULL,
+    "tiempoduración" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "recurrente" BIT NOT NULL DEFAULT 0,
+    "diasrecurrencia" INT NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblencuestas_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblencuestas_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-07-15T19:31:22.585915
+CREATE TABLE "tblencuestas_preguntas"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "encodigo" INT NOT NULL, CONSTRAINT "tblencuestas_preguntas_encodigo__constraint" FOREIGN KEY ("encodigo") REFERENCES "tblencuestas" ("id") ON DELETE NO ACTION,
+    "pregunta" NVARCHAR(512) NOT NULL,
+    "tipopregunta" NVARCHAR(30) NOT NULL,
+    "opcion1" NVARCHAR(512) NOT NULL,
+    "opcion2" NVARCHAR(512) NOT NULL,
+    "opcion3" NVARCHAR(512) NOT NULL,
+    "opcion4" NVARCHAR(512) NOT NULL,
+    "opcion5" NVARCHAR(512) NOT NULL,
+    "opcion6" NVARCHAR(512) NOT NULL,
+    "opcion7" NVARCHAR(512) NOT NULL,
+    "opcion8" NVARCHAR(512) NOT NULL,
+    "opcion9" NVARCHAR(512) NOT NULL,
+    "opcion10" NVARCHAR(512) NOT NULL,
+    "created_by" INT NULL, CONSTRAINT "tblencuestas_preguntas_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblencuestas_preguntas_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-07-16T00:38:47.801852
+CREATE TABLE "tblencuesta_realizada"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "fecha" DATE NOT NULL DEFAULT '2020-07-16',
+    "encodigo" INT NOT NULL, CONSTRAINT "tblencuesta_realizada_encodigo__constraint" FOREIGN KEY ("encodigo") REFERENCES "tblencuestas" ("id") ON DELETE NO ACTION,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblencuesta_realizada_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "created_by" INT NULL, CONSTRAINT "tblencuesta_realizada_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblencuesta_realizada_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-07-16T00:39:28.812714
+CREATE TABLE "tblencuesta_respuestas"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "enrecodigo" INT NOT NULL, CONSTRAINT "tblencuesta_respuestas_enrecodigo__constraint" FOREIGN KEY ("enrecodigo") REFERENCES "tblencuesta_realizada" ("id") ON DELETE NO ACTION,
+    "precodigo" INT NOT NULL, CONSTRAINT "tblencuesta_respuestas_precodigo__constraint" FOREIGN KEY ("precodigo") REFERENCES "tblencuesta_realizada" ("id") ON DELETE NO ACTION,
+    "respuesta" NVARCHAR(512) NOT NULL,
+    "respuestacomplemento" NVARCHAR(512) NULL,
+    "created_by" INT NULL, CONSTRAINT "tblencuesta_respuestas_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblencuesta_respuestas_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+success!
+timestamp: 2020-08-17T18:29:54.540389
+CREATE TABLE "tbltiposempleados"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "numhorasmax" INT NOT NULL DEFAULT 0,
+    "valorhora" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhoranoc" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhorasup" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhoraext" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbltiposempleados_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbltiposempleados_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-08-17T18:29:55.138415
+CREATE TABLE "tbltiposempleados"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "descripcion" NVARCHAR(100) NOT NULL,
+    "numhorasmax" INT NOT NULL DEFAULT 0,
+    "valorhora" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhoranoc" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhorasup" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "valorhoraext" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tbltiposempleados_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tbltiposempleados_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-08-17T20:47:03.562223
+CREATE TABLE "tblclientes"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "cedularuc" NVARCHAR(15) NOT NULL,
+    "razonsocial" NVARCHAR(100) NOT NULL,
+    "apellidos" NVARCHAR(100) NOT NULL,
+    "nombres" NVARCHAR(100) NOT NULL,
+    "telefono" NVARCHAR(20) NOT NULL DEFAULT N'N/D',
+    "celular" NVARCHAR(50) NOT NULL DEFAULT N'N/D',
+    "direccion" NVARCHAR(200) NOT NULL DEFAULT N'N/D',
+    "dircorreo" NVARCHAR(100) NOT NULL DEFAULT N'@correo.com',
+    "clasificador1" NVARCHAR(25) NULL,
+    "clasificador2" NVARCHAR(25) NULL,
+    "clasificador3" NVARCHAR(25) NULL,
+    "situacion" BIT NOT NULL DEFAULT 1,
+    "created_by" INT NULL, CONSTRAINT "tblclientes_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblclientes_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+timestamp: 2020-10-02T19:45:38.046456
+CREATE TABLE "tblhorasextras"(
+    "id" INT IDENTITY PRIMARY KEY,
+    "mpcodigo" INT NOT NULL, CONSTRAINT "tblhorasextras_mpcodigo__constraint" FOREIGN KEY ("mpcodigo") REFERENCES "tblpersonal" ("id") ON DELETE NO ACTION,
+    "fecha" DATE NOT NULL DEFAULT '2020-10-02',
+    "horassolicitud" TIME(7) NOT NULL DEFAULT '00:00:00',
+    "tiemposolicitudd" NUMERIC(7,2) NOT NULL DEFAULT 0,
+    "created_by" INT NULL, CONSTRAINT "tblhorasextras_created_by__constraint" FOREIGN KEY ("created_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "created_on" DATETIME NULL,
+    "modified_by" INT NULL, CONSTRAINT "tblhorasextras_modified_by__constraint" FOREIGN KEY ("modified_by") REFERENCES "auth_user" ("id") ON DELETE NO ACTION,
+    "modified_on" DATETIME NULL,
+    "is_active" BIT NULL
+);
+success!
+timestamp: 2020-10-02T20:02:53.894988
+ALTER TABLE "tblhorasextras" ADD "autorizadojefatura" BIT NOT NULL DEFAULT 0;
+timestamp: 2020-10-02T20:02:53.916930
+ALTER TABLE "tblhorasextras" ADD "segundaautorizacion" BIT NOT NULL DEFAULT 0;
+success!
+timestamp: 2020-10-02T20:35:58.372465
+ALTER TABLE "tblhorasextras" ADD "jecodigo" INT NOT NULL; ALTER TABLE "tblhorasextras" ADD CONSTRAINT "tblhorasextras_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION;
+timestamp: 2020-10-02T20:36:34.992720
+ALTER TABLE "tblhorasextras" ADD "jecodigo" INT NULL; ALTER TABLE "tblhorasextras" ADD CONSTRAINT "tblhorasextras_jecodigo__constraint" FOREIGN KEY ("jecodigo") REFERENCES "tbljefaturas" ("id") ON DELETE NO ACTION;
+success!
+timestamp: 2020-10-02T23:02:16.211186
+ALTER TABLE "tblhorasextras" ADD "tiposolicitud" NVARCHAR(20) NOT NULL;
+timestamp: 2020-10-02T23:02:52.089373
+ALTER TABLE "tblhorasextras" ADD "tiposolicitud" NVARCHAR(20) NULL;
+success!
+timestamp: 2020-10-02T23:11:46.092550
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion" DATE NULL;
+success!
+timestamp: 2020-10-03T01:18:08.424722
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion__tmp" DATE NOT NULL DEFAULT '2020-10-03';
+UPDATE "tblhorasextras" SET "fechacompensacion__tmp"="fechacompensacion";
+ALTER TABLE "tblhorasextras" DROP COLUMN "fechacompensacion";
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion" DATE NOT NULL DEFAULT '2020-10-03';
+UPDATE "tblhorasextras" SET "fechacompensacion"="fechacompensacion__tmp";
+ALTER TABLE "tblhorasextras" DROP COLUMN "fechacompensacion__tmp";
+timestamp: 2020-10-03T11:57:09.004175
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion__tmp" DATE NOT NULL DEFAULT '2020-10-03';
+UPDATE "tblhorasextras" SET "fechacompensacion__tmp"="fechacompensacion";
+ALTER TABLE "tblhorasextras" DROP COLUMN "fechacompensacion";
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion" DATE NOT NULL DEFAULT '2020-10-03';
+UPDATE "tblhorasextras" SET "fechacompensacion"="fechacompensacion__tmp";
+ALTER TABLE "tblhorasextras" DROP COLUMN "fechacompensacion__tmp";
+timestamp: 2020-10-03T12:01:16.473058
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion__tmp" DATE NOT NULL DEFAULT '2020-10-03';
+UPDATE "tblhorasextras" SET "fechacompensacion__tmp"="fechacompensacion";
+ALTER TABLE "tblhorasextras" DROP COLUMN "fechacompensacion";
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion" DATE NOT NULL DEFAULT '2020-10-03';
+UPDATE "tblhorasextras" SET "fechacompensacion"="fechacompensacion__tmp";
+ALTER TABLE "tblhorasextras" DROP COLUMN "fechacompensacion__tmp";
+timestamp: 2020-10-03T13:40:05.270318
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion__tmp" DATE NOT NULL DEFAULT '2020-10-03';
+UPDATE "tblhorasextras" SET "fechacompensacion__tmp"="fechacompensacion";
+ALTER TABLE "tblhorasextras" DROP COLUMN "fechacompensacion";
+ALTER TABLE "tblhorasextras" ADD "fechacompensacion" DATE NOT NULL DEFAULT '2020-10-03';
+UPDATE "tblhorasextras" SET "fechacompensacion"="fechacompensacion__tmp";
+ALTER TABLE "tblhorasextras" DROP COLUMN "fechacompensacion__tmp";
+timestamp: 2021-03-10T23:34:39.918092
+ALTER TABLE "tbleventos" ADD "tercodigo" INT NOT NULL; ALTER TABLE "tbleventos" ADD CONSTRAINT "tbleventos_tercodigo__constraint" FOREIGN KEY ("tercodigo") REFERENCES "tblterminales" ("id") ON DELETE NO ACTION;

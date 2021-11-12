@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="eventoshis" language="groovy" pageWidth="595" pageHeight="842" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="10"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lince"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="270"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="723"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="652"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="348"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic1" pattern="" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional1} == 1)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic2" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional2} == 1)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic3" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional3} == 1)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic4" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional4} == 1)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic5" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional5} == 1)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic6" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional6} == 1)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic7" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional7} == 1)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="timbadic8" fontName="Arial" fontSize="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Roman" isPdfEmbedded="true">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($F{tblresumen_esadicional8} == 1)]]></conditionExpression>
+			<style fontName="Arial" fontSize="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Times-Bold" isPdfEmbedded="true"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String">
+		<defaultValueExpression><![CDATA[" "]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subreportsPath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["."]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT tbleventos.id AS tbleventos_id,
+	tbleventos_lugares.nombre AS tbleventos_lugares_nombre,
+	tbleventos_lugares.ciudad AS tbleventos_lugares_ciudad,
+	tbleventos_lugares.direccion AS tbleventos_lugares_direccion,
+	tbleventos_lugares.nombre AS tbleventos_lugares_nombre,
+	tbleventos_lugares.ciudad AS tbleventos_lugares_ciudad,
+	tbleventos_lugares.direccion AS tbleventos_lugares_direccion,
+	tbleventos.nombre AS tbleventos_nombre,
+	tbleventos.descripcion AS tbleventos_descripcion,
+	tbleventos.fechainicial AS tbleventos_fechainicial,
+	tbleventos.horainicial AS tbleventos_horainicial,
+	tblparcontasist.razonsocial AS tblparcontasist_razonsocial
+FROM dbo.tbleventos tbleventos
+	INNER JOIN dbo.tbleventos_lugares tbleventos_lugares ON
+	 tbleventos.evlugcodigo = tbleventos_lugares.id ,
+	dbo.tblparcontasist tblparcontasist
+	WHERE 1=1 $P!{filtro}]]>
+	</queryString>
+	<field name="tbleventos_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="tbleventos_id"/>
+	</field>
+	<field name="tbleventos_lugares_nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tbleventos_lugares_nombre"/>
+	</field>
+	<field name="tbleventos_lugares_ciudad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tbleventos_lugares_ciudad"/>
+	</field>
+	<field name="tbleventos_lugares_direccion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tbleventos_lugares_direccion"/>
+	</field>
+	<field name="tbleventos_nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tbleventos_nombre"/>
+	</field>
+	<field name="tbleventos_descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tbleventos_descripcion"/>
+	</field>
+	<field name="tbleventos_fechainicial" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="tbleventos_fechainicial"/>
+	</field>
+	<field name="tbleventos_horainicial" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.label" value="tbleventos_horainicial"/>
+	</field>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tblparcontasist_razonsocial"/>
+	</field>
+	<variable name="totalgastado" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{totalgastado}]]></variableExpression>
+	</variable>
+	<variable name="returntotal" class="java.lang.Double" resetType="None"/>
+	<variable name="returnpresupuestado" class="java.lang.Double" resetType="None"/>
+	<variable name="returnpresupuestosactividades" class="java.lang.Double" resetType="None"/>
+	<variable name="returngastosactividades" class="java.lang.Double" resetType="None"/>
+	<variable name="Total" class="java.lang.String">
+		<variableExpression><![CDATA[$V{returntotal}+$V{returngastosactividades}]]></variableExpression>
+	</variable>
+	<variable name="gastostotales" class="java.lang.Double" resetType="None">
+		<variableExpression><![CDATA[$V{returntotal}+$V{returngastosactividades}]]></variableExpression>
+	</variable>
+	<group name="tbleventos_id" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{tbleventos_id}]]></groupExpression>
+		<groupHeader>
+			<band height="312">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="-5" width="581" height="65" forecolor="#B89F7D" backcolor="#CCCCCC" uuid="ea4f31bd-8d4e-4a67-a7f3-0d24370900b4"/>
+					<textField>
+						<reportElement x="59" y="7" width="117" height="14" uuid="5d1cf510-8afa-4832-a4d8-9f8d88bccc22"/>
+						<textFieldExpression><![CDATA[$F{tbleventos_nombre}]]></textFieldExpression>
+					</textField>
+					<textField pattern="dd MMMM, yyyy">
+						<reportElement x="274" y="7" width="120" height="14" uuid="6a14e662-6b89-4ec1-b046-a678e9dd0a4a"/>
+						<textFieldExpression><![CDATA[$F{tbleventos_fechainicial}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="12" y="40" width="100" height="14" uuid="93372d53-2b8c-4bcc-8dc9-57c624b34e36"/>
+						<textElement>
+							<font isBold="true" isItalic="true"/>
+						</textElement>
+						<text><![CDATA[Gastos Personal]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="15" y="7" width="44" height="14" uuid="0235981b-a8f7-49f9-8b64-9fe5e8775a21"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Evento:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="7" width="44" height="14" uuid="e4d017ae-625b-4eb7-924c-cb3264d4d84e"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Fecha:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="402" y="7" width="28" height="14" uuid="f2d06207-0ef9-409c-ab50-1809bb610815"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Hora:]]></text>
+					</staticText>
+					<textField pattern="h:mm a">
+						<reportElement x="430" y="7" width="100" height="14" uuid="d9915885-7b17-4d0d-b493-a3b79e66ff1a"/>
+						<textFieldExpression><![CDATA[$F{tbleventos_horainicial}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<subreport overflowType="Stretch">
+					<reportElement positionType="Float" x="0" y="80" width="581" height="22" uuid="3737e09a-ac10-47b3-acc2-d5de1ad0e3e8"/>
+					<subreportParameter name="evcodigo">
+						<subreportParameterExpression><![CDATA[$F{tbleventos_id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="fecha">
+						<subreportParameterExpression><![CDATA[$F{tbleventos_fechainicial}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<returnValue subreportVariable="returntotal" toVariable="returntotal"/>
+					<returnValue subreportVariable="returnpresupuestado" toVariable="returnpresupuestado"/>
+					<subreportExpression><![CDATA[$P{subreportsPath} + "\\eventosPersonalhis.jasper"]]></subreportExpression>
+				</subreport>
+				<subreport>
+					<reportElement positionType="Float" x="0" y="150" width="581" height="21" uuid="641f9777-1b32-4792-8a38-5aa1739afc68"/>
+					<subreportParameter name="evcodigo">
+						<subreportParameterExpression><![CDATA[$F{tbleventos_id}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<returnValue subreportVariable="returngastosactividades" toVariable="returngastosactividades"/>
+					<returnValue subreportVariable="returnpresupuestosactividades" toVariable="returnpresupuestosactividades"/>
+					<subreportExpression><![CDATA[$P{subreportsPath} + "\\eventosActividades.jasper"]]></subreportExpression>
+				</subreport>
+				<frame>
+					<reportElement positionType="Float" mode="Opaque" x="0" y="110" width="581" height="30" forecolor="#B89F7D" backcolor="#CCCCCC" uuid="e98584c8-acc8-43de-8b9e-1ad74bd11c7c"/>
+					<staticText>
+						<reportElement x="16" y="6" width="100" height="14" uuid="6b42821a-daee-42aa-9b82-bfe0b8b4be8d"/>
+						<textElement>
+							<font isBold="true" isItalic="true"/>
+						</textElement>
+						<text><![CDATA[Gastos Actividades]]></text>
+					</staticText>
+					<line>
+						<reportElement x="0" y="1" width="581" height="1" uuid="40e61351-a16c-4925-afc2-4c4f1a87143a"/>
+						<graphicElement>
+							<pen lineWidth="2.0"/>
+						</graphicElement>
+					</line>
+				</frame>
+				<frame>
+					<reportElement positionType="Float" mode="Opaque" x="0" y="180" width="581" height="120" forecolor="#B89F7D" backcolor="#CCCCCC" uuid="a8ed62dc-12a2-418e-adee-3d191d07f530"/>
+					<line>
+						<reportElement x="0" y="1" width="581" height="1" uuid="a990895d-c893-4d22-8af0-b0286aef355f"/>
+						<graphicElement>
+							<pen lineWidth="2.0"/>
+						</graphicElement>
+					</line>
+					<textField evaluationTime="Band" pattern="¤#,##0.00;¤-#,##0.00">
+						<reportElement x="116" y="50" width="72" height="14" uuid="8ade913c-de4b-4617-80a0-a719dcf32be8"/>
+						<textFieldExpression><![CDATA[$V{returngastosactividades} != null ? $V{returngastosactividades} : "0.00"]]></textFieldExpression>
+					</textField>
+					<textField evaluationTime="Band" pattern="¤#,##0.00;¤-#,##0.00">
+						<reportElement x="370" y="50" width="89" height="14" uuid="852eab08-c934-43b4-a044-9c30ec2097b1"/>
+						<textFieldExpression><![CDATA[$V{returnpresupuestosactividades} != null ? $V{returnpresupuestosactividades} : "0.00"]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="16" y="10" width="100" height="14" uuid="e41b65e6-3397-46f0-a5de-7e57d4e3de80"/>
+						<textElement>
+							<font isBold="true" isItalic="true"/>
+						</textElement>
+						<text><![CDATA[Resumen]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="16" y="31" width="92" height="14" uuid="fc8272cd-1d51-480a-8c69-04cfe6d76635"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Gastos Personal:]]></text>
+					</staticText>
+					<textField evaluationTime="Band" pattern="¤#,##0.00;¤-#,##0.00">
+						<reportElement x="116" y="31" width="71" height="14" uuid="3151b31d-5dd0-40ec-b496-04aeefe77278"/>
+						<textFieldExpression><![CDATA[$V{returntotal}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="231" y="31" width="124" height="14" uuid="b43086db-3414-4d89-9e3d-cc657905f1d3"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Presupuestado Personal:]]></text>
+					</staticText>
+					<textField evaluationTime="Band" pattern="¤#,##0.00;¤-#,##0.00">
+						<reportElement x="370" y="31" width="89" height="14" uuid="f5dfe084-b005-49b1-9e4b-0013af7ff649"/>
+						<textFieldExpression><![CDATA[$V{returnpresupuestado}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="16" y="50" width="100" height="14" uuid="306fbc0b-0016-4d6a-b3dc-541a4302c79f"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Gastos Actividades:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="231" y="50" width="139" height="14" uuid="b97f0645-79a0-4705-8743-5e8d81c49194"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Presupuestado Actividades:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="16" y="73" width="100" height="14" uuid="665cfa35-2eac-465d-8a54-06a0951a4489"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Gastos Total:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="70" width="100" height="14" uuid="9a78124f-3502-45fa-9270-6c29aac63a32"/>
+						<textElement>
+							<font isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Presupuesto Total:]]></text>
+					</staticText>
+					<textField evaluationTime="Band" pattern="¤#,##0.00;¤-#,##0.00">
+						<reportElement x="116" y="73" width="72" height="14" uuid="8eb4e6b2-6250-4406-8808-76349905369e"/>
+						<textElement>
+							<font isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{returntotal} != null && $V{returngastosactividades} != null ? $V{returntotal}+$V{returngastosactividades}:
+$V{returntotal} != null ? $V{returntotal} : $V{returngastosactividades} != null ? $V{returngastosactividades} : "0.00"]]></textFieldExpression>
+					</textField>
+					<textField evaluationTime="Band" pattern="¤#,##0.00;¤-#,##0.00">
+						<reportElement x="370" y="70" width="89" height="14" uuid="b80d18ad-57a9-4e9f-af31-54e9de0e5fcf"/>
+						<textElement>
+							<font isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{returnpresupuestado} != null && $V{returnpresupuestosactividades} != null ? $V{returnpresupuestado}+$V{returnpresupuestosactividades}:
+$V{returnpresupuestado} != null ? $V{returnpresupuestado}: $V{returnpresupuestosactividades} != null ? $V{returnpresupuestosactividades} : "0.00"]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="-10" width="581" height="76" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="40" y="29" width="518" height="37" backcolor="#FFFFFF" uuid="8ea97745-9b48-46e9-a1f4-e259ef72f614"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="Title" x="465" y="34" width="89" height="27" forecolor="#000000" uuid="da2706b6-4b77-40ed-841f-df21050abc14"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[LinceWeb]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="107" y="1" width="387" height="29" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte desglosado eventos]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="153" y="40" width="271" height="20" uuid="88f17ce3-ed02-413a-bc32-6f2e6537a47a"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="581" height="32" forecolor="#000000" backcolor="#999999" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="402" y="5" width="171" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="20" y="5" width="181" height="20" uuid="6664d409-f168-4064-abda-e6698a19bbe9"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{filtrofecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="22" width="581" height="1" uuid="b1e8ab34-3e65-4321-b833-9c67806eef1f"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="581" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="539" y="3" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="459" y="3" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="4" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="19" splitType="Stretch">
+			<line>
+				<reportElement x="3" y="11" width="578" height="4" uuid="bcadd30c-ce49-4366-9ef7-bc335b240fc5"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

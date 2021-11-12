@@ -1,0 +1,583 @@
+body {
+    background: #ffffff;
+}
+
+.navbar.navbar-fixed-top {
+    box-shadow: none;
+    left: 0;
+    right: 0;
+    border-radius: 0px;
+    background-color: white;
+    background-image: none;
+}
+
+.main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.main-sidebar, .main-sidebar:before {
+    transition: margin-left .3s ease-in-out, width .3s ease-in-out;
+    width: 200px;
+}
+
+.main-sidebar {
+    z-index: 1000;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.sidebar-lince-refresh {
+    background-color: #0062AB;
+    top: 75px;
+}
+
+@media (min-width: 768px) {
+    header.content-wrapper {
+        margin-top: 25px;
+    }
+
+    .content-wrapper {
+        margin-left: 200px;
+        transition: margin-left .3s ease-in-out;
+        margin-top: 0px;
+    }
+
+    .logoff .content-wrapper {
+        margin-left: 0px;
+        margin-top: 40px;
+    }
+
+    .main-container.content-wrapper {
+        display: -webkit-box;
+    }
+}
+
+.main-container {
+
+}
+
+.logoff {
+    background-image: url("../images/background-refresh2.png");
+    background-size: cover;
+    color: #ffffff;
+}
+
+.logoff h3, .logoff h4 {
+    text-align: left;
+    color: #ffffff;
+}
+
+.sidebar {
+    padding-bottom: 0;
+    padding-top: 10px;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    overflow-y: auto;
+    height: calc(100% - 20rem);
+}
+
+.nav.nav-treeview {
+    padding-left: 15px;
+}
+
+.fa {
+    font-size: 15px !important;
+    padding-right: 10px;
+}
+
+.panel-info > .panel-heading {
+    background-color: rgba(100, 183, 160, 1);
+    background-image: none;
+}
+
+.panel-info > .list-group > .list-group-item {
+    background-color: #ffffff;
+}
+
+header {
+    -webkit-box-shadow: 0 0 6px 1px #000;
+    -moz-box-shadow: 0 0 6px 1px #000;
+    box-shadow: 0 0 6px 1px #000;
+    padding: 15px;
+
+}
+
+header h3 {
+    color: #0062AB;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.main-container.content-wrapper::before {
+    height: 1px;
+    width: 0%;
+    border: 6px solid #0062AB;
+    display: block;
+    margin-top: -10px;
+    position: absolute;
+}
+
+.main-container.content-wrapper > div {
+    margin-top: 10px;
+    padding-top: 3%;
+}
+
+.title-windows {
+    color: #0062AB;
+}
+
+.title-windows::after {
+    content: ' ';
+    height: 1px;
+    width: 100%;
+    border: 3px solid #0062AB;
+    display: block;
+    margin-top: 10px;
+}
+
+.btn, input.btn, a.btn, .web2py_grid .row_buttons a {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-default {
+    border-radius: 10px;
+}
+
+.btn-default {
+    background-image: none;
+    background-color: #64B7A0;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.btn-default:focus, .btn-default:hover {
+    background-color: #46a087;
+    color: white;
+}
+
+.btn-secondary {
+    background-image: none;
+    background-color: #0062AB;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.btn-secondary:focus, .btn-secondary:hover {
+    background-color: #053e6a;
+    color: #ffffff;
+}
+
+.btn-primary {
+    background-image: none;
+    background-color: #64B7A0;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.btn-primary:focus, .btn-primary:hover {
+    background-color: #46a087;
+    color: #ffffff;
+}
+
+tr .btn-secondary:focus, tr .btn-secondary:hover{
+    background-color: #46a087;
+    color: white;
+}
+
+tr .btn-secondary, tr .btn-secondary{
+    background-color: #64B7A0;
+    color: #ffffff;
+}
+
+input[type="checkbox"]:disabled:checked:after{
+    background-color: #053e6a;
+    border-radius: 10px;
+}
+
+input[type="checkbox"]:checked:after, .checkbox input[type="checkbox"]:checked:after {
+    border-radius: 10px;
+}
+
+
+.web2py_grid .row_buttons a, .web2py_paginator ul li a, .web2py_search_actions a, .web2py_console input[type=submit], .web2py_console input[type=button], .web2py_console button {
+    padding: 5px 8px;
+}
+
+div.w2p_export_menu a, div.w2p_wiki_tags a, div.w2p_cloud a {
+    padding: 5px 8px;
+}
+
+.web2py_grid thead th, .web2py_grid tfoot td {
+    background-color: #e0e6ec;
+}
+
+.navbar img {
+    margin-top: 15px;
+    width: 125px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.control-label {
+    color: #0062AB;
+}
+
+.form-group::before {
+    color: #044779;
+}
+
+.form-control {
+    color: #0062AB;
+    border-radius: 35px !important;
+    /*border: 1px solid #64B7A0 !important;*/
+    padding: 5px !important;
+}
+
+.web2py_grid tbody td {
+    color: #0062AB;
+}
+
+.checkbox label {
+    color: #0062AB;
+}
+
+.social-icons {
+    position: fixed;
+    bottom: 0;
+    height: 12rem;
+    width: 200px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+}
+
+div.flash.alert {
+    z-index: 99999;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: rgba(100, 183, 160, 1);
+    color: #ffffff;
+}
+
+
+input[type="file"]::-webkit-file-upload-button {
+    /*visibility: hidden;*/
+    background-color: #0062AB;
+    border: 1px solid #999;
+    border-radius: 20px;
+    padding: 5px 8px;
+    color: #ffffff;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+input[type="file"]:hover::-webkit-file-upload-button {
+    border-color: black;
+}
+
+/*input[type="file"]::before {
+    content: 'Seleccione un archivo';
+    display: inline-block;
+    background-color: #0062AB;
+    border: 1px solid #999;
+    border-radius: 20px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+
+    color: #ffffff;
+}*/
+
+input[type="file"]:hover::before {
+    border-color: black;
+}
+
+input[type="file"]:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+/*Calendario*/
+
+.calendar tbody td.today {
+    border-radius: 20px;
+    color: #ffffff !important;
+    background: #46a087 !important;
+}
+
+.calendar tbody td.selected {
+    border-radius: 20px;
+    color: #ffffff !important;
+    background: #0062AB !important;
+    padding: 2px 6px 2px 2px !important;
+}
+
+.calendar table {
+    color: #46a087;
+}
+
+.calendar tbody .day {
+    color: #46a087;
+}
+
+.calendar thead .name, .calendar table .wn, .calendar .button, .calendar .nav, .calendar thead .title, .calendar tfoot .ttip {
+    background-color: #ffffff !important;
+    color: #0062AB !important;
+}
+
+.calendar {
+    border-color: #46a087 !important;
+    border-radius: 0px !important;
+}
+
+.calendar tbody .day {
+    padding: 2px 5px 2px 2px !important;
+}
+
+.copyright a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.social-icons .copyright {
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.logoff #myDiv {
+    background-color: #ffffff;
+    color: #0a6ebd;
+}
+
+.social-icons p {
+    margin-bottom: 0px;
+}
+
+#myDiv {
+    border-radius: 0px !important;
+}
+
+.acc_container .block {
+    padding-top: 20px !important;
+}
+
+h5.acc_trigger a {
+    background-color: #0a6ebd !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;;
+}
+
+#socialdrawer {
+    display: none;
+}
+
+div#web2py_user_form {
+    background-image: none !important;
+    /*background-color: #ffffff !important;*/
+}
+
+.logoff div#web2py_user_form {
+    border: none !important;
+    box-shadow: none !important;
+    padding-top: 0px;
+}
+
+.logoff .main-container.content-wrapper::before {
+    content: none;
+}
+
+.logoff .control-label {
+    color: #ffffff;
+}
+
+.logoff input[type*=text], .logoff input[type*=password] {
+    background-color: white;
+    width: 300px;
+}
+
+.logoff label {
+    color: #ffffff;
+}
+
+.btn-white {
+    color: #0a6ebd !important;
+    background-color: white;
+    font-weight: bold;
+}
+
+.btn-white:active, .btn-white:hover {
+    color: white !important;
+    background-color: #0a6ebd !important;
+    font-weight: bold;
+}
+
+.nav.navbar-right li.dropdown a {
+    color: #0a6ebd !important;
+    background-color: white;
+    font-weight: bold;
+    background-image: none;
+}
+
+.nav.navbar-right li.dropdown a:hover, .nav.navbar-right li.dropdown a:active, .nav.navbar-right li.dropdown a:focus {
+    color: white !important;
+    background-color: #0a6ebd !important;
+    font-weight: bold;
+}
+
+.navbar-right {
+    margin-top: 10px;
+}
+
+.dropdown-menu .divider {
+    background-color: #0a6ebd;
+}
+
+.dropdown-menu {
+    background-color: white;
+}
+
+#web2py_user_form .col-sm-3 {
+    width: 100%;
+    text-align: left;
+}
+
+#web2py_user_form .col-sm-offset-3 {
+    margin-left: 0%;
+    width: 100%;
+}
+
+#web2py_user_form .btn {
+    color: #0a6ebd !important;
+    background-color: white;
+    font-weight: bold;
+    background-image: none;
+}
+
+#web2py_user_form .btn:hover {
+    color: white !important;
+    background-color: #0a6ebd !important;
+    font-weight: bold;
+}
+
+#web2py_user_form input[type="checkbox"]:after, #web2py_user_form .checkbox input[type="checkbox"]:after, #web2py_user_form .checkbox-inline input[type="checkbox"]:after {
+    border-color: white;
+    border-radius: 20px;
+}
+
+.nav-pills > li > a, .nav > li > a {
+    color: white;
+}
+
+.footer {
+    background: none;
+    background-color: #0062AB;
+}
+
+body:not(.logoff) .navbar.navbar-fixed-top:after {
+    content: ' ';
+    height: 1px;
+    width: 100%;
+    border: 3px solid #0062AB;
+    display: block;
+}
+
+.sidebar .username {
+    color: white;
+    font-size: 18px;
+    padding-left: 15px;
+    text-align: left;
+    padding-right: 15px;
+}
+
+.sidebar .username:after {
+    color: white;
+    content: ' ';
+    height: 1px;
+    width: 100%;
+    border: 1px solid white;
+    display: block;
+    margin-top: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#myDiv {
+    max-width: 100% !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    border: 0px !important;
+}
+
+.web2py_grid, .web2py_grid table {
+    border-radius: 0px;
+    box-shadow: none !important;
+}
+body{
+    font-family: "Lato";
+}
+
+#web2py_user_form{
+
+}
+
+.logoff .title-windows::after{
+    border: 3px solid white;
+}
+
+.navbar-toggle.btn.btn-default{
+    background-color: #0a6ebd;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar{
+    background-color: white;
+}
+
+@media (max-width: 768px) {
+    .sidebar-lince-refresh{
+        /*display: none;*/
+    }
+}
+
+ul.dropdown-menu li a[href='#']{
+    display: none;
+}
+
+ul.nav-pills li a[href='#']{
+    display: none;
+}
+
+.nav li.divider{
+    border: 1px solid white;
+}
+
+a[href*='export_type=html'], a[href*='export_type=tsv'] , a[href*='export_type=xml']{
+display: none;
+}
+
+a[href*='export_type=tsv']{
+display: none;
+}

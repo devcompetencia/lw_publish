@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompleto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblresumen."mpcodigo" AS tblresumen_mpcodigo,
+     tblresumen."fecha" AS tblresumen_fecha,
+     tblresumen."numtimbradas" AS tblresumen_numtimbradas,
+     tblresumen."hora1" AS tblresumen_hora1,
+     tblresumen."esadicional1" AS tblresumen_esadicional1,
+     tblresumen."hora2" AS tblresumen_hora2,
+     tblresumen."esadicional2" AS tblresumen_esadicional2,
+     tblresumen."hora3" AS tblresumen_hora3,
+     tblresumen."esadicional3" AS tblresumen_esadicional3,
+     tblresumen."hora4" AS tblresumen_hora4,
+     tblresumen."esadicional4" AS tblresumen_esadicional4,
+     tblresumen."hora5" AS tblresumen_hora5,
+     tblresumen."esadicional5" AS tblresumen_esadicional5,
+     tblresumen."hora6" AS tblresumen_hora6,
+     tblresumen."esadicional6" AS tblresumen_esadicional6,
+     tblresumen."hora7" AS tblresumen_hora7,
+     tblresumen."esadicional7" AS tblresumen_esadicional7,
+     tblresumen."hora8" AS tblresumen_hora8,
+     tblresumen."esadicional8" AS tblresumen_esadicional8,
+     tblresumen."totalhoras" AS tblresumen_totalhoras,
+     tblresumen."hayatraso" AS tblresumen_hayatraso,
+     tblresumen."horasnormales" AS tblresumen_horasnormales,
+     tblresumen."horasnocturnas" AS tblresumen_horasnocturnas,
+     tblresumen."horassuplementarias" AS tblresumen_horassuplementarias,
+     tblresumen."horasextraordinarias" AS tblresumen_horasextraordinarias,
+     tblresumen."hocodigo" AS tblresumen_hocodigo,
+     tblresumen."tiempoatraso" AS tblresumen_tiempoatraso,
+     tblpersonal."id" AS tblpersonal_codigo,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblpersonal."emcodigo" AS tblpersonal_emcodigo,
+     tblpersonal."jecodigo" AS tblpersonal_jecodigo,
+     tblpersonal."arcodigo" AS tblpersonal_arcodigo,
+     tblpersonal."lucodigo" AS tblpersonal_lucodigo,
+     tblpersonal."secodigo" AS tblpersonal_secodigo,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tblresumen."is_active" AS tblresumen_is_active
+FROM
+     "tblpersonal" tblpersonal INNER JOIN "tblresumen" tblresumen ON tblpersonal."id" = tblresumen."mpcodigo",
+     "tblparcontasist" tblparcontasist
+WHERE
+     tblresumen.is_active=1 AND
+     esfalta = 1$P!{filtro}
+ORDER BY
+     apellidos ASC,
+     nombres ASC,
+     fecha ASC]]>
+	</queryString>
+	<field name="tblresumen_mpcodigo" class="java.lang.Integer"/>
+	<field name="tblresumen_fecha" class="java.sql.Timestamp"/>
+	<field name="tblresumen_numtimbradas" class="java.lang.Integer"/>
+	<field name="tblresumen_hora1" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional1" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora2" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional2" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora3" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional3" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora4" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional4" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora5" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional5" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora6" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional6" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora7" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional7" class="java.lang.Boolean"/>
+	<field name="tblresumen_hora8" class="java.sql.Time"/>
+	<field name="tblresumen_esadicional8" class="java.lang.Boolean"/>
+	<field name="tblresumen_totalhoras" class="java.sql.Time"/>
+	<field name="tblresumen_hayatraso" class="java.lang.Boolean"/>
+	<field name="tblresumen_horasnormales" class="java.sql.Time"/>
+	<field name="tblresumen_horasnocturnas" class="java.sql.Time"/>
+	<field name="tblresumen_horassuplementarias" class="java.sql.Time"/>
+	<field name="tblresumen_horasextraordinarias" class="java.sql.Time"/>
+	<field name="tblresumen_hocodigo" class="java.lang.Integer"/>
+	<field name="tblresumen_tiempoatraso" class="java.sql.Time"/>
+	<field name="tblpersonal_codigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblpersonal_emcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_jecodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_arcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_lucodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_secodigo" class="java.lang.Integer"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tblresumen_is_active" class="java.lang.Boolean"/>
+	<variable name="contadorfaltas" class="java.lang.Integer" resetType="Group" resetGroup="tblresumen_mpcodigo" calculation="Count">
+		<variableExpression><![CDATA[$F{tblresumen_fecha}]]></variableExpression>
+	</variable>
+	<variable name="apellidosnombres" class="java.lang.String" resetType="Group" resetGroup="tblresumen_mpcodigo">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></initialValueExpression>
+	</variable>
+	<variable name="contadorfaltastot" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{tblresumen_fecha}]]></variableExpression>
+	</variable>
+	<group name="tblresumen_mpcodigo">
+		<groupExpression><![CDATA[$F{tblresumen_mpcodigo}]]></groupExpression>
+		<groupHeader>
+			<band height="27">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="3" width="555" height="24" forecolor="#B89F7D" backcolor="#CCCCCC" uuid="ea4f31bd-8d4e-4a67-a7f3-0d24370900b4"/>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="SubTitle" x="2" y="0" width="107" height="24" forecolor="#000000" uuid="b04a429b-7b44-4d48-9649-3fd07c2d391a"/>
+						<textElement>
+							<font fontName="Arial" size="14" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{tblresumen_mpcodigo}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true">
+						<reportElement style="Detail" positionType="Float" x="109" y="0" width="383" height="18" forecolor="#000000" uuid="52a4bcfc-9623-4f47-a5eb-1af9a620bec0"/>
+						<textElement>
+							<font fontName="Arial" size="14"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{apellidosnombres}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="27">
+				<staticText>
+					<reportElement style="Column header" x="46" y="1" width="97" height="10" forecolor="#000000" uuid="1e2f9543-9bd8-4088-b47b-717e026b6eae"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total días faltados:]]></text>
+				</staticText>
+				<textField pattern="###0">
+					<reportElement x="158" y="0" width="30" height="11" uuid="35b0e217-bbf7-4801-9fe3-be9f271e910a"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{contadorfaltas}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="66" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="2" y="0" width="553" height="66" uuid="e037bf23-6b29-415f-8d4a-0ca9823fb9b8"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="SubTitle" x="199" y="0" width="161" height="29" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte Faltas]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="143" y="46" width="271" height="20" uuid="b37dc54f-87da-446e-898a-eb310c7246ce"/>
+					<textElement textAlignment="Center">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Title" x="466" y="39" width="89" height="27" forecolor="#000000" uuid="1ea41fa5-ccf0-47f4-acad-1cbc98f92d45"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[LinceWeb]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="68" width="555" height="32" forecolor="#000000" backcolor="#999999" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="411" y="12" width="144" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="99" y="0" width="349" height="20" uuid="edc0e443-8c87-4981-ba35-daeda19e7d12"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{filtrofecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="46" y="4" width="97" height="10" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Falta]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="465f2d7c-f27e-41b5-ba55-b10eb275f04f"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="2" y="0" width="553" height="18" uuid="25539e9e-6854-43d9-84d4-c07ed27b5f11"/>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy EEE">
+					<reportElement style="Detail" positionType="Float" x="44" y="0" width="229" height="18" uuid="b4069e64-26b6-48c5-811c-9aba18d88005"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblresumen_fecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="5137aecf-97b4-4590-b2cd-eb42471be997"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="515" y="5" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="435" y="5" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="35" y="15" width="108" height="10" forecolor="#000000" uuid="e0155527-4ddb-4425-8ec2-616dfdb85fd5"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total global días faltados:]]></text>
+			</staticText>
+			<textField pattern="###0">
+				<reportElement x="158" y="15" width="30" height="11" uuid="8bd9203c-b56f-4848-a40a-8c19426f6007"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{contadorfaltastot}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

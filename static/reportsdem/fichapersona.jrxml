@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fichapersona" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="81d08cdc-08fc-4550-9dad-00f04b4a7f37">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="caminoimagen" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblpersonal."id" AS tblpersonal_codigo,
+     tblpersonal."tarjeta" AS tblpersonal_tarjeta,
+     tblpersonal."cedula" AS tblpersonal_cedula,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblpersonal."ganaextras" AS tblpersonal_ganaextras,
+     tblpersonal."situacion" AS tblpersonal_situacion,
+     tblpersonal."timbra" AS tblpersonal_timbra,
+     tblpersonal."fechaingreso" AS tblpersonal_fechaingreso,
+     tblpersonal."partidapresupuestaria" AS tblpersonal_partidapresupuestaria,
+     tblpersonal."numerocontrato" AS tblpersonal_numerocontrato,
+     tblpersonal."telefono" AS tblpersonal_telefono,
+     tblpersonal."celular" AS tblpersonal_celular,
+     tblpersonal."direccion" AS tblpersonal_direccion,
+     tblpersonal."fechanacimiento" AS tblpersonal_fechanacimiento,
+     tblpersonal."estadocivil" AS tblpersonal_estadocivil,
+     tblpersonal."numerocargas" AS tblpersonal_numerocargas,
+     tblpersonal."remuneracion" AS tblpersonal_remuneracion,
+     tblpersonal."esdiscapacitado" AS tblpersonal_esdiscapacitado,
+     tblpersonal."cargo" AS tblpersonal_cargo,
+     tblpersonal."emcodigo" AS tblpersonal_emcodigo,
+     tblpersonal."jecodigo" AS tblpersonal_jecodigo,
+     tblpersonal."lucodigo" AS tblpersonal_lucodigo,
+     tblpersonal."secodigo" AS tblpersonal_secodigo,
+     tblpersonal."arcodigo" AS tblpersonal_arcodigo,
+     tblpersonal."archivofoto" AS tblpersonal_archivofoto,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tblpersonal."is_active" AS tblpersonal_is_active
+FROM
+     "tblpersonal" tblpersonal,
+     "tblparcontasist" tblparcontasist
+WHERE
+     tblpersonal.is_active = 1 AND
+     1 = 1$P!{filtro}
+ORDER BY
+     tblpersonal.apellidos ASC]]>
+	</queryString>
+	<field name="tblpersonal_codigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_tarjeta" class="java.lang.String"/>
+	<field name="tblpersonal_cedula" class="java.lang.String"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblpersonal_ganaextras" class="java.lang.Boolean"/>
+	<field name="tblpersonal_situacion" class="java.lang.Boolean"/>
+	<field name="tblpersonal_timbra" class="java.lang.Boolean"/>
+	<field name="tblpersonal_fechaingreso" class="java.sql.Timestamp"/>
+	<field name="tblpersonal_partidapresupuestaria" class="java.lang.String"/>
+	<field name="tblpersonal_numerocontrato" class="java.lang.String"/>
+	<field name="tblpersonal_telefono" class="java.lang.String"/>
+	<field name="tblpersonal_celular" class="java.lang.String"/>
+	<field name="tblpersonal_direccion" class="java.lang.String"/>
+	<field name="tblpersonal_fechanacimiento" class="java.sql.Timestamp"/>
+	<field name="tblpersonal_estadocivil" class="java.lang.String"/>
+	<field name="tblpersonal_numerocargas" class="java.lang.Integer"/>
+	<field name="tblpersonal_remuneracion" class="java.math.BigDecimal"/>
+	<field name="tblpersonal_esdiscapacitado" class="java.lang.Boolean"/>
+	<field name="tblpersonal_cargo" class="java.lang.String"/>
+	<field name="tblpersonal_emcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_jecodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_lucodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_secodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_arcodigo" class="java.lang.Integer"/>
+	<field name="tblpersonal_archivofoto" class="java.lang.String"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tblpersonal_is_active" class="java.lang.Boolean"/>
+	<variable name="esdiscapacitado" class="java.lang.String">
+		<variableExpression><![CDATA[( $F{tblpersonal_esdiscapacitado} ? "Si" : "No" )]]></variableExpression>
+	</variable>
+	<variable name="apellidosnombres" class="java.lang.String" resetType="Group" resetGroup="tblpersonal_apellidos">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></initialValueExpression>
+	</variable>
+	<group name="tblpersonal_apellidos">
+		<groupExpression><![CDATA[$F{tblpersonal_apellidos}]]></groupExpression>
+		<groupHeader>
+			<band height="178">
+				<textField>
+					<reportElement mode="Opaque" x="0" y="0" width="555" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="9ace286f-1ae3-4f91-a412-a822f5d00827"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{apellidosnombres}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="b37dba67-222d-4937-b157-208d911ba30f"/>
+				</line>
+				<image>
+					<reportElement x="21" y="50" width="169" height="101" uuid="6aecc727-3e62-4f56-8606-31cee8de3501"/>
+					<imageExpression><![CDATA[$F{tblpersonal_archivofoto}.length()<=3 ? $P{caminoimagen}+'/'+"Blank.png" : $P{caminoimagen}+'/'+$F{tblpersonal_archivofoto}]]></imageExpression>
+				</image>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="2"/>
+	</title>
+	<pageHeader>
+		<band height="102">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="92" backcolor="#999999" uuid="02b04544-46db-4355-bab6-24001b2c7560"/>
+				<staticText>
+					<reportElement x="167" y="12" width="234" height="43" forecolor="#000000" uuid="3e85b252-a870-4f57-a1be-154bb570a7b3"/>
+					<textElement textAlignment="Center">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ficha Personal]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="131" y="55" width="299" height="20" uuid="a05640f1-37ec-4ab2-ad5a-a415f5784e01"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="001d76f4-3557-48e5-be9d-3e20bf9f7ad6"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="409">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="0" width="319" height="20" uuid="db8c310e-58af-4fcc-b40d-6e1c6774e675"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_codigo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="20" width="319" height="20" uuid="47592805-7e79-4d59-9e37-1239255406e1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_tarjeta}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="40" width="319" height="20" uuid="de0c1f8b-b8fd-4985-92d4-25bfb286fd14"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_cedula}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+				<reportElement x="203" y="250" width="319" height="20" uuid="f9688b49-d682-4b21-a548-295912885b65"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_fechaingreso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="280" width="319" height="20" uuid="c9aced39-04dd-41ed-b175-9c65ce854b72"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_partidapresupuestaria}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="300" width="319" height="20" uuid="7a7445c1-f396-4240-8a2d-cd40a88167c3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_numerocontrato}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="132" width="319" height="20" uuid="23a97b28-d222-4d5a-b7b0-5cbc54cac664"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_telefono}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="152" width="319" height="20" uuid="0009ff06-8ded-47cc-842b-1fa6e2ced2a3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_celular}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="100" width="319" height="20" uuid="33f88ab5-f49b-491c-837e-6bc5d948b888"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_direccion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+				<reportElement x="203" y="60" width="319" height="20" uuid="b4c729a2-471e-4e3e-9b20-7034c04f5a32"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_fechanacimiento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="180" width="319" height="20" uuid="0b14b132-4c76-4eef-80f1-6603e8f1ea1b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_estadocivil}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="200" width="319" height="20" uuid="cfee1ccb-1898-4989-97a6-3daa094e1322"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_numerocargas}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="320" width="319" height="20" uuid="d7438d01-480f-47bd-a9d4-44d793f3b7ce"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_remuneracion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="203" y="360" width="319" height="20" uuid="8d78ea93-dd31-4b84-ae91-11019a05b143"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_cargo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="20" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="018b75a1-f153-4916-a86c-3b4b78a4eb6f"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número Tarjeta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="40" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d36f00e3-040c-4350-b899-390d470308fd"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cédula]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="250" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6118c113-d05b-4c18-a231-db8b1080f4e9"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="280" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="34e2fad7-a6b9-4f15-a98f-71c9c4be4a1e"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Partida presupuestaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="300" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3bafadf3-f1aa-4939-8bdb-f23b978a1e14"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número contrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="132" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="213a213c-354c-4882-b92f-5917ba3d120c"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="152" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="48f221ec-07d9-42c1-894c-3594b45928ac"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="100" width="190" height="25" forecolor="#006699" backcolor="#E6E6E6" uuid="21892cce-ff44-42e4-b8de-676119e5e4e0"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="60" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4391a975-d2ec-43ce-a1f4-e05c0ed4d80a"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="180" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="129f162f-54ea-4ce6-9647-f3a911fbbe87"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado civil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="200" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ccf23e2c-e3b3-4317-96b9-c2c8dc14fa86"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="320" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8ad85898-a458-45de-86c4-f0941c88bbd0"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remuneración]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="220" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="210dfabc-7823-44bf-825e-e3f742201431"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Capacidades especiales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="360" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7719d7ab-f8f9-466c-b3c2-8706c6e76a62"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="190" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="64f8c48a-3432-4f2d-b550-7bc0581ec5d8"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="203" y="220" width="319" height="20" uuid="5f333e1f-d58a-4d03-890b-fd055b3e059f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{esdiscapacitado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="77cc7832-3d3f-4ef9-98b1-f80990821acb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="bfd1cd57-90e2-411e-8f13-db5b28bc8906"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="3a1c572f-0efc-4dcd-bf23-2f47ec6ab6fa"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

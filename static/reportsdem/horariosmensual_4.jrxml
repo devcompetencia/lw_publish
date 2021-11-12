@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rescompleto" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="722c8b37-b80b-4de3-858e-8d55f67bd044">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="filtro" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="filtrofecha" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaini" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechafin" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechainia" class="java.util.Date" isForPrompting="false"/>
+	<parameter name="fechafina" class="java.util.Date" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT
+     tblcalendarioini_rpt."id" AS tblcalendario_rpt_id,
+     tblcalendarioini_rpt."mpcodigo" AS tblcalendario_rpt_mpcodigo,
+     tblcalendarioini_rpt."anio" AS tblcalendario_rpt_anio,
+     tblcalendarioini_rpt."mes" AS tblcalendario_rpt_mes,
+     tblcalendarioini_rpt."ho1" AS tblcalendario_rpt_ho1,
+     tblcalendarioini_rpt."ho2" AS tblcalendario_rpt_ho2,
+     tblcalendarioini_rpt."ho3" AS tblcalendario_rpt_ho3,
+     tblcalendarioini_rpt."ho4" AS tblcalendario_rpt_ho4,
+     tblcalendarioini_rpt."ho5" AS tblcalendario_rpt_ho5,
+     tblcalendarioini_rpt."ho6" AS tblcalendario_rpt_ho6,
+     tblcalendarioini_rpt."ho7" AS tblcalendario_rpt_ho7,
+     tblcalendarioini_rpt."ho8" AS tblcalendario_rpt_ho8,
+     tblcalendarioini_rpt."ho9" AS tblcalendario_rpt_ho9,
+     tblcalendarioini_rpt."ho10" AS tblcalendario_rpt_ho10,
+     tblcalendarioini_rpt."ho11" AS tblcalendario_rpt_ho11,
+     tblcalendarioini_rpt."ho12" AS tblcalendario_rpt_ho12,
+     tblcalendarioini_rpt."ho13" AS tblcalendario_rpt_ho13,
+     tblcalendarioini_rpt."ho14" AS tblcalendario_rpt_ho14,
+     tblcalendarioini_rpt."ho15" AS tblcalendario_rpt_ho15,
+     tblcalendarioini_rpt."ho16" AS tblcalendario_rpt_ho16,
+     tblcalendarioini_rpt."ho17" AS tblcalendario_rpt_ho17,
+     tblcalendarioini_rpt."ho18" AS tblcalendario_rpt_ho18,
+     tblcalendarioini_rpt."ho19" AS tblcalendario_rpt_ho19,
+     tblcalendarioini_rpt."ho20" AS tblcalendario_rpt_ho20,
+     tblcalendarioini_rpt."ho21" AS tblcalendario_rpt_ho21,
+     tblcalendarioini_rpt."ho22" AS tblcalendario_rpt_ho22,
+     tblcalendarioini_rpt."ho23" AS tblcalendario_rpt_ho23,
+     tblcalendarioini_rpt."ho24" AS tblcalendario_rpt_ho24,
+     tblcalendarioini_rpt."ho25" AS tblcalendario_rpt_ho25,
+     tblcalendarioini_rpt."ho26" AS tblcalendario_rpt_ho26,
+     tblcalendarioini_rpt."ho27" AS tblcalendario_rpt_ho27,
+     tblcalendarioini_rpt."ho28" AS tblcalendario_rpt_ho28,
+     tblcalendarioini_rpt."ho29" AS tblcalendario_rpt_ho29,
+     tblcalendarioini_rpt."ho30" AS tblcalendario_rpt_ho30,
+     tblcalendarioini_rpt."ho31" AS tblcalendario_rpt_ho31,
+     tblcalendarioini_rpt."created_by" AS tblcalendario_rpt_created_by,
+     tblcalendarioini_rpt."created_on" AS tblcalendario_rpt_created_on,
+     tblcalendarioini_rpt."modified_by" AS tblcalendario_rpt_modified_by,
+     tblcalendarioini_rpt."modified_on" AS tblcalendario_rpt_modified_on,
+     tblcalendarioini_rpt."is_active" AS tblcalendario_rpt_is_active,
+     tbljefaturas."id" AS tbljefaturas_id,
+     tbljefaturas."descripcion" AS tbljefaturas_descripcion,
+     tblparprocesamiento."id" AS tblparprocesamiento_id,
+     tblparprocesamiento."fechainicial" AS tblparprocesamiento_fechaini,
+     tblparprocesamiento."fechafinal" AS tblparprocesamiento_fechafin,
+     tblpersonal."id" AS tblpersonal_id,
+     tblpersonal."tarjeta" AS tblpersonal_tarjeta,
+     tblpersonal."cedula" AS tblpersonal_cedula,
+     tblpersonal."apellidos" AS tblpersonal_apellidos,
+     tblpersonal."nombres" AS tblpersonal_nombres,
+     tblparcontasist."razonsocial" AS tblparcontasist_razonsocial,
+     tblparcontasist."id" AS tblparcontasist_id,
+     tblparprocesamiento.fechainicial as fechainicial,
+     tblparprocesamiento.fechafinal as fechafinal,
+     DATETIME2FROMPARTS ( tblcalendarioini_rpt.anio, tblcalendarioini_rpt.mes, 1, 0, 0, 0, 0, 0 ) as anio_mes
+FROM
+     "dbo"."tbljefaturas" tbljefaturas INNER JOIN "dbo"."tblpersonal" tblpersonal ON tbljefaturas."id" = tblpersonal."jecodigo"
+     INNER JOIN "dbo"."tblcalendarioini_rpt" tblcalendarioini_rpt ON tblpersonal."cedula" = cast( tblcalendarioini_rpt."mpcodigo" as varchar(10)),
+     "dbo"."tblparprocesamiento" tblparprocesamiento,
+     "dbo"."tblparcontasist" tblparcontasist
+
+where
+     tblcalendarioini_rpt."anio" = DATEPART(yyyy,$P{fechainia})
+     and tblcalendarioini_rpt."mes" >= DATEPART(mm,$P{fechainia})
+     and tblcalendarioini_rpt."mes" <= DATEPART(mm,$P{fechafina})$P!{filtro}
+
+order by tblcalendarioini_rpt."mes", apellidos, nombres asc]]>
+	</queryString>
+	<field name="tblcalendario_rpt_id" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_mpcodigo" class="java.lang.Long"/>
+	<field name="tblcalendario_rpt_anio" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_mes" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho1" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho2" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho3" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho4" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho5" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho6" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho7" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho8" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho9" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho10" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho11" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho12" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho13" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho14" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho15" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho16" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho17" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho18" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho19" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho20" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho21" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho22" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho23" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho24" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho25" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho26" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho27" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho28" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho29" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho30" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_ho31" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_created_by" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_created_on" class="java.sql.Timestamp"/>
+	<field name="tblcalendario_rpt_modified_by" class="java.lang.Integer"/>
+	<field name="tblcalendario_rpt_modified_on" class="java.sql.Timestamp"/>
+	<field name="tblcalendario_rpt_is_active" class="java.lang.Boolean"/>
+	<field name="tbljefaturas_id" class="java.lang.Integer"/>
+	<field name="tbljefaturas_descripcion" class="java.lang.String"/>
+	<field name="tblparprocesamiento_id" class="java.lang.Integer"/>
+	<field name="tblparprocesamiento_fechaini" class="java.sql.Timestamp"/>
+	<field name="tblparprocesamiento_fechafin" class="java.sql.Timestamp"/>
+	<field name="tblpersonal_id" class="java.lang.Integer"/>
+	<field name="tblpersonal_tarjeta" class="java.lang.String"/>
+	<field name="tblpersonal_cedula" class="java.lang.String"/>
+	<field name="tblpersonal_apellidos" class="java.lang.String"/>
+	<field name="tblpersonal_nombres" class="java.lang.String"/>
+	<field name="tblparcontasist_razonsocial" class="java.lang.String"/>
+	<field name="tblparcontasist_id" class="java.lang.Integer"/>
+	<field name="fechainicial" class="java.sql.Timestamp"/>
+	<field name="fechafinal" class="java.sql.Timestamp"/>
+	<field name="anio_mes" class="java.sql.Timestamp"/>
+	<variable name="apellidosnombres" class="java.lang.String">
+		<variableExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></initialValueExpression>
+	</variable>
+	<variable name="fechainia" class="java.sql.Timestamp">
+		<variableExpression><![CDATA[$P{fechaini}+1]]></variableExpression>
+	</variable>
+	<variable name="fechafina" class="java.sql.Timestamp">
+		<variableExpression><![CDATA[$P{fechafin}-1]]></variableExpression>
+	</variable>
+	<group name="Mes" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{tblcalendario_rpt_mes}]]></groupExpression>
+		<groupHeader>
+			<band height="56">
+				<textField isStretchWithOverflow="true" pattern="MMMMM, yyyy" isBlankWhenNull="false">
+					<reportElement style="Title" mode="Transparent" x="134" y="5" width="96" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="b12d5410-7377-4596-b37e-6a7b89b33103"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="SansSerif" size="11" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="134" y="37" width="36" height="10" forecolor="#000000" uuid="5efdd40c-64e2-469f-a315-375a6801bbcc"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Dia]]></text>
+				</staticText>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="430" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="900f21f2-4cbf-40f4-9b23-ea7f89659d89"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 13]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="630" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="03715443-1c9b-482e-9787-09fb01e599e3"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 23]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="730" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="ecd6553d-ea20-4c3e-a407-286ca7bd38f4"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}+28]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="650" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="338e6e43-fef3-4c94-896e-1b809a7e8676"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 24]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="350" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="59dd3c3f-7358-46be-9d43-6501c87b86b1"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 9]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="750" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="94251b50-eff3-4fe2-9625-0333c13b9734"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 29]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="670" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="914bd604-ba65-4bbd-8f17-ec99447ef274"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 25]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="710" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="e0f778a4-ffdb-4b75-9a03-1f7bdc471441"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}+27]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="210" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="b8e680a3-3820-49cd-9290-0777f118a08f"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}+2]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="490" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="77e13801-9cd7-4311-9def-75da8a0931b9"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 16]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="450" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="95420634-668a-4a44-b98c-7ada6cc1b2bd"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 14]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="530" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="40501d17-c516-4aaf-bb1a-295a076ff573"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 18]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="190" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="55376c4f-d142-4feb-ba5a-89bd37c91007"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 1]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="770" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="6d020a0f-38e7-49e0-a466-07e9ed3a0c83"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{anio_mes}.getDay()+30 !=31  ? $F{anio_mes} + 30 :"" )]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE">
+					<reportElement style="Column header" mode="Opaque" x="170" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="42908f45-3cac-4b0b-86c9-6db913430209"/>
+					<textElement textAlignment="Center" markup="none">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="310" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="ae926c77-ed7c-4414-8fbe-0a1466307b51"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 7]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="250" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="0347e9cc-68d2-4a68-af4b-ee7db980e504"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 4]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="690" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="763b276b-9abf-4d92-9cc6-6750e3bab5b9"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 26]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="270" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="5f6560c2-a05a-478b-8703-aa2eada38da8"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 5]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="570" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="984b66d8-d101-4240-b64c-d1f97e682493"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 20]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="610" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="87d39696-b5cc-473f-bf7b-93805209a53c"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 22]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="370" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="63c2fcdd-316b-481f-b9ac-6d2df504bbb4"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 10]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="290" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="8bad86c9-6304-4197-8345-1a92eaf55546"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 6]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="330" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="70b8ed31-853c-4047-8cab-4c6f56272aff"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 8]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="510" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="3f7ced79-e06a-431d-bbf5-50d3067d6133"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 17]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="390" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="bd38c811-971d-4de6-92d9-d7c7cebe50fb"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 11]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="470" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="99195afa-6328-47ed-b664-fe1583498b6e"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 15]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="410" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="3431c3ae-5574-4db1-8a0c-d4053c9f85f6"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 12]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="230" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="87d735d7-a3f9-459b-b6ad-8c95a5115cac"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}+3]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="590" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="45d0d8ba-dea7-4425-b2c1-7a0be94fd6f2"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 21]]></textFieldExpression>
+				</textField>
+				<textField pattern="EE" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="550" y="37" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="d15ce8ec-c106-44c9-9961-cea7d122c299"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 19]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="2" y="37" width="132" height="10" forecolor="#000000" uuid="6abd5460-f094-4769-8613-eaefbbfc5e46"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Nombres]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="50" width="797" height="1" uuid="6773474a-c22a-469d-85ed-81cffa94977b"/>
+					<graphicElement>
+						<pen lineWidth="2.0"/>
+					</graphicElement>
+				</line>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="730" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="53db0c72-a093-4140-b4e5-3be0a440016e"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}+28]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="550" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="76374690-d789-4555-aad1-a01f1fb7acc2"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 19]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="530" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="b199e9f9-22f5-470f-a68a-c09d14d9b475"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 18]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="290" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="00fb2c65-11d9-48f4-b491-05cc9db537fc"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 6]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="690" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="076d77e9-da4d-4ab5-9a29-cf1daaac4659"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 26]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="250" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="a584ac32-6ef2-417b-8532-24748045e65f"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 4]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="390" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="2a5431fd-dc19-4c4d-971d-d05043fea2d6"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 11]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="410" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="83d90b72-225e-4018-b30e-2871c2358ebb"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 12]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="670" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="80e7b141-dcb4-423a-94bd-b6e5ddb218e0"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 25]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="570" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="e3ae4a05-3ad2-4d8c-82b0-ddd7162f5c3a"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 20]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="610" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="0c786972-4fa3-45fb-bc52-57d3be1035b0"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 22]]></textFieldExpression>
+				</textField>
+				<textField pattern="" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="770" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="2f04a13b-38f7-49f1-b313-c412f1299143"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{anio_mes}.getDay()+30 != 31 ? 31 :"" )]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="450" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="6c83c29e-bf7b-4633-8148-e0d86b5c07ac"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 14]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="190" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="16105361-928d-4dea-a893-984fad3938af"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 1]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="370" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="9c9eeb45-7079-4270-b7ad-a225caf95a48"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 10]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="170" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="1824ed41-6821-4bff-8b35-64a4635a316b"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="330" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="42cece67-0ceb-41bb-86fc-6499316e14c7"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 8]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="630" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="acb23306-d74b-4302-8ff9-6684e8cd8472"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 23]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="430" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="54528b33-7542-4581-831b-1ed676b1a315"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 13]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="350" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="2233c49f-5b90-43a2-b95a-ad5f6a644e02"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 9]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="470" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="6872838c-5437-4b7b-906e-1a54fd76c3f7"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 15]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="310" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="0a41dcc2-a806-416d-b116-fcff8ba67012"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 7]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="650" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="045d7371-734b-4344-9220-4e68f7c11d04"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 24]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="270" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="35ccc958-1dd9-4e42-9e5f-9b96a91ab856"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 5]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="590" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="49afd7df-6494-41f7-b7cd-83388979f8c1"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 21]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="230" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="05b62ec4-23a8-47f5-9b92-a351116f4a26"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}+3]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="210" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="df7c0ac0-f982-4c34-b066-d1b626dbe504"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}+2]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="710" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="52c14784-9d9d-4471-b789-17b2c5f29047"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes}+27]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="490" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="456de45a-9a02-4c53-bd01-63008f95dcfc"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 16]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="750" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="5fb506c2-03de-4817-865d-02fa3b03d46e"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 29]]></textFieldExpression>
+				</textField>
+				<textField pattern="d" isBlankWhenNull="false">
+					<reportElement style="Column header" mode="Opaque" x="510" y="24" width="20" height="10" forecolor="#000000" backcolor="#CCCCCC" uuid="16310e7d-eb6b-4264-a38b-1a67aa28135d"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{anio_mes} + 17]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="1" width="797" height="1" uuid="5d26919d-a454-4166-9c9d-f538aedb853c"/>
+					<graphicElement>
+						<pen lineWidth="2.0"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="105">
+				<staticText>
+					<reportElement x="266" y="86" width="61" height="10" uuid="b5e4f021-2327-480d-a767-5d99f6e4769a"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[RESPONSABLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="461" y="86" width="61" height="10" uuid="ac57deb9-0b02-454c-be08-48f6d55d1ddc"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[AUTORIZADO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="418" y="75" width="141" height="10" forecolor="#000000" uuid="87845cb3-e67d-40d0-aef3-d274d15aa589"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DIRECTOR DE TALENTO HUMANO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="231" y="75" width="141" height="10" uuid="5975fe0b-53d1-44d5-bea2-d52409f01eb5"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbljefaturas_descripcion}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="231" y="71" width="143" height="1" uuid="8884ef34-b4ca-4bde-ba7d-16689c94bfa1"/>
+				</line>
+				<line>
+					<reportElement x="416" y="71" width="143" height="1" uuid="d2397a1a-a1fa-4c15-aed4-35f902a06142"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#FFFFFF" uuid="6724876a-bc70-45a7-a497-2396d8dec361"/>
+				<rectangle>
+					<reportElement x="2" y="0" width="800" height="66" uuid="8ea97745-9b48-46e9-a1f4-e259ef72f614"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="SubTitle" x="170" y="0" width="456" height="29" forecolor="#000000" uuid="919a4ed3-5586-4c94-bf7b-38fde44bf514"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte horarios mensual - Carga inicial]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="259" y="29" width="271" height="20" uuid="cd42c2e7-6b7e-48b2-b8c5-3cd4bc1380a5"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tblparcontasist_razonsocial}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Title" x="713" y="39" width="89" height="27" forecolor="#000000" uuid="ae349b78-5e56-461e-a78a-e68a334c6524"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[LinceWeb]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#999999" uuid="132f79ef-fa6f-4730-903d-1b6b75b56284"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="650" y="5" width="144" height="20" forecolor="#000000" uuid="0a3d2fe0-f163-43f1-9f39-50aa64228b86"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="5" width="308" height="20" uuid="32969d1b-6d2f-43fa-8b3b-ecc6d7c659b5"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tbljefaturas_descripcion}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement mode="Transparent" x="0" y="0" width="134" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="bb00ac64-9d63-48c2-bf14-89deaeaeb0d9"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblpersonal_apellidos}+" "+$F{tblpersonal_nombres}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="190" y="0" width="20" height="10" uuid="52bfaa17-2247-4325-9057-686553b645cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+1).after($P{fechaini}) ||($F{anio_mes}+1).equals($P{fechaini})) &&
+(($F{anio_mes}+1).before($P{fechafin}) ||($F{anio_mes}+1).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho2} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="210" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="32cf713b-c781-429d-bfcb-4bfd6425ecab"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+2).after($P{fechaini}) ||($F{anio_mes}+2).equals($P{fechaini})) &&
+(($F{anio_mes}+2).before($P{fechafin}) ||($F{anio_mes}+2).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho3} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="230" y="0" width="20" height="10" uuid="a617e065-a445-481c-a85a-e6099939f275"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+3).after($P{fechaini}) ||($F{anio_mes}+3).equals($P{fechaini})) &&
+(($F{anio_mes}+3).before($P{fechafin}) ||($F{anio_mes}+3).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho4} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="250" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="074c14f3-a67b-41be-9fcc-6d8ee6e89149"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+4).after($P{fechaini}) ||($F{anio_mes}+4).equals($P{fechaini})) &&
+(($F{anio_mes}+4).before($P{fechafin}) ||($F{anio_mes}+4).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho5} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="270" y="0" width="20" height="10" uuid="ef646915-82cc-4265-8e59-1f348568bd03"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+5).after($P{fechaini}) ||($F{anio_mes}+5).equals($P{fechaini})) &&
+(($F{anio_mes}+5).before($P{fechafin}) ||($F{anio_mes}+5).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho6} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="290" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="29ac55be-e28b-4caa-9df8-cb009aa7a2ed"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+6).after($P{fechaini}) ||($F{anio_mes}+6).equals($P{fechaini})) &&
+(($F{anio_mes}+6).before($P{fechafin}) ||($F{anio_mes}+6).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho7} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="310" y="0" width="20" height="10" uuid="8dfcc5f7-909e-489d-a862-eca745a9d766"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+7).after($P{fechaini}) ||($F{anio_mes}+7).equals($P{fechaini})) &&
+(($F{anio_mes}+7).before($P{fechafin}) ||($F{anio_mes}+7).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho8} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="330" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="f5532d38-9519-4158-91e8-72bd6ba01a0e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+8).after($P{fechaini}) ||($F{anio_mes}+8).equals($P{fechaini})) &&
+(($F{anio_mes}+8).before($P{fechafin}) ||($F{anio_mes}+8).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho9} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="350" y="0" width="20" height="10" uuid="227ce622-2475-48d7-aff5-7675f3ffb52a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+9).after($P{fechaini}) ||($F{anio_mes}+9).equals($P{fechaini})) &&
+(($F{anio_mes}+9).before($P{fechafin}) ||($F{anio_mes}+9).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho10} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="370" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="5d7b0d85-3b91-46ff-878a-9622c8745ebc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+10).after($P{fechaini}) ||($F{anio_mes}+10).equals($P{fechaini})) &&
+(($F{anio_mes}+10).before($P{fechafin}) ||($F{anio_mes}+10).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho11} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="390" y="0" width="20" height="10" uuid="c4bd1d29-9301-44af-b083-47fe824e2ebd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+11).after($P{fechaini}) ||($F{anio_mes}+11).equals($P{fechaini})) &&
+(($F{anio_mes}+11).before($P{fechafin}) ||($F{anio_mes}+11).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho12} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="410" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="031546e3-6ce4-419b-972b-682343cd1051"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+12).after($P{fechaini}) ||($F{anio_mes}+12).equals($P{fechaini})) &&
+(($F{anio_mes}+12).before($P{fechafin}) ||($F{anio_mes}+12).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho13} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="430" y="0" width="20" height="10" uuid="1d8d6e54-44f0-476d-826f-a5ce7c4f9609"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+13).after($P{fechaini}) ||($F{anio_mes}+13).equals($P{fechaini})) &&
+(($F{anio_mes}+13).before($P{fechafin}) ||($F{anio_mes}+13).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho14} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="450" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="d573ef68-14c2-43e3-bc14-6e0a2da2c9c1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+14).after($P{fechaini}) ||($F{anio_mes}+14).equals($P{fechaini})) &&
+(($F{anio_mes}+14).before($P{fechafin}) ||($F{anio_mes}+14).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho15} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="470" y="0" width="20" height="10" uuid="52f54471-08a3-4f21-bda5-51bec09afb64"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+15).after($P{fechaini}) ||($F{anio_mes}+15).equals($P{fechaini})) &&
+(($F{anio_mes}+15).before($P{fechafin}) ||($F{anio_mes}+15).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho16} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="490" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="c05f0135-7548-4de6-ae4e-02ee8a3cc4eb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+16).after($P{fechaini}) ||($F{anio_mes}+16).equals($P{fechaini})) &&
+(($F{anio_mes}+16).before($P{fechafin}) ||($F{anio_mes}+16).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho17} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="510" y="0" width="20" height="10" uuid="a7fd4989-0f8a-47f8-9d29-810dfa999f05"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+17).after($P{fechaini}) ||($F{anio_mes}+17).equals($P{fechaini})) &&
+(($F{anio_mes}+17).before($P{fechafin}) ||($F{anio_mes}+17).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho18} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="530" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="f7ccd75c-dd42-45cb-a30c-98025d5931f8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+18).after($P{fechaini}) ||($F{anio_mes}+18).equals($P{fechaini})) &&
+(($F{anio_mes}+18).before($P{fechafin}) ||($F{anio_mes}+18).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho19} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="550" y="0" width="20" height="10" uuid="b9d31144-f973-412d-bdea-8a31e57802ba"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+19).after($P{fechaini}) ||($F{anio_mes}+19).equals($P{fechaini})) &&
+(($F{anio_mes}+19).before($P{fechafin}) ||($F{anio_mes}+19).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho20} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="570" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="32d05321-e066-4419-8a60-02eb9ef5bc20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+20).after($P{fechaini}) ||($F{anio_mes}+20).equals($P{fechaini})) &&
+(($F{anio_mes}+20).before($P{fechafin}) ||($F{anio_mes}+20).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho21} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="590" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="1e1436a3-3a8d-489c-8645-23d5b7f9e6ee"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+21).after($P{fechaini}) ||($F{anio_mes}+21).equals($P{fechaini})) &&
+(($F{anio_mes}+21).before($P{fechafin}) ||($F{anio_mes}+21).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho22} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="610" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="0f6a595e-f9e0-453f-8f7f-1f4958bfb589"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+22).after($P{fechaini}) ||($F{anio_mes}+22).equals($P{fechaini})) &&
+(($F{anio_mes}+22).before($P{fechafin}) ||($F{anio_mes}+22).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho23} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="630" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="5d189eca-fdfa-458b-81e4-9944ed503e3b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+23).after($P{fechaini}) ||($F{anio_mes}+23).equals($P{fechaini})) &&
+(($F{anio_mes}+23).before($P{fechafin}) ||($F{anio_mes}+23).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho24} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="650" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="94727475-5640-4a5d-96fb-65b37b71c6cc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+24).after($P{fechaini}) ||($F{anio_mes}+24).equals($P{fechaini})) &&
+(($F{anio_mes}+24).before($P{fechafin}) ||($F{anio_mes}+24).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho25} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="670" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="2d51a775-e590-4836-82d0-934a65ec2435"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+25).after($P{fechaini}) ||($F{anio_mes}+25).equals($P{fechaini})) &&
+(($F{anio_mes}+25).before($P{fechafin}) ||($F{anio_mes}+25).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho26} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="690" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="99673556-e629-40c2-8dee-b7bca67b9041"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+26).after($P{fechaini}) ||($F{anio_mes}+26).equals($P{fechaini})) &&
+(($F{anio_mes}+26).before($P{fechafin}) ||($F{anio_mes}+26).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho27} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="710" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="e28bffba-fc8c-4801-9fd2-2b2f1194710c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+27).after($P{fechaini}) ||($F{anio_mes}+27).equals($P{fechaini})) &&
+(($F{anio_mes}+27).before($P{fechafin}) ||($F{anio_mes}+27).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho28} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="730" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="7d0204d6-0c41-4be0-8394-9989a3155d8d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+28).after($P{fechaini}) ||($F{anio_mes}+28).equals($P{fechaini})) &&
+(($F{anio_mes}+28).before($P{fechafin}) ||($F{anio_mes}+28).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho29} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="750" y="0" width="20" height="10" backcolor="#FFFFFF" uuid="6c8881d6-9789-4cbc-9e8e-cdd1cf97134a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+29).after($P{fechaini}) ||($F{anio_mes}+29).equals($P{fechaini})) &&
+(($F{anio_mes}+29).before($P{fechafin}) ||($F{anio_mes}+29).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho30} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="770" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="6dd681e5-dc12-4d1f-8534-ac9686a4c333"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}+30).after($P{fechaini}) ||($F{anio_mes}+30).equals($P{fechaini})) &&
+(($F{anio_mes}+30).before($P{fechafin}) ||($F{anio_mes}+30).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho31} : "" )]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="170" y="0" width="20" height="10" backcolor="#CCCCCC" uuid="d0ed14c6-f0a2-466d-add4-ae29a3953aaf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[((($F{anio_mes}).after($P{fechaini}) ||($F{anio_mes}).equals($P{fechaini})) &&
+(($F{anio_mes}).before($P{fechafin}) ||($F{anio_mes}).equals($P{fechafin}))
+? $F{tblcalendario_rpt_ho1} : "" )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="4" width="802" height="1" uuid="5137aecf-97b4-4590-b2cd-eb42471be997"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-72" y="-6" width="874" height="25" forecolor="#D0B48E" backcolor="#999999" uuid="1d826bc6-baab-45b3-94b9-8c877bf25dff"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#000000" uuid="132743cf-a3f1-443a-a610-5b221a087a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#000000" uuid="5d7e7b8c-dc13-4070-9cf9-a80d8b5996c3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#000000" uuid="8c4b1cd6-fea7-4dd0-897a-fab720998061"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>
